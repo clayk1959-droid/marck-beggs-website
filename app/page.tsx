@@ -22,10 +22,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 40, paddingBottom: 24, textAlign: "center" }}>
-        <span className="eyebrow" style={{ transform: "rotate(-2deg)", display: "inline-block" }}>
-          poet · songwriter · professor
-        </span>
-        <h1 style={{ fontSize: 44, marginTop: 18, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <h1 style={{ fontSize: 44, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
           Marck Beggs
         </h1>
         <p style={{ maxWidth: 480, margin: "18px auto 0", fontSize: 17, fontWeight: 500 }}>

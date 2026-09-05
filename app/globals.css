@@ -207,11 +207,14 @@ a {
 }
 
 .site-tagline {
-  margin: 0;
+  display: flex;
+  justify-content: space-between;
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: #b8b8b8;
+  white-space: nowrap;
 }
 
 @media (min-width: 640px) {
