@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.DS_Store
+.cache/
+tsconfig.tsbuildinfo
+.vercel
+.env*
+assets-original/

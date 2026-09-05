@@ -1,0 +1,45 @@
+import books from "../../data/books.json";
+import { BookGrid } from "../../components/BookGrid";
+
+export default function BooksPage() {
+  const kiltySue = books.extras.kiltySueReading;
+
+  return (
+    <main>
+      <section className="wrap" style={{ paddingTop: 40, textAlign: "center" }}>
+        <span className="eyebrow" style={{ transform: "rotate(-2deg)", display: "inline-block" }}>
+          poetry
+        </span>
+        <h1 style={{ fontSize: 44, marginTop: 16, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+          Books
+        </h1>
+        <p style={{ maxWidth: 420, margin: "16px auto 0", fontWeight: 500 }}>
+          Four solo collections published by Salmon Poetry in Ireland, plus anthology appearances.
+        </p>
+      </section>
+
+      <section className="wrap section">
+        <h2 className="section-title">Collections</h2>
+        <p className="section-note">click a cover to buy</p>
+        <BookGrid books={books.collections} />
+      </section>
+
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
+        <h2 className="section-title">Anthologies</h2>
+        <p className="section-note">Marck's poems alongside other writers, plus one he edited himself</p>
+        <BookGrid books={books.anthologies} />
+      </section>
+
+      {kiltySue.audioUrl ? (
+        <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
+          <div className="card" style={{ padding: 20 }}>
+            <div style={{ fontWeight: 800, fontSize: 15 }}>{kiltySue.label}</div>
+            <audio controls preload="none" style={{ width: "100%", marginTop: 12 }}>
+              <source src={kiltySue.audioUrl} type="audio/mpeg" />
+            </audio>
+          </div>
+        </section>
+      ) : null}
+    </main>
+  );
+}

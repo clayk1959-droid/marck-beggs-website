@@ -1,0 +1,66 @@
+{
+  "collections": [
+    {
+      "title": "Blind Verse",
+      "year": "2015",
+      "publisher": "Salmon Poetry",
+      "cover": "/images/books/blind-verse.jpg",
+      "buyUrl": "https://www.salmonpoetry.com"
+    },
+    {
+      "title": "Catastrophic Chords",
+      "year": "2008",
+      "publisher": "Salmon Poetry",
+      "cover": "/images/books/catastrophic-chords.jpg",
+      "buyUrl": "https://www.salmonpoetry.com"
+    },
+    {
+      "title": "Libido Café",
+      "year": "2004",
+      "publisher": "Salmon Poetry",
+      "cover": "/images/books/libido-cafe.jpg",
+      "buyUrl": "https://www.salmonpoetry.com"
+    },
+    {
+      "title": "Godworm",
+      "year": "1995",
+      "publisher": "Mellen Poetry Press — out of print, available on Kindle",
+      "cover": "/images/books/godworm.jpg",
+      "buyUrl": ""
+    }
+  ],
+  "anthologies": [
+    {
+      "title": "Dogs Singing",
+      "cover": "/images/books/dogs-singing.jpg",
+      "buyUrl": ""
+    },
+    {
+      "title": "Salmon: A Journey in Poetry",
+      "cover": "/images/books/salmon-journey.jpg",
+      "buyUrl": "https://www.salmonpoetry.com"
+    },
+    {
+      "title": "Bark",
+      "cover": "/images/books/bark.jpg",
+      "buyUrl": ""
+    },
+    {
+      "title": "Dog Music",
+      "cover": "/images/books/dog-music.jpg",
+      "buyUrl": ""
+    },
+    {
+      "title": "Poems by Poets of the Roundtable",
+      "note": "edited by Marck Beggs",
+      "cover": "/images/books/poets-roundtable.jpg",
+      "buyUrl": ""
+    }
+  ],
+  "extras": {
+    "kiltySueReading": {
+      "label": "Garrison Keillor reads “Kilty Sue”",
+      "audioUrl": "/audio/kilty-sue-garrison-keillor.mp3"
+    }
+  }
+}
