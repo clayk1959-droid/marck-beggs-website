@@ -1,12 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import { StreamingButtons } from "../components/StreamingButtons";
-import { BookGrid } from "../components/BookGrid";
-import books from "../data/books.json";
+
+const FEATURED_CARDS = [
+  {
+    href: "/music",
+    label: "Music",
+    note: "dog gods",
+    image: "/images/music/doggods-art-1.jpg",
+    alt: "dog gods cover art",
+  },
+  {
+    href: "/books",
+    label: "Books",
+    note: "Blind Verse, 2015",
+    image: "/images/books/blind-verse.jpg",
+    alt: "Blind Verse book cover",
+  },
+];
 
 export default function HomePage() {
-  const featuredBooks = books.collections.slice(0, 4);
-
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 40, paddingBottom: 24, textAlign: "center" }}>
@@ -38,24 +50,28 @@ export default function HomePage() {
       </section>
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
-        <h2 className="section-title">Music</h2>
-        <p className="section-note">dog gods — hit play →</p>
-        <StreamingButtons />
-        <div style={{ textAlign: "center", marginTop: 20 }}>
-          <Link href="/music" className="mono" style={{ fontSize: 13, textDecoration: "underline" }}>
-            all six songs from dog gods →
-          </Link>
-        </div>
-      </section>
-
-      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
-        <h2 className="section-title">Books</h2>
-        <p className="section-note">four collections with Salmon Poetry, plus anthologies</p>
-        <BookGrid books={featuredBooks} />
-        <div style={{ textAlign: "center", marginTop: 20 }}>
-          <Link href="/books" className="mono" style={{ fontSize: 13, textDecoration: "underline" }}>
-            all books &amp; anthologies →
-          </Link>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 20,
+          }}
+        >
+          {FEATURED_CARDS.map((item) => (
+            <Link key={item.href} href={item.href} style={{ textDecoration: "none", color: "inherit" }}>
+              <div className="card" style={{ overflow: "hidden" }}>
+                <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 5" }}>
+                  <Image src={item.image} alt={item.alt} fill style={{ objectFit: "cover" }} sizes="(min-width: 640px) 340px, 45vw" />
+                </div>
+              </div>
+              <div style={{ marginTop: 10, textAlign: "center" }}>
+                <h2 style={{ fontSize: 20 }}>{item.label}</h2>
+                <p className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
+                  {item.note}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
