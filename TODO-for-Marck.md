@@ -26,9 +26,20 @@ Garrison Keillor reading, full bio/CV). These items are still open:
 - Keep, archive, or drop the **Ireland photo gallery** and the **FRACTALS**
   page from the old site — not carried into this rebuild yet either way.
 - Real **contact form**, or is the mailto link on the Contact page enough?
-- Who has login access to the **domain registrar** for marckbeggs.com
-  (separate from whoever runs the Bluehost/WordPress hosting) — that's the
-  account that has to make the DNS change on launch day.
+
+## Domain / hosting (checked via public WHOIS + DNS, no login needed)
+
+- Registrar, DNS, and hosting are all the **same Bluehost account** — domain
+  registered there since Nov 2004, nameservers are Bluehost's own. So there's
+  no separate registrar to track down; whoever has that one Bluehost login
+  controls everything needed for the eventual cutover.
+- **The domain registration expires November 1, 2026.** Worth confirming
+  auto-renew is on (or renewing manually) well before then, independent of
+  this rebuild — a lapsed domain is a much bigger problem than an outdated
+  site.
+- Cutover mechanics, for later: since DNS lives in Bluehost's own zone
+  editor already, going live just means editing the A/CNAME records there
+  to point at Vercel — no nameserver change or account transfer required.
 
 ## How to edit content yourself
 
