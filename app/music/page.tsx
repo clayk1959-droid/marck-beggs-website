@@ -53,7 +53,7 @@ export default function MusicPage() {
           {["/images/music/doggods-poster-1.jpg", "/images/music/doggods-art-1.jpg", "/images/music/doggods-art-2.jpg", "/images/music/doggods-poster-2.jpg"].map(
             (src) => (
               <div key={src} className="card" style={{ overflow: "hidden", padding: 8 }}>
-                <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", borderRadius: 8, overflow: "hidden" }}>
+                <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", overflow: "hidden" }}>
                   <Image src={src} alt="dog gods cover art" fill style={{ objectFit: "cover" }} sizes="45vw" />
                 </div>
               </div>

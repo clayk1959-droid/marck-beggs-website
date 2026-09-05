@@ -28,7 +28,7 @@ export function BookGrid({ books }: { books: Book[] }) {
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div className="card" style={{ overflow: "hidden", padding: 8 }}>
-              <div style={{ position: "relative", width: "100%", aspectRatio: "2 / 3", borderRadius: 8, overflow: "hidden" }}>
+              <div style={{ position: "relative", width: "100%", aspectRatio: "2 / 3", overflow: "hidden" }}>
                 <Image src={book.cover} alt={book.title} fill style={{ objectFit: "cover" }} sizes="(min-width: 640px) 200px, 45vw" />
               </div>
             </div>

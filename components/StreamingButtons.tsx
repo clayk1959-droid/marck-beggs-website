@@ -1,10 +1,10 @@
 import links from "../data/links.json";
 
 const PLATFORMS = [
-  { key: "spotify", label: "Spotify", bg: "var(--spotify)", ink: "var(--spotify-ink)" },
-  { key: "appleMusic", label: "Apple Music", bg: "var(--rose)", ink: "var(--rose-ink)" },
-  { key: "cdBaby", label: "CD Baby", bg: "var(--gold)", ink: "var(--gold-ink)" },
-  { key: "youtube", label: "YouTube", bg: "var(--teal)", ink: "var(--teal-ink)" },
+  { key: "spotify", label: "Spotify" },
+  { key: "appleMusic", label: "Apple Music" },
+  { key: "cdBaby", label: "CD Baby" },
+  { key: "youtube", label: "YouTube" },
 ] as const;
 
 export function StreamingButtons() {
@@ -27,7 +27,6 @@ export function StreamingButtons() {
             target={ready ? "_blank" : undefined}
             rel={ready ? "noreferrer" : undefined}
             className="btn"
-            style={{ background: platform.bg, color: platform.ink }}
           >
             {ready ? platform.label : `${platform.label} — soon`}
           </a>

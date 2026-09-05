@@ -55,7 +55,6 @@ export function SiteHeader() {
                 textTransform: "uppercase",
                 textDecoration: "none",
                 border: "2px solid var(--ink)",
-                borderRadius: 20,
                 padding: "6px 12px",
                 background: "var(--card)",
               }}

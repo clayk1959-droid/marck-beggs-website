@@ -80,7 +80,7 @@ a {
 .card {
   background: var(--card);
   border: var(--border);
-  border-radius: 16px;
+  border-radius: 0;
   box-shadow: var(--shadow);
 }
 
@@ -93,8 +93,10 @@ a {
   font-weight: 800;
   font-size: 14px;
   padding: 14px 16px;
-  border-radius: 14px;
+  border-radius: 0;
   border: var(--border);
+  background: var(--card);
+  color: var(--ink);
   box-shadow: var(--shadow);
   text-decoration: none;
   transition: transform 0.1s ease;
@@ -111,7 +113,8 @@ a {
 }
 
 .section {
-  padding: 48px 0;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .section-title {
@@ -128,7 +131,8 @@ a {
 
 @media (min-width: 640px) {
   .section {
-    padding: 64px 0;
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 
   .section-title {
