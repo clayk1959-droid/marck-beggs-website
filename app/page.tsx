@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { StreamingButtons } from "../components/StreamingButtons";
+import { BookGrid } from "../components/BookGrid";
+import books from "../data/books.json";
 
 export default function HomePage() {
+  const featuredBooks = books.collections.slice(0, 4);
+
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 40, paddingBottom: 24, textAlign: "center" }}>
@@ -34,7 +38,8 @@ export default function HomePage() {
       </section>
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
-        <div className="section-note">hit play →</div>
+        <h2 className="section-title">Music</h2>
+        <p className="section-note">dog gods — hit play →</p>
         <StreamingButtons />
         <div style={{ textAlign: "center", marginTop: 20 }}>
           <Link href="/music" className="mono" style={{ fontSize: 13, textDecoration: "underline" }}>
@@ -44,26 +49,23 @@ export default function HomePage() {
       </section>
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 16,
-          }}
-        >
-          <Link href="/books" className="card" style={{ textDecoration: "none", color: "inherit", padding: 20 }}>
-            <h2 style={{ fontSize: 20 }}>Books</h2>
-            <p className="mono" style={{ fontSize: 12, marginTop: 6, color: "var(--ink-soft)" }}>
-              four collections + anthologies
-            </p>
-          </Link>
-          <Link href="/about" className="card" style={{ textDecoration: "none", color: "inherit", padding: 20 }}>
-            <h2 style={{ fontSize: 20 }}>About</h2>
-            <p className="mono" style={{ fontSize: 12, marginTop: 6, color: "var(--ink-soft)" }}>
-              bio, teaching, full CV
-            </p>
+        <h2 className="section-title">Books</h2>
+        <p className="section-note">four collections with Salmon Poetry, plus anthologies</p>
+        <BookGrid books={featuredBooks} />
+        <div style={{ textAlign: "center", marginTop: 20 }}>
+          <Link href="/books" className="mono" style={{ fontSize: 13, textDecoration: "underline" }}>
+            all books &amp; anthologies →
           </Link>
         </div>
+      </section>
+
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)", textAlign: "center" }}>
+        <Link href="/about" className="card" style={{ display: "inline-block", textDecoration: "none", color: "inherit", padding: "20px 32px" }}>
+          <h2 style={{ fontSize: 20 }}>About</h2>
+          <p className="mono" style={{ fontSize: 12, marginTop: 6, color: "var(--ink-soft)" }}>
+            bio, teaching, full CV
+          </p>
+        </Link>
       </section>
     </main>
   );
