@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
@@ -9,60 +12,51 @@ const NAV_ITEMS = [
 ];
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function onClickOutside(event: MouseEvent) {
+      if (wrapRef.current && !wrapRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, [open]);
+
   return (
-    <header
-      style={{
-        borderBottom: "3px solid var(--ink)",
-        background: "var(--bg)",
-        position: "sticky",
-        top: 0,
-        zIndex: 10,
-      }}
-    >
-      <div
-        className="wrap"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: 12,
-          padding: "14px 20px",
-        }}
-      >
-        <Link
-          href="/"
-          className="mono"
-          style={{
-            fontWeight: 700,
-            fontSize: 15,
-            letterSpacing: "0.04em",
-            textTransform: "uppercase",
-            textDecoration: "none",
-          }}
-        >
-          Marck Beggs
-        </Link>
-        <nav style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="mono"
-              style={{
-                fontSize: 12,
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                border: "2px solid var(--ink)",
-                padding: "6px 12px",
-                background: "var(--card)",
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+    <header className="site-header">
+      <div className="wrap site-header-inner">
+        <div className="nav-toggle-wrap" ref={wrapRef}>
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          {open && (
+            <nav className="nav-menu" aria-label="Main navigation">
+              {NAV_ITEMS.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          )}
+        </div>
+        <div className="brand-block">
+          <Link href="/" className="brand" aria-label="Marck Beggs, home">
+            Marck Beggs
+          </Link>
+          <p className="site-tagline">MarckBeggs.com</p>
+        </div>
       </div>
     </header>
   );
