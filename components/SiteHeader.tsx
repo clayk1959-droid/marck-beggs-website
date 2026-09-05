@@ -55,13 +55,7 @@ export function SiteHeader() {
           <Link href="/" className="brand" aria-label="Marck Beggs, home">
             Marck Beggs
           </Link>
-          <div className="site-tagline" aria-label="Poet, Songwriter, Professor">
-            <span>Poet</span>
-            <span>·</span>
-            <span>Songwriter</span>
-            <span>·</span>
-            <span>Professor</span>
-          </div>
+          <p className="site-tagline">MarckBeggs.com</p>
         </div>
       </div>
     </header>

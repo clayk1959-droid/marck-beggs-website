@@ -207,13 +207,22 @@ a {
 }
 
 .site-tagline {
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #b8b8b8;
+}
+
+.hero-tagline {
   display: flex;
   justify-content: space-between;
+  margin: 10px auto 0;
   font-family: var(--font-mono), monospace;
-  font-size: 10px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #b8b8b8;
+  color: var(--ink-soft);
   white-space: nowrap;
 }
 

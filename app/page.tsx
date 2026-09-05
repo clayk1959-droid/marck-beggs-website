@@ -22,9 +22,18 @@ export default function HomePage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 40, paddingBottom: 24, textAlign: "center" }}>
-        <h1 style={{ fontSize: 44, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
-          Marck Beggs
-        </h1>
+        <div style={{ display: "inline-flex", flexDirection: "column" }}>
+          <h1 style={{ fontSize: 44, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+            Marck Beggs
+          </h1>
+          <div className="hero-tagline">
+            <span>Poet</span>
+            <span>·</span>
+            <span>Songwriter</span>
+            <span>·</span>
+            <span>Professor</span>
+          </div>
+        </div>
         <p style={{ maxWidth: 480, margin: "18px auto 0", fontSize: 17, fontWeight: 500 }}>
           Four poetry collections with Salmon Poetry. A working band called dog gods. A long life in the classroom.
           One place to find all of it.
