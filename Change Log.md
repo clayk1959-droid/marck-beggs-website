@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 12 — Sunday, September 6, 2026
+Made the home page's fonts (Stardos Stencil headings, Special Elite body)
+the site-wide standard, replacing Bungee/Figtree/Space Mono everywhere.
+Also renamed "Books" to "Writings" throughout (nav, home page link, page
+heading), trimmed the Writings page's intro copy, added a link to Marck's
+short story "Saint Anonymous," filled in buy links for Bark/Dog Music/
+Poems by Poets of the Roundtable, and replaced the About page's CV-style
+bio with four short paragraphs Marck wrote himself.
+
 ## Version 11 — Sunday, September 6, 2026
 Rebuilt the home page to match a mockup Marck sent: stencil display font
 for the "Marck L. Beggs" heading, typewriter font for everything else on
