@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <main>
@@ -8,6 +10,14 @@ export default function AboutPage() {
         <h1 style={{ fontSize: 44, marginTop: 16, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
           Marck Beggs
         </h1>
+      </section>
+
+      <section className="wrap" style={{ paddingBottom: 32 }}>
+        <div className="card" style={{ overflow: "hidden", maxWidth: 360, margin: "0 auto" }}>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1" }}>
+            <Image src="/images/site/marck-bio.jpg" alt="Marck Beggs" fill style={{ objectFit: "cover" }} sizes="360px" />
+          </div>
+        </div>
       </section>
 
       <section className="wrap section">
