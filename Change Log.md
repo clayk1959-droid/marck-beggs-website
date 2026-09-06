@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 13 — Sunday, September 6, 2026
+Home page cleanup: the two rotating cover boxes were touching, now split
+into separate cards with a gap; images crossfade instead of cutting
+instantly; Music and Writings rotate on staggered timers so they
+alternate instead of flipping in sync; "Music"/"Writings" labels moved
+above their cards and enlarged; dropped the rule line before the Bio
+section; tightened vertical spacing throughout. Also added Marck's bio
+photo to the About page.
+
 ## Version 12 — Sunday, September 6, 2026
 Made the home page's fonts (Stardos Stencil headings, Special Elite body)
 the site-wide standard, replacing Bungee/Figtree/Space Mono everywhere.
