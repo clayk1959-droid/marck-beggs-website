@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 14 — Sunday, September 6, 2026
+Fixed the rotation transition to be a real crossfade (two image layers
+blending into each other) instead of fading to the container's white
+background between photos. Slowed the rotation interval by a second
+(3.5s -> 4.5s), bumped the "Poet | Songwriter" subtitle 2pt, and changed
+the header banner from solid black to a translucent dark-green tint
+derived from the site's background color.
+
 ## Version 13 — Sunday, September 6, 2026
 Home page cleanup: the two rotating cover boxes were touching, now split
 into separate cards with a gap; images crossfade instead of cutting
