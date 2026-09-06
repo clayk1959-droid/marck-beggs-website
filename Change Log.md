@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 16 — Sunday, September 6, 2026
+Reverted the header background to its pre-"more green" color (the
+brighter green was a mistake); the hamburger dropdown was illegible with
+black text on that shared color, so it's now decoupled with its own
+plain white background and tighter row spacing. Home page: tightened
+the heading's line-height and the gap before "Poet | Songwriter",
+tightened the gap between the Music/Writings labels and their rotating
+cards, slowed the rotation interval another second (5.5s total).
+
 ## Version 15 — Sunday, September 6, 2026
 Header tint was reading as gray, not green — boosted the green channel
 and pulled back red/blue. Header text, hamburger bars, and dropdown menu
