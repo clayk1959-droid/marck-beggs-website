@@ -2,11 +2,8 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import type { PhotoGroup } from "../lib/photo-collection";
-import { flattenGroups } from "../lib/photo-collection";
 
-export function PhotoGallery({ slug, groups }: { slug: string; groups: PhotoGroup[] }) {
-  const photos = flattenGroups(groups);
+export function PhotoGallery({ slug, title, photos }: { slug: string; title: string; photos: string[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setOpenIndex(null), []);
@@ -34,46 +31,27 @@ export function PhotoGallery({ slug, groups }: { slug: string; groups: PhotoGrou
 
   return (
     <>
-      {groups.map((group) => (
-        <div key={group.place} style={{ marginBottom: 36 }}>
-          <h3
-            className="mono"
-            style={{
-              fontSize: 12,
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              color: "var(--ink-soft)",
-              marginBottom: 12,
-            }}
+      <div className="photo-grid">
+        {photos.map((basename, index) => (
+          <button
+            key={basename}
+            type="button"
+            onClick={() => setOpenIndex(index)}
+            className="card"
+            style={{ overflow: "hidden", padding: 0, border: "3px solid var(--ink)", cursor: "zoom-in", background: "none" }}
           >
-            {group.place}
-          </h3>
-          <div className="photo-grid">
-            {group.photos.map((basename) => {
-              const photo = photos.find((p) => p.basename === basename)!;
-              return (
-                <button
-                  key={basename}
-                  type="button"
-                  onClick={() => setOpenIndex(photo.index)}
-                  className="card"
-                  style={{ overflow: "hidden", padding: 0, border: "3px solid var(--ink)", cursor: "zoom-in", background: "none" }}
-                >
-                  <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1" }}>
-                    <Image
-                      src={`/gallery/${slug}/thumbs/${basename}.jpg`}
-                      alt={`${group.place} photo`}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(min-width: 640px) 220px, 45vw"
-                    />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ))}
+            <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1" }}>
+              <Image
+                src={`/gallery/${slug}/thumbs/${basename}.jpg`}
+                alt={`${title} photo`}
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(min-width: 640px) 220px, 45vw"
+              />
+            </div>
+          </button>
+        ))}
+      </div>
 
       {openIndex !== null && (
         <div
@@ -147,8 +125,8 @@ export function PhotoGallery({ slug, groups }: { slug: string; groups: PhotoGrou
             }}
           >
             <Image
-              src={`/gallery/${slug}/full/${photos[openIndex].basename}.jpg`}
-              alt={photos[openIndex].place}
+              src={`/gallery/${slug}/full/${photos[openIndex]}.jpg`}
+              alt={title}
               fill
               style={{ objectFit: "contain" }}
               sizes="100vw"
@@ -181,7 +159,7 @@ export function PhotoGallery({ slug, groups }: { slug: string; groups: PhotoGrou
           </button>
 
           <p className="mono" style={{ color: "#d8d8d8", fontSize: 12, marginTop: 16, textAlign: "center" }}>
-            {photos[openIndex].place} — {openIndex + 1} / {photos.length}
+            {title} — {openIndex + 1} / {photos.length}
           </p>
         </div>
       )}

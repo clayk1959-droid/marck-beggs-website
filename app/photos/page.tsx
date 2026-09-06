@@ -1,16 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import irelandData from "../../data/ireland-2004.json";
-
-const COLLECTIONS = [
-  {
-    slug: "ireland-2004",
-    title: irelandData.title,
-    year: irelandData.year,
-    cover: `/gallery/ireland-2004/thumbs/${irelandData.cover}.jpg`,
-    count: irelandData.groups.reduce((sum, group) => sum + group.photos.length, 0),
-  },
-];
+import collections from "../../data/photo-collections.json";
 
 export default function PhotosPage() {
   return (
@@ -28,11 +18,11 @@ export default function PhotosPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
             gap: 20,
           }}
         >
-          {COLLECTIONS.map((collection) => (
+          {collections.map((collection) => (
             <Link
               key={collection.slug}
               href={`/photos/${collection.slug}`}
@@ -41,20 +31,18 @@ export default function PhotosPage() {
               <div className="card" style={{ overflow: "hidden" }}>
                 <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 5" }}>
                   <Image
-                    src={collection.cover}
+                    src={`/gallery/${collection.slug}/thumbs/${collection.cover}.jpg`}
                     alt={collection.title}
                     fill
                     style={{ objectFit: "cover" }}
-                    sizes="(min-width: 640px) 300px, 90vw"
+                    sizes="(min-width: 640px) 220px, 45vw"
                   />
                 </div>
               </div>
               <div style={{ marginTop: 10, textAlign: "center" }}>
-                <h2 style={{ fontSize: 20 }}>
-                  {collection.title}, {collection.year}
-                </h2>
-                <p className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
-                  {collection.count} photos
+                <h2 style={{ fontSize: 17 }}>{collection.title}</h2>
+                <p className="mono" style={{ fontSize: 10.5, color: "var(--ink-soft)", marginTop: 2 }}>
+                  {collection.photos.length} photos
                 </p>
               </div>
             </Link>
