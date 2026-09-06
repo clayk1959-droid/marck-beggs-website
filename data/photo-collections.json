@@ -87,5 +87,14 @@
       "img109",
       "img111"
     ]
+  },
+  {
+    "slug": "test-delete-me",
+    "title": "Test Delete Me",
+    "subtitle": "disposable, for editor delete test",
+    "cover": "test",
+    "photos": [
+      "test"
+    ]
   }
 ]

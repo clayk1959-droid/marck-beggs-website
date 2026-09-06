@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getEditorSession } from "../../../lib/editor-session";
 import collections from "../../../data/photo-collections.json";
+import { PhotoCollectionEditor } from "../../../components/editor/PhotoCollectionEditor";
 
 export default async function EditorPhotosPage() {
   const session = await getEditorSession();
@@ -19,16 +20,7 @@ export default async function EditorPhotosPage() {
       </section>
 
       <section className="wrap section">
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          {collections.map((collection) => (
-            <div key={collection.slug} className="card" style={{ padding: "14px 18px" }}>
-              <div style={{ fontWeight: 700 }}>{collection.title}</div>
-              <div className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
-                {collection.subtitle} · {collection.photos.length} photos
-              </div>
-            </div>
-          ))}
-        </div>
+        <PhotoCollectionEditor initialCollections={collections} />
       </section>
     </main>
   );

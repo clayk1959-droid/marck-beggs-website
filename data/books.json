@@ -1,6 +1,7 @@
 {
   "collections": [
     {
+      "id": "blind-verse",
       "title": "Blind Verse",
       "year": "2015",
       "publisher": "Salmon Poetry",
@@ -8,6 +9,7 @@
       "buyUrl": "https://www.salmonpoetry.com"
     },
     {
+      "id": "catastrophic-chords",
       "title": "Catastrophic Chords",
       "year": "2008",
       "publisher": "Salmon Poetry",
@@ -15,6 +17,7 @@
       "buyUrl": "https://www.salmonpoetry.com"
     },
     {
+      "id": "libido-cafe",
       "title": "Libido Café",
       "year": "2004",
       "publisher": "Salmon Poetry",
@@ -22,6 +25,7 @@
       "buyUrl": "https://www.salmonpoetry.com"
     },
     {
+      "id": "godworm",
       "title": "Godworm",
       "year": "1995",
       "publisher": "Mellen Poetry Press — out of print, available on Kindle",
@@ -31,26 +35,31 @@
   ],
   "anthologies": [
     {
+      "id": "dogs-singing",
       "title": "Dogs Singing",
       "cover": "/images/books/dogs-singing.jpg",
       "buyUrl": ""
     },
     {
+      "id": "salmon-journey",
       "title": "Salmon: A Journey in Poetry",
       "cover": "/images/books/salmon-journey.jpg",
       "buyUrl": "https://www.salmonpoetry.com"
     },
     {
+      "id": "bark",
       "title": "Bark",
       "cover": "/images/books/bark.jpg",
       "buyUrl": ""
     },
     {
+      "id": "dog-music",
       "title": "Dog Music",
       "cover": "/images/books/dog-music.jpg",
       "buyUrl": ""
     },
     {
+      "id": "poets-roundtable",
       "title": "Poems by Poets of the Roundtable",
       "note": "edited by Marck Beggs",
       "cover": "/images/books/poets-roundtable.jpg",

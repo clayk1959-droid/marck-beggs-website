@@ -2,12 +2,11 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getEditorSession } from "../../../lib/editor-session";
 import books from "../../../data/books.json";
+import { BookEditor } from "../../../components/editor/BookEditor";
 
 export default async function EditorBooksPage() {
   const session = await getEditorSession();
   if (!session) redirect("/editor/login");
-
-  const allBooks = [...books.collections, ...books.anthologies];
 
   return (
     <main>
@@ -21,15 +20,16 @@ export default async function EditorBooksPage() {
       </section>
 
       <section className="wrap section">
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          {allBooks.map((book) => (
-            <div key={book.title} className="card" style={{ padding: "14px 18px" }}>
-              <div style={{ fontWeight: 700 }}>{book.title}</div>
-              <div className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
-                {"year" in book ? book.year : ""} {"publisher" in book ? book.publisher : ""}
-              </div>
-            </div>
-          ))}
+        <h2 className="section-title">Collections</h2>
+        <div style={{ marginTop: 12 }}>
+          <BookEditor list="collections" initialBooks={books.collections} />
+        </div>
+      </section>
+
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
+        <h2 className="section-title">Anthologies</h2>
+        <div style={{ marginTop: 12 }}>
+          <BookEditor list="anthologies" initialBooks={books.anthologies} />
         </div>
       </section>
     </main>
