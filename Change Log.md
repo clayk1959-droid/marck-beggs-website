@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 11 — Sunday, September 6, 2026
+Rebuilt the home page to match a mockup Marck sent: stencil display font
+for the "Marck L. Beggs" heading, typewriter font for everything else on
+the page, subtitle trimmed to "Poet | Songwriter". Replaced the hero+cards
+layout with a single box split into two auto-rotating cover-art panels
+(Music / Writing) linking to their full pages, plus a Bio box. Music
+rotation uses seven new album-art images Marck supplied; Writing rotation
+reuses the existing book covers.
+
 ## Version 10 — Saturday, September 5, 2026
 Photo pages cleanup: dropped the rotated "photos" eyebrow badge from the
 index and every collection page, tightened the top spacing so the heading
