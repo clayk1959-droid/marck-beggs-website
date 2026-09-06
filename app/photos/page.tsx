@@ -5,11 +5,13 @@ import collections from "../../data/photo-collections.json";
 export default function PhotosPage() {
   return (
     <main>
-      <section className="wrap" style={{ paddingTop: 40, textAlign: "center" }}>
-        <span className="eyebrow" style={{ transform: "rotate(-2deg)", display: "inline-block" }}>
-          photos
-        </span>
-        <h1 style={{ fontSize: 44, marginTop: 16, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+      <section className="wrap" style={{ paddingTop: 16, textAlign: "center" }}>
+        <div style={{ textAlign: "left" }}>
+          <Link href="/" className="mono" style={{ fontSize: 12 }}>
+            ← Home
+          </Link>
+        </div>
+        <h1 style={{ fontSize: 44, marginTop: 12, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
           Photos
         </h1>
       </section>

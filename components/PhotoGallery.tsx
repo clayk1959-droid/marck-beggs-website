@@ -8,10 +8,10 @@ export function PhotoGallery({ slug, title, photos }: { slug: string; title: str
 
   const close = useCallback(() => setOpenIndex(null), []);
   const goPrev = useCallback(() => {
-    setOpenIndex((current) => (current === null ? null : (current - 1 + photos.length) % photos.length));
-  }, [photos.length]);
+    setOpenIndex((current) => (current === null ? null : Math.max(0, current - 1)));
+  }, []);
   const goNext = useCallback(() => {
-    setOpenIndex((current) => (current === null ? null : (current + 1) % photos.length));
+    setOpenIndex((current) => (current === null ? null : Math.min(photos.length - 1, current + 1)));
   }, [photos.length]);
 
   useEffect(() => {
@@ -90,29 +90,31 @@ export function PhotoGallery({ slug, title, photos }: { slug: string; title: str
             ×
           </button>
 
-          <button
-            type="button"
-            aria-label="Previous photo"
-            onClick={(event) => {
-              event.stopPropagation();
-              goPrev();
-            }}
-            style={{
-              position: "absolute",
-              left: 8,
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              color: "#fff",
-              fontSize: 40,
-              lineHeight: 1,
-              cursor: "pointer",
-              padding: 12,
-            }}
-          >
-            ‹
-          </button>
+          {openIndex > 0 ? (
+            <button
+              type="button"
+              aria-label="Previous photo"
+              onClick={(event) => {
+                event.stopPropagation();
+                goPrev();
+              }}
+              style={{
+                position: "absolute",
+                left: 8,
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "none",
+                border: "none",
+                color: "#fff",
+                fontSize: 40,
+                lineHeight: 1,
+                cursor: "pointer",
+                padding: 12,
+              }}
+            >
+              ‹
+            </button>
+          ) : null}
 
           <div
             onClick={(event) => event.stopPropagation()}
@@ -134,29 +136,31 @@ export function PhotoGallery({ slug, title, photos }: { slug: string; title: str
             />
           </div>
 
-          <button
-            type="button"
-            aria-label="Next photo"
-            onClick={(event) => {
-              event.stopPropagation();
-              goNext();
-            }}
-            style={{
-              position: "absolute",
-              right: 8,
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              color: "#fff",
-              fontSize: 40,
-              lineHeight: 1,
-              cursor: "pointer",
-              padding: 12,
-            }}
-          >
-            ›
-          </button>
+          {openIndex < photos.length - 1 ? (
+            <button
+              type="button"
+              aria-label="Next photo"
+              onClick={(event) => {
+                event.stopPropagation();
+                goNext();
+              }}
+              style={{
+                position: "absolute",
+                right: 8,
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "none",
+                border: "none",
+                color: "#fff",
+                fontSize: 40,
+                lineHeight: 1,
+                cursor: "pointer",
+                padding: 12,
+              }}
+            >
+              ›
+            </button>
+          ) : null}
 
           <p className="mono" style={{ color: "#d8d8d8", fontSize: 12, marginTop: 16, textAlign: "center" }}>
             {title} — {openIndex + 1} / {photos.length}

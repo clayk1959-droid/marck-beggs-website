@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import collections from "../../../data/photo-collections.json";
 import { PhotoGallery } from "../../../components/PhotoGallery";
 
@@ -13,11 +14,13 @@ export default async function PhotoCollectionPage({ params }: { params: Promise<
 
   return (
     <main>
-      <section className="wrap" style={{ paddingTop: 40, textAlign: "center" }}>
-        <span className="eyebrow" style={{ transform: "rotate(-2deg)", display: "inline-block" }}>
-          photos
-        </span>
-        <h1 style={{ fontSize: 38, marginTop: 16, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+      <section className="wrap" style={{ paddingTop: 16, textAlign: "center" }}>
+        <div style={{ textAlign: "left" }}>
+          <Link href="/photos" className="mono" style={{ fontSize: 12 }}>
+            ← Photos
+          </Link>
+        </div>
+        <h1 style={{ fontSize: 38, marginTop: 12, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
           {collection.title}
         </h1>
         <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 8 }}>
