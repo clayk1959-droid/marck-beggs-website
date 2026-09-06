@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { Bungee, Figtree, Space_Mono } from "next/font/google";
+import { Stardos_Stencil, Special_Elite } from "next/font/google";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import "./globals.css";
 
-const bungee = Bungee({
+const stencil = Stardos_Stencil({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"],
   variable: "--font-display",
 });
 
-const figtree = Figtree({
+const typewriter = Special_Elite({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "400",
   variable: "--font-body",
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bungee.variable} ${figtree.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${stencil.variable} ${typewriter.variable}`}>
       <body>
         <SiteHeader />
         {children}

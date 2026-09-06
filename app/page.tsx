@@ -1,12 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Stardos_Stencil, Special_Elite } from "next/font/google";
 import { RotatingCoverBox } from "../components/RotatingCoverBox";
 import musicRotation from "../data/home-music-rotation.json";
 import books from "../data/books.json";
-
-const stencil = Stardos_Stencil({ subsets: ["latin"], weight: "700" });
-const typewriter = Special_Elite({ subsets: ["latin"], weight: "400" });
 
 const writingRotation = [...books.collections, ...books.anthologies].map((book) => ({
   image: book.cover,
@@ -15,12 +11,9 @@ const writingRotation = [...books.collections, ...books.anthologies].map((book) 
 
 export default function HomePage() {
   return (
-    <main className={typewriter.className}>
+    <main>
       <section className="wrap" style={{ paddingTop: 32, paddingBottom: 24, textAlign: "center" }}>
-        <h1
-          className={stencil.className}
-          style={{ fontSize: 44, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase" }}
-        >
+        <h1 style={{ fontSize: 44, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase" }}>
           Marck L. Beggs
         </h1>
         <p style={{ fontSize: 18, marginTop: 10 }}>Poet | Songwriter</p>

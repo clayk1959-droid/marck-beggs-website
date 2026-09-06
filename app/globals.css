@@ -17,6 +17,7 @@
   --spotify-ink: #0b2e18;
   --border: 3px solid var(--ink);
   --shadow: 4px 5px 0 rgba(36, 27, 46, 0.28);
+  --font-mono: var(--font-body);
 }
 
 * {
