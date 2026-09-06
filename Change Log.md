@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 15 — Sunday, September 6, 2026
+Header tint was reading as gray, not green — boosted the green channel
+and pulled back red/blue. Header text, hamburger bars, and dropdown menu
+text switched from white to black; the dropdown now shares the exact
+same background color as the header (a new --header-bg token) instead of
+solid black, with hover inverting to dark bg/white text.
+
 ## Version 14 — Sunday, September 6, 2026
 Fixed the rotation transition to be a real crossfade (two image layers
 blending into each other) instead of fading to the container's white
