@@ -18,7 +18,7 @@
   --border: 3px solid var(--ink);
   --shadow: 4px 5px 0 rgba(36, 27, 46, 0.28);
   --font-mono: var(--font-body);
-  --header-bg: rgba(79, 82, 74, 0.8);
+  --header-bg: rgba(150, 178, 138, 0.95);
 
   /* Spacing scale -- use these instead of one-off px values so "tight"
      means the same thing everywhere. */

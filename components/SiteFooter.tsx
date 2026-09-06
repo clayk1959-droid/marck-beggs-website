@@ -5,9 +5,9 @@ export function SiteFooter() {
     <footer
       style={{
         borderTop: "3px solid var(--ink)",
-        background: "var(--ink)",
-        color: "var(--bg)",
-        marginTop: 64,
+        background: "var(--header-bg)",
+        color: "#000000",
+        marginTop: "var(--space-4)",
       }}
     >
       <div

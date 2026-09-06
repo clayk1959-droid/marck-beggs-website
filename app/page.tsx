@@ -58,16 +58,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-
-      <section className="wrap" style={{ paddingTop: "var(--space-1)", paddingBottom: "var(--space-4)", textAlign: "center" }}>
-        <Link
-          href="/about"
-          className="card"
-          style={{ display: "inline-block", textDecoration: "none", color: "inherit", padding: "var(--space-3) var(--space-6)", fontSize: 20 }}
-        >
-          Bio
-        </Link>
-      </section>
     </main>
   );
 }
