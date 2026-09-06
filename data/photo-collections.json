@@ -4,48 +4,88 @@
     "title": "Cliffs of Moher",
     "subtitle": "County Clare, Ireland — 2004",
     "cover": "img113",
-    "photos": ["img113", "img134", "img116", "img115", "img118", "img119", "img121", "img122", "img123", "img125", "img132"]
+    "photos": [
+      "img113",
+      "img134",
+      "img116",
+      "img115",
+      "img118",
+      "img119",
+      "img121",
+      "img122",
+      "img123",
+      "img125",
+      "img132"
+    ]
   },
   {
     "slug": "dublin",
     "title": "Dublin",
     "subtitle": "Ireland — 2004",
     "cover": "img038",
-    "photos": ["img038", "img079", "img081", "img082", "img084", "img060", "img028"]
+    "photos": [
+      "img038",
+      "img079",
+      "img081",
+      "img082",
+      "img084",
+      "img060",
+      "img028"
+    ]
   },
   {
     "slug": "hopkins-grave",
     "title": "Gerard Manley Hopkins' Grave",
     "subtitle": "Ireland — 2004",
     "cover": "img016",
-    "photos": ["img016", "img017", "img018"]
+    "photos": [
+      "img016",
+      "img017",
+      "img018"
+    ]
   },
   {
     "slug": "irish-writers-museum",
     "title": "Irish Writers' Museum & Centre",
     "subtitle": "Dublin, Ireland — 2004",
     "cover": "img086",
-    "photos": ["img086", "img032", "img034"]
+    "photos": [
+      "img086",
+      "img032",
+      "img034"
+    ]
   },
   {
     "slug": "trinity-college",
     "title": "Trinity College",
     "subtitle": "Dublin, Ireland — 2004",
     "cover": "img097",
-    "photos": ["img097", "img096", "img105"]
+    "photos": [
+      "img097",
+      "img096",
+      "img105"
+    ]
   },
   {
     "slug": "christchurch-dublin-castle",
     "title": "Christchurch & Dublin Castle",
     "subtitle": "Dublin, Ireland — 2004",
     "cover": "img057",
-    "photos": ["img057", "img064", "img063"]
+    "photos": [
+      "img057",
+      "img064",
+      "img063"
+    ]
   },
   {
     "slug": "dalkey",
     "title": "Dalkey",
-    "subtitle": "Ireland — 2004",
+    "subtitle": "Ireland — 2004 (editor test)",
     "cover": "img107",
-    "photos": ["img107", "img109", "img111"]
+    "photos": [
+      "img107",
+      "img109",
+      "img111"
+    ]
   }
 ]
