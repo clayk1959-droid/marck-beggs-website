@@ -2,15 +2,18 @@
 
 ## Links & assets still open
 
-- **Direct buy links** for: Bark, Dog Music, Poems by Poets of the
-  Roundtable — currently show "link coming soon" on the Books page. Every
-  other title's buy link is filled in now.
 - **Real Spotify and Apple Music URLs** for the streaming buttons (Music
   page and home page) — still empty, rendering as greyed-out "coming soon".
 - **CD Baby link** — old site said "available at CDBaby.com" but never
   linked it.
 - **Higher-resolution cover art**, if he has more — most of `public/images/`
   is still whatever resolution the old site published at.
+
+Every book's buy link is now resolved — either a real link (Amazon or
+Salmon Poetry's own site) or an explicit "out of print" note where no
+link exists (Godworm has a Kindle link despite being out of print in
+paperback; "Salmon: A Journey in Poetry, 1981-2007" has no purchase path
+anywhere and just shows the out-of-print note).
 
 ## Known open issue — come back to this
 

@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 19 — Sunday, September 6, 2026
+"Salmon: A Journey in Poetry, 1981-2007" (edited by Jessie Lendennie) was
+pointing at Salmon Poetry's generic homepage as a placeholder — confirmed
+it's not actually sold anywhere currently (not on Marck's own author page
+there, not on Amazon or Kindle) and marked it "out of print" instead.
+Fixed BookGrid so a book with an explanatory note no longer also shows
+the generic "link coming soon" line underneath it.
+
 ## Version 18 — Sunday, September 6, 2026
 On a wide/horizontal desktop window, the page content stayed capped at
 720px wide, leaving big empty margins on both sides. Added breakpoints
