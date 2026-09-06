@@ -9,16 +9,16 @@ const writingRotation = [...books.collections, ...books.anthologies].map((book) 
   label: book.title,
 }));
 
-const ROTATION_INTERVAL_MS = 4500;
+const ROTATION_INTERVAL_MS = 5500;
 
 export default function HomePage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: "var(--space-4)", paddingBottom: "var(--space-2)", textAlign: "center" }}>
-        <h1 style={{ fontSize: 44, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase" }}>
+        <h1 style={{ fontSize: 44, lineHeight: 0.92, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase" }}>
           Marck L. Beggs
         </h1>
-        <p style={{ fontSize: 20, marginTop: "var(--space-1)" }}>Poet | Songwriter</p>
+        <p style={{ fontSize: 20, marginTop: 0 }}>Poet | Songwriter</p>
       </section>
 
       <section className="wrap" style={{ paddingBottom: "var(--space-4)" }}>
@@ -45,7 +45,7 @@ export default function HomePage() {
             <span style={{ fontSize: 23 }}>Writings</span>
           </Link>
         </div>
-        <div style={{ display: "flex", gap: "var(--space-3)", marginTop: "var(--space-2)" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", marginTop: "var(--space-1)" }}>
           <Link href="/music" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
             <div className="card" style={{ overflow: "hidden" }}>
               <RotatingCoverBox images={musicRotation} intervalMs={ROTATION_INTERVAL_MS} startDelayMs={ROTATION_INTERVAL_MS} />

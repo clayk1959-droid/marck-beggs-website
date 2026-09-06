@@ -18,7 +18,7 @@
   --border: 3px solid var(--ink);
   --shadow: 4px 5px 0 rgba(36, 27, 46, 0.28);
   --font-mono: var(--font-body);
-  --header-bg: rgba(71, 98, 67, 0.8);
+  --header-bg: rgba(79, 82, 74, 0.8);
 
   /* Spacing scale -- use these instead of one-off px values so "tight"
      means the same thing everywhere. */
@@ -179,12 +179,12 @@ a {
   min-width: 180px;
   display: flex;
   flex-direction: column;
-  background: var(--header-bg);
+  background: #ffffff;
   border: 2px solid var(--ink);
 }
 
 .nav-menu a {
-  padding: 12px 18px;
+  padding: var(--space-2) var(--space-4);
   font-family: var(--font-mono), monospace;
   font-size: 12px;
   text-transform: uppercase;
