@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 18 — Sunday, September 6, 2026
+On a wide/horizontal desktop window, the page content stayed capped at
+720px wide, leaving big empty margins on both sides. Added breakpoints
+so the content column grows to 960px (1024px+ windows) and 1100px
+(1400px+ windows) instead of staying pinned narrow — mobile is
+completely unaffected since those breakpoints never apply there.
+
 ## Version 17 — Sunday, September 6, 2026
 Dropped the home page's Bio button (About is already one tap away in the
 hamburger menu). Header background switched from a dark, low-alpha tint
