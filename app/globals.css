@@ -89,6 +89,22 @@ a {
   padding: 0 20px;
 }
 
+/* On genuinely wide/horizontal windows, 720px of centered content leaves a
+   lot of dead space on both sides -- let the column grow further instead
+   of staying pinned to a narrow center strip. Mobile/tablet widths never
+   reach this breakpoint, so this doesn't touch the mobile view at all. */
+@media (min-width: 1024px) {
+  .wrap {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .wrap {
+    max-width: 1100px;
+  }
+}
+
 .card {
   background: var(--card);
   border: var(--border);
