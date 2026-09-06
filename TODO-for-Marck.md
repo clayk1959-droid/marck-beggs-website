@@ -12,6 +12,15 @@
 - **Higher-resolution cover art**, if he has more — most of `public/images/`
   is still whatever resolution the old site published at.
 
+## Known open issue — come back to this
+
+- **Wide-desktop layout still reads as centered, not left-shifted.**
+  Version 18 widened the content column on large windows (720px ->
+  960/1100px) so there's less dead space overall, but Clay flagged that
+  the content itself did not shift left the way he expected — it's still
+  center-aligned, just in a wider column. Explicitly told not to fix this
+  yet; revisit when asked.
+
 ## Decisions only Marck can make
 
 - **dog gods vs. Sloppy Birds.** His new bio (added 2026-09-06) calls dog
