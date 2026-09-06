@@ -42,9 +42,10 @@
     },
     {
       "id": "salmon-journey",
-      "title": "Salmon: A Journey in Poetry",
+      "title": "Salmon: A Journey in Poetry, 1981-2007",
+      "note": "edited by Jessie Lendennie — out of print",
       "cover": "/images/books/salmon-journey.jpg",
-      "buyUrl": "https://www.salmonpoetry.com"
+      "buyUrl": ""
     },
     {
       "id": "bark",

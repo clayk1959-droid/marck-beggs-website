@@ -41,11 +41,11 @@ export function BookGrid({ books }: { books: Book[] }) {
                 <div className="mono" style={{ fontSize: 10.5, color: "var(--accent)", marginTop: 2 }}>
                   buy →
                 </div>
-              ) : (
+              ) : !book.publisher && !book.note ? (
                 <div className="mono" style={{ fontSize: 10.5, color: "var(--ink-soft)", marginTop: 2 }}>
                   link coming soon
                 </div>
-              )}
+              ) : null}
             </div>
           </Wrapper>
         );
