@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marck Beggs Site — Site Guide</title>
+<style>
+  :root {
+    --ink: #1d211d;
+    --paper: #faf9f5;
+    --panel: #ffffff;
+    --muted: #6b6f68;
+    --border: #e3e1d8;
+    --accent: #707866;
+    --code-bg: #f1efe6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 100px; }
+  header.page-head { margin-bottom: 40px; }
+  header.page-head h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 40px;
+    margin: 0 0 8px;
+    font-weight: 400;
+  }
+  header.page-head p { margin: 0; color: var(--muted); font-size: 16px; }
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 24px 0 0;
+    padding: 16px 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  nav.toc a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+  nav.toc a:hover { text-decoration: underline; }
+  section { margin: 56px 0; }
+  h2 { font-size: 22px; margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 17px; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; }
+  code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+  }
+  pre {
+    background: var(--code-bg);
+    padding: 14px 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    margin: 0 0 14px;
+  }
+  pre code { background: none; padding: 0; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: top; }
+  th { background: var(--code-bg); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  tr:last-child td { border-bottom: none; }
+  ol, ul { padding-left: 22px; margin: 0 0 14px; }
+  li { margin-bottom: 6px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 18px; }
+  .version-entry { border-bottom: 1px solid var(--border); padding: 16px 0; }
+  .version-entry:last-child { border-bottom: none; }
+  .version-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .version-num { font-weight: 700; font-size: 15px; }
+  .version-date { color: var(--muted); font-size: 13px; }
+  .badge { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; padding: 2px 8px; border-radius: 999px; background: var(--code-bg); color: var(--muted); }
+  .note { background: #fbf6e9; border: 1px solid #ecdfb3; border-radius: 8px; padding: 12px 16px; font-size: 14px; margin: 0 0 14px; }
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page-head">
+    <h1>Marck Beggs Site</h1>
+    <p>Site guide — how to run it, edit it, and what's changed over time.</p>
+    <p>Separate project from Clay Carson Photography: its own folder
+      (<code>marck-beggs-website</code>), its own GitHub repo, its own Vercel
+      project. Live preview at the Vercel URL — <code>marckbeggs.com</code>'s
+      DNS still points at the old Bluehost/WordPress site untouched, and
+      only gets repointed on a deliberate go-live decision.</p>
+    <nav class="toc">
+      <a href="#workflow">Your regular workflow</a>
+      <a href="#editor">Using the editor</a>
+      <a href="#commands">Command reference</a>
+      <a href="#dev">Local development</a>
+      <a href="#content">Content data files</a>
+      <a href="#adding">Adding brand-new content</a>
+      <a href="#architecture">Architecture &amp; external services</a>
+      <a href="#deploy">Deploying</a>
+      <a href="#history">Version history</a>
+    </nav>
+  </header>
+
+  <section id="workflow">
+    <h2>Your regular workflow</h2>
+    <p>Two different paths depending on what you're doing:</p>
+    <ol>
+      <li><strong>Editing or removing something that already exists</strong>
+        (a collection's title, a book's buy link, a music art label, deleting
+        any of the three) — log into <code>/editor</code> in a browser and do
+        it there. No coding, no terminal. It commits directly to GitHub and
+        the live site rebuilds within about a minute.</li>
+      <li><strong>Adding something brand new</strong> (a new photo collection,
+        a new book with its cover, new music art) — the editor can't do this
+        yet (see <a href="#adding">Adding brand-new content</a>), so it's a
+        manual step: drop the files in, edit the matching JSON file, commit,
+        push.</li>
+    </ol>
+  </section>
+
+  <section id="editor">
+    <h2>Using the editor</h2>
+    <p>
+      <code>/editor/login</code> asks for a password (<code>EDITOR_PASSWORD</code>,
+      set as an env var — not stored anywhere in the code). A successful login
+      sets a signed session cookie good for 30 days; no database is involved
+      anywhere in this — the cookie itself is the proof of login, HMAC-signed
+      with the password so it can't be forged without knowing it.
+    </p>
+    <p>From the <code>/editor</code> dashboard, three sections:</p>
+    <table>
+      <tr><th>Section</th><th>What you can do today</th></tr>
+      <tr><td><strong>Photos</strong></td><td>Edit a collection's title/subtitle, or delete the whole collection (removes its JSON entry <em>and</em> its entire image folder from the repo in one commit).</td></tr>
+      <tr><td><strong>Books</strong></td><td>Edit any field (title, year, publisher, note, buy link) on an existing book or anthology, or delete one (also removes its cover image file).</td></tr>
+      <tr><td><strong>Music</strong></td><td>Edit a cover-art image's label, or delete it (also removes the image file).</td></tr>
+    </table>
+    <p class="note">
+      Every save/delete is a real commit straight to GitHub via its Git Data
+      API — there's a short delay (usually under a minute) between clicking
+      Save and the live site actually showing the change, since Vercel has to
+      rebuild first. The editor page itself updates instantly; a hard refresh
+      of the public page won't show the change until the rebuild finishes.
+    </p>
+  </section>
+
+  <section id="commands">
+    <h2>Command reference</h2>
+    <table>
+      <tr><th>Command</th><th>What it does</th></tr>
+      <tr><td><code>npm run dev</code></td><td>Starts the site locally at <code>http://localhost:3000</code>, editor included.</td></tr>
+      <tr><td><code>npm run build</code></td><td>Production build check — mainly for troubleshooting before a push.</td></tr>
+      <tr><td><code>npm run lint</code></td><td>Code-quality check.</td></tr>
+      <tr><td><code>npm start</code></td><td>Runs a production build locally.</td></tr>
+    </table>
+    <p>
+      There's no <code>gallery:sync</code>/<code>save</code> pair like the
+      photo site has — this project is small enough that git commands
+      (<code>git add</code>, <code>git commit</code>, <code>git push</code>)
+      are used directly for anything the editor can't do yet.
+    </p>
+  </section>
+
+  <section id="dev">
+    <h2>Local development</h2>
+    <p>Requires Node.js 20 or newer.</p>
+    <pre><code>npm install
+npm run dev</code></pre>
+    <p>Then open <code>http://localhost:3000</code>. The editor works locally
+      too, using the same <code>EDITOR_PASSWORD</code>/<code>GITHUB_TOKEN</code>
+      set in <code>.env.local</code> — there's no "dev mode bypass," logging
+      in is required even on your own Mac, and edits made locally still
+      commit for real to GitHub.</p>
+  </section>
+
+  <section id="content">
+    <h2>Content data files</h2>
+    <p>Everything editable lives in plain JSON under <code>data/</code>, read
+      directly by the page components — no CMS, no database:</p>
+    <table>
+      <tr><th>File</th><th>Powers</th></tr>
+      <tr><td><code>data/links.json</code></td><td>Contact email, streaming/store links (Spotify, Apple Music, CD Baby, YouTube).</td></tr>
+      <tr><td><code>data/books.json</code></td><td>Every book/anthology — title, year, publisher, cover image path, buy link. Each has a stable <code>id</code> the editor uses to target edits/deletes.</td></tr>
+      <tr><td><code>data/tracks.json</code></td><td>Song titles, notes, and audio file paths for the Music page's track list.</td></tr>
+      <tr><td><code>data/music-art.json</code></td><td>Cover-art images shown on the Music page, each with an optional label.</td></tr>
+      <tr><td><code>data/photo-collections.json</code></td><td>Every photo collection — slug, title, subtitle, cover photo, ordered list of photo basenames.</td></tr>
+    </table>
+    <p>Images live under <code>public/images/</code> (books, music, site) and
+      <code>public/audio/</code> (songs, the Kilty Sue reading). Photo
+      collections live under <code>public/gallery/&lt;slug&gt;/full/</code>
+      and <code>.../thumbs/</code> — full-size capped at 3200px, thumbnails
+      at 750px, both mozjpeg — matching the resize rules used on the Carson
+      &amp; Muller photo site.</p>
+  </section>
+
+  <section id="adding">
+    <h2>Adding brand-new content (until upload support ships)</h2>
+    <p>The editor can edit/delete what's already there, but can't yet accept
+      a file upload or resize an image — that's the next planned phase. Until
+      then, adding something new is a manual step:</p>
+    <h3>A new photo collection</h3>
+    <ol>
+      <li>Resize the photos yourself (or ask for a quick one-off script run)
+        to roughly the same rules as everything else: full-size ≤3200px,
+        thumbnail ≤750px, both JPEG.</li>
+      <li>Create <code>public/gallery/&lt;new-slug&gt;/full/</code> and
+        <code>.../thumbs/</code>, drop the matching files into each.</li>
+      <li>Add a new entry to <code>data/photo-collections.json</code> (slug,
+        title, subtitle, cover, ordered photo list).</li>
+      <li><code>git add -A &amp;&amp; git commit -m "..." &amp;&amp; git push</code>.</li>
+    </ol>
+    <h3>A new book or music art image</h3>
+    <p>Same idea: drop the image into <code>public/images/books/</code> or
+      <code>public/images/music/</code>, add the matching entry to
+      <code>data/books.json</code> or <code>data/music-art.json</code>
+      (give a book a unique <code>id</code>), commit, push.</p>
+  </section>
+
+  <section id="architecture">
+    <h2>Architecture &amp; external services</h2>
+    <p>Next.js (App Router) on Vercel, deployed from GitHub — no database,
+      no third-party accounts beyond GitHub and Vercel themselves.</p>
+    <table>
+      <tr><th>Piece</th><th>Role</th></tr>
+      <tr><td>GitHub repo <code>clayk1959-droid/marck-beggs-website</code></td><td>Source of truth for everything — code, content JSON, and images all live in git.</td></tr>
+      <tr><td>Vercel project <code>marck-beggs-website</code></td><td>Builds and hosts the live site; auto-deploys on every push to <code>main</code>.</td></tr>
+      <tr><td><code>lib/github-commit.ts</code></td><td>The editor's only way of changing anything — talks directly to GitHub's low-level Git Data API (blobs → tree → commit → update ref) so an edit is a real, ordinary git commit, not a side-channel database write. Retries automatically if two edits land at nearly the same moment.</td></tr>
+      <tr><td><code>lib/editor-auth.ts</code> / <code>lib/session-cookie.ts</code></td><td>Password check + signed session cookie. No database — the password itself is the HMAC signing key, so nothing needs to be "revoked" anywhere except changing the env var.</td></tr>
+    </table>
+    <p>Env vars involved: <code>EDITOR_PASSWORD</code>, <code>GITHUB_TOKEN</code>
+      (classic personal access token, <code>repo</code> scope — fine-grained
+      tokens have had unreliable support for the Git Data API endpoints this
+      needs), <code>GITHUB_REPO</code>, <code>GITHUB_BRANCH</code>. Set in
+      both <code>.env.local</code> (local dev) and the Vercel project's
+      production environment variables.</p>
+  </section>
+
+  <section id="deploy">
+    <h2>Deploying</h2>
+    <p>Push to <code>main</code> and Vercel builds and deploys automatically
+      — usually live within a minute or two. No manual deploy step needed
+      for either code changes or editor-driven content commits.</p>
+    <p><code>marckbeggs.com</code>'s domain, DNS, and the old WordPress
+      hosting are all the same Bluehost account (checked via public WHOIS/DNS,
+      no login needed) — the domain registration itself expires
+      <strong>November 1, 2026</strong>, worth confirming auto-renew is on
+      independent of this rebuild. When it's time to go live, the DNS
+      records get repointed at Vercel from inside that same Bluehost
+      account — no nameserver change or account transfer required.</p>
+  </section>
+
+  <section id="history">
+    <h2>Version history</h2>
+    <p>Most recent first. Hosted on Vercel, deployed from GitHub — every push
+      to <code>main</code> goes live automatically within a minute or two.</p>
+
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 9</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Password-gated content editor at <code>/editor</code> (Photos, Books, Music sections). Stateless HMAC-signed session cookie, no database. Edit or delete an existing photo collection, book entry, or music cover-art item — each change commits straight to GitHub via its Git Data API and the live site rebuilds automatically. Deleting a photo collection removes both its JSON entry and its entire <code>public/gallery/&lt;slug&gt;/</code> folder in one commit. Uploading brand-new photos/covers/art isn't wired up yet.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 8</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Ireland photo gallery, split into one real collection per place (Cliffs of Moher, Dublin, Gerard Manley Hopkins' Grave, Irish Writers' Museum &amp; Centre, Trinity College, Christchurch &amp; Dublin Castle, Dalkey) instead of one grouped mega-gallery — same card → thumbnail-grid → lightbox pattern as the Carson &amp; Muller photo site, with full keyboard/arrow navigation. Dropped the unexplained "Salmon Publishing &amp;" wording from the old site.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 7</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Moved the "Poet · Songwriter · Professor" tagline to sit directly under the red "Marck Beggs" hero heading, spread evenly across its width via flexbox instead of a fixed-width line. Removed the rotated "crooked bubble" badge that used to carry the same text.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 6</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Replaced the home page's stacked Music/Books sections with two matching cards (dog gods cover art / Blind Verse cover), same treatment as the photo site's collection cards, each linking through to the full page.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 5</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Replaced the top nav pills with a black banner + hamburger dropdown menu, matching the photo site's header pattern. Thinned the banner (84px → 56px) and made it span the full window width on desktop instead of being capped to the page's 720px reading column.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 4</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Rebalanced the home page so Music and Books get equal billing (matching section headings, content block, "see more" link) instead of Music getting a full section while Books was a small link card. Background changed from cream to a grayish-green.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 3</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Squared off every rounded corner (buttons, nav, cards, photo frames) and stripped the Spotify/Apple Music/CD Baby/YouTube brand colors from the streaming buttons in favor of plain ink/cream. Fixed a real CSS bug where <code>.section</code>'s <code>padding</code> shorthand was silently zeroing out <code>.wrap</code>'s side padding, crowding every button and card against the screen edges on mobile.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 1</span><span class="version-date">Saturday, September 5, 2026</span></div>
+      <ul>
+        <li>Initial build: mobile-first rebuild of the old table-based WordPress/Bluehost site as a Next.js app. Home, Music (dog gods, all six real songs playable), Books (real covers, buy links to Salmon Poetry), About (bio + full CV), Contact. Content lives in plain JSON data files. Deployed to a new, separate GitHub repo and Vercel project — marckbeggs.com's DNS is untouched; this only lives at the Vercel preview URL until a deliberate cutover.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Marck Beggs Site — internal reference, not linked from the public site.
+  </footer>
+
+</div>
+</body>
+</html>
