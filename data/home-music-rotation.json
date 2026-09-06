@@ -1,0 +1,9 @@
+[
+  { "image": "/images/music-rotation/cover-12-steps.png", "label": "12 Steps" },
+  { "image": "/images/music-rotation/cover-bog-queen.jpg", "label": "Bog Queen" },
+  { "image": "/images/music-rotation/cover-negative-light.jpg", "label": "Negative Light" },
+  { "image": "/images/music-rotation/cover-pastel-gods.jpg", "label": "Pastel Gods" },
+  { "image": "/images/music-rotation/cover-psychedelic-pants.jpg", "label": "Psychedelic Pants" },
+  { "image": "/images/music-rotation/cover-tectonic-plates.jpg", "label": "Tectonic Plates" },
+  { "image": "/images/music-rotation/cover-weather-app.jpg", "label": "Weather App" }
+]
