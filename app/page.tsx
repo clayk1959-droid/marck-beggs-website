@@ -9,17 +9,19 @@ const writingRotation = [...books.collections, ...books.anthologies].map((book) 
   label: book.title,
 }));
 
+const ROTATION_INTERVAL_MS = 3500;
+
 export default function HomePage() {
   return (
     <main>
-      <section className="wrap" style={{ paddingTop: 32, paddingBottom: 24, textAlign: "center" }}>
+      <section className="wrap" style={{ paddingTop: 24, paddingBottom: 16, textAlign: "center" }}>
         <h1 style={{ fontSize: 44, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase" }}>
           Marck L. Beggs
         </h1>
-        <p style={{ fontSize: 18, marginTop: 10 }}>Poet | Songwriter</p>
+        <p style={{ fontSize: 18, marginTop: 8 }}>Poet | Songwriter</p>
       </section>
 
-      <section className="wrap" style={{ paddingBottom: 32 }}>
+      <section className="wrap" style={{ paddingBottom: 20 }}>
         <div className="card" style={{ overflow: "hidden", maxWidth: 420, margin: "0 auto" }}>
           <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 3" }}>
             <Image
@@ -34,26 +36,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
-        <div className="card" style={{ display: "flex", overflow: "hidden" }}>
-          <Link href="/music" style={{ flex: 1, textDecoration: "none", color: "inherit", borderRight: "3px solid var(--ink)" }}>
-            <RotatingCoverBox images={musicRotation} />
-          </Link>
-          <Link href="/books" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
-            <RotatingCoverBox images={writingRotation} />
-          </Link>
-        </div>
-        <div style={{ display: "flex", marginTop: 12 }}>
+      <section className="wrap" style={{ borderTop: "3px solid var(--ink)", paddingTop: 24, paddingBottom: 20 }}>
+        <div style={{ display: "flex", gap: 16 }}>
           <Link href="/music" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
-            <span style={{ fontSize: 20 }}>Music</span>
+            <span style={{ fontSize: 23 }}>Music</span>
           </Link>
           <Link href="/books" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
-            <span style={{ fontSize: 20 }}>Writings</span>
+            <span style={{ fontSize: 23 }}>Writings</span>
+          </Link>
+        </div>
+        <div style={{ display: "flex", gap: 16, marginTop: 10 }}>
+          <Link href="/music" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
+            <div className="card" style={{ overflow: "hidden" }}>
+              <RotatingCoverBox images={musicRotation} intervalMs={ROTATION_INTERVAL_MS} startDelayMs={ROTATION_INTERVAL_MS} />
+            </div>
+          </Link>
+          <Link href="/books" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
+            <div className="card" style={{ overflow: "hidden" }}>
+              <RotatingCoverBox images={writingRotation} intervalMs={ROTATION_INTERVAL_MS} startDelayMs={ROTATION_INTERVAL_MS / 2} />
+            </div>
           </Link>
         </div>
       </section>
 
-      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)", textAlign: "center" }}>
+      <section className="wrap" style={{ paddingTop: 8, paddingBottom: 24, textAlign: "center" }}>
         <Link
           href="/about"
           className="card"
