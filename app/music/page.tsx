@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { StreamingButtons } from "../../components/StreamingButtons";
 import { TrackList } from "../../components/TrackList";
+import musicArt from "../../data/music-art.json";
 
 export default function MusicPage() {
   return (
@@ -50,15 +51,13 @@ export default function MusicPage() {
             marginTop: 16,
           }}
         >
-          {["/images/music/doggods-poster-1.jpg", "/images/music/doggods-art-1.jpg", "/images/music/doggods-art-2.jpg", "/images/music/doggods-poster-2.jpg"].map(
-            (src) => (
-              <div key={src} className="card" style={{ overflow: "hidden", padding: 8 }}>
-                <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", overflow: "hidden" }}>
-                  <Image src={src} alt="dog gods cover art" fill style={{ objectFit: "cover" }} sizes="45vw" />
-                </div>
+          {musicArt.map((art) => (
+            <div key={art.image} className="card" style={{ overflow: "hidden", padding: 8 }}>
+              <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", overflow: "hidden" }}>
+                <Image src={art.image} alt={art.label || "dog gods cover art"} fill style={{ objectFit: "cover" }} sizes="45vw" />
               </div>
-            ),
-          )}
+            </div>
+          ))}
         </div>
       </section>
     </main>
