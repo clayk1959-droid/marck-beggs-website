@@ -118,7 +118,7 @@ a {
   top: 0;
   z-index: 10;
   height: 56px;
-  background: #000000;
+  background: rgba(79, 82, 74, 0.8);
   color: #ffffff;
   border-bottom: 3px solid var(--ink);
 }

@@ -9,7 +9,7 @@ const writingRotation = [...books.collections, ...books.anthologies].map((book) 
   label: book.title,
 }));
 
-const ROTATION_INTERVAL_MS = 3500;
+const ROTATION_INTERVAL_MS = 4500;
 
 export default function HomePage() {
   return (
@@ -18,7 +18,7 @@ export default function HomePage() {
         <h1 style={{ fontSize: 44, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase" }}>
           Marck L. Beggs
         </h1>
-        <p style={{ fontSize: 18, marginTop: 8 }}>Poet | Songwriter</p>
+        <p style={{ fontSize: 20, marginTop: 8 }}>Poet | Songwriter</p>
       </section>
 
       <section className="wrap" style={{ paddingBottom: 20 }}>
