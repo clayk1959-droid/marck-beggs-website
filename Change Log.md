@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 10 — Saturday, September 5, 2026
+Photo pages cleanup: dropped the rotated "photos" eyebrow badge from the
+index and every collection page, tightened the top spacing so the heading
+sits right under the banner. Added a back link to each (Home / Photos) —
+neither had one before except the hamburger menu. Fixed the lightbox
+looping past the first/last photo instead of stopping — it now clamps at
+both ends and hides the arrow on the exhausted side.
+
 ## Version 9 — Saturday, September 5, 2026
 Password-gated content editor at `/editor` (Photos, Books, Music sections).
 Stateless HMAC-signed session cookie, no database. Edit or delete an
