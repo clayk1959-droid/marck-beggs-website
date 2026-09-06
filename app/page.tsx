@@ -55,7 +55,7 @@ export default function HomePage() {
             <span style={{ fontSize: 20 }}>Music</span>
           </Link>
           <Link href="/books" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
-            <span style={{ fontSize: 20 }}>Writing</span>
+            <span style={{ fontSize: 20 }}>Writings</span>
           </Link>
         </div>
       </section>

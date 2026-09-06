@@ -7,15 +7,9 @@ export default function BooksPage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 40, textAlign: "center" }}>
-        <span className="eyebrow" style={{ transform: "rotate(-2deg)", display: "inline-block" }}>
-          poetry
-        </span>
-        <h1 style={{ fontSize: 44, marginTop: 16, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
-          Books
+        <h1 style={{ fontSize: 44, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+          Writings
         </h1>
-        <p style={{ maxWidth: 420, margin: "16px auto 0", fontWeight: 500 }}>
-          Four solo collections published by Salmon Poetry in Ireland, plus anthology appearances.
-        </p>
       </section>
 
       <section className="wrap section">
@@ -28,6 +22,18 @@ export default function BooksPage() {
         <h2 className="section-title">Anthologies</h2>
         <p className="section-note">Marck's poems alongside other writers, plus one he edited himself</p>
         <BookGrid books={books.anthologies} />
+      </section>
+
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
+        <a
+          href="https://issuu.com/collectivemedia/docs/bluemountainreviewdecember2023"
+          target="_blank"
+          rel="noreferrer"
+          className="card"
+          style={{ display: "block", padding: 20, textDecoration: "none", color: "inherit" }}
+        >
+          <div style={{ fontWeight: 800, fontSize: 15 }}>Read &ldquo;Saint Anonymous&rdquo; (short story) →</div>
+        </a>
       </section>
 
       {kiltySue.audioUrl ? (

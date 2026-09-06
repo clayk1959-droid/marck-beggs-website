@@ -50,20 +50,20 @@
       "id": "bark",
       "title": "Bark",
       "cover": "/images/books/bark.jpg",
-      "buyUrl": ""
+      "buyUrl": "https://www.amazon.com/dp/0821226649/"
     },
     {
       "id": "dog-music",
       "title": "Dog Music",
       "cover": "/images/books/dog-music.jpg",
-      "buyUrl": ""
+      "buyUrl": "https://www.amazon.com/dp/0312139640/"
     },
     {
       "id": "poets-roundtable",
       "title": "Poems by Poets of the Roundtable",
       "note": "edited by Marck Beggs",
       "cover": "/images/books/poets-roundtable.jpg",
-      "buyUrl": ""
+      "buyUrl": "https://www.amazon.com/dp/1627764070/"
     }
   ],
   "extras": {
