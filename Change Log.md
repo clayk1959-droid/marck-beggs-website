@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 55 (4d99bd2) — Monday, September 7, 2026
+Tightened the Singles on SoundCloud list (removed the gap, cut each
+single's padding from 6px to 3px) and pulled the YouTube link section
+up closer to it, matching the tight-section pattern used elsewhere.
+
 ## Version 54 (d2d93e8) — Monday, September 7, 2026
 Consolidated the two dog gods cards into one. The 2008 album had no
 real streaming links, so its card just opened to an empty "not
