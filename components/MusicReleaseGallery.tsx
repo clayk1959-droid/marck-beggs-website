@@ -258,10 +258,21 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                   {SERVICES.filter((service) => active.links?.[service]).map((service) => {
                     const url = active.links![service]!;
                     const embeddable = Boolean(getEmbedUrl(service, url));
-                    const icon = <ServiceIcon service={service} variant="color" size={44} />;
                     const content = (
                       <>
-                        {icon}
+                        <div
+                          style={{
+                            width: 56,
+                            height: 56,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            border: "1px solid rgba(36,27,46,0.2)",
+                            borderRadius: 6,
+                          }}
+                        >
+                          <ServiceIcon service={service} variant="color" size={36} />
+                        </div>
                         <span className="mono" style={{ fontSize: 11, color: "var(--ink)" }}>
                           {SERVICE_LABELS[service]}
                           {embeddable ? "" : " ↗"}
