@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const VOLUMES = [
   { year: "1999", label: "Volume 1: 1999" },
@@ -29,7 +30,14 @@ export default function ArkansasLiteraryForumPage() {
         <Link href="/books" className="mono" style={{ fontSize: 12, display: "inline-block", marginBottom: 16 }}>
           ← Writings
         </Link>
-        <h1 style={{ fontSize: 40, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <Image
+          src="/ALF/logo.jpg"
+          alt="Arkansas Literary Forum"
+          width={471}
+          height={253}
+          style={{ width: "100%", maxWidth: 300, height: "auto", margin: "0 auto" }}
+        />
+        <h1 style={{ fontSize: 40, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)", marginTop: 12 }}>
           Arkansas Literary Forum
         </h1>
         <p style={{ maxWidth: 480, margin: "16px auto 0" }}>
