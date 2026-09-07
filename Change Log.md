@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 37 (11ba259) — Monday, September 7, 2026
+Reverted the "Discography" header and the boxes-to-plain-text swap on
+the Music page's bottom section — not settled that this section
+actually is a discography, or where that framing came from. Back to
+"hit play →" with the boxed streaming buttons, keeping the tight
+spacing from Version 34 (unrelated, stays).
+
 ## Version 36 (d519894) — Monday, September 7, 2026
 Dropped the boxed buttons in the Discography section for plain
 hyperlink text, matching the ALF page and Releases gallery: YouTube
