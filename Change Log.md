@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 50 (08ec030) — Monday, September 7, 2026
+Color logos are the final call. Switched the service-picker modal
+from the site's sage-green background to white, since the bare-shape
+logos (SoundCloud, Pandora — no background of their own) were getting
+lost against the muted green. Every release now shows the full-color
+treatment; the temporary color-vs-mono comparison is gone.
+
 ## Version 49 (a77718a) — Monday, September 7, 2026
 Dropped the white-background/black-border box on the streaming
 picker entirely — just the icon (44px, up from 18px) and a small
