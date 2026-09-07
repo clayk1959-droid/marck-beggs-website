@@ -53,41 +53,43 @@ export default function ArkansasLiteraryForumPage() {
 
       <section className="wrap section">
         <h2 className="section-title">Issues</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16 }}>
           {VOLUMES.map((volume) => (
-            <a
-              key={volume.year}
-              href={`/ALF/${volume.year}/${volume.year}.html`}
-              target="_blank"
-              rel="noreferrer"
-              className="card"
-              style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 18px", textDecoration: "none", color: "inherit" }}
-            >
-              <span style={{ fontWeight: 700 }}>{volume.label}</span>
-              <span className="mono" style={{ fontSize: 11, color: "var(--ink-soft)" }}>
-                {volume.note ? `${volume.note} · ` : ""}open ↗
-              </span>
-            </a>
+            <li key={volume.year}>
+              <a
+                href={`/ALF/${volume.year}/${volume.year}.html`}
+                target="_blank"
+                rel="noreferrer"
+                style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", textDecoration: "underline" }}
+              >
+                {volume.label}
+              </a>
+              {volume.note ? (
+                <span className="mono" style={{ fontSize: 14, color: "var(--ink-soft)", marginLeft: 10 }}>
+                  ({volume.note})
+                </span>
+              ) : null}
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
         <h2 className="section-title">About the Journal</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
           {INFO_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="card"
-              style={{ display: "block", padding: "12px 18px", textDecoration: "none", color: "inherit", fontWeight: 600 }}
-            >
-              {link.label} ↗
-            </a>
+            <li key={link.href}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                style={{ fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </main>
   );
