@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 49 (a77718a) — Monday, September 7, 2026
+Dropped the white-background/black-border box on the streaming
+picker entirely — just the icon (44px, up from 18px) and a small
+label now, laid out in a 3-column grid that wraps to a second row.
+Still comparing color (12 Steps) vs. mono (Tectonic Plates) under
+this new layout ahead of a final decision.
+
 ## Version 48 (cd8274c) — Monday, September 7, 2026
 Added real streaming-service logos (Pandora, Spotify, Apple Music,
 YouTube, SoundCloud) to the picker, inlined as SVG — no external CDN.
