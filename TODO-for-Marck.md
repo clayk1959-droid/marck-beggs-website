@@ -39,9 +39,9 @@ anywhere and just shows the out-of-print note).
   with a "forthcoming record." **Explicitly holding off on changing the
   Music page until Sloppy Birds has real content (songs/art) to show** —
   don't touch this without being asked again.
-- Keep, archive, or drop the old site's **FRACTALS** page and the two
-  stray single-photo links (SiriusXM guitar photo, "Howdy" masked photo)
-  — not carried into the rebuild.
+- Keep, archive, or drop the old site's two stray single-photo links
+  (SiriusXM guitar photo, "Howdy" masked photo) — not carried into the
+  rebuild. (The FRACTALS page itself is dropped — decided 2026-09-07.)
 - Real **contact form**, or is the mailto link on the Contact page enough?
 
 ## Domain / hosting (checked via public WHOIS + DNS, no login needed)
