@@ -3,6 +3,16 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 23 — Sunday, September 6, 2026
+Filled in the real streaming links for 6 of the 7 releases that were
+showing "coming soon" — found by browsing each platform directly rather
+than waiting on Marck to send them: Spotify (for the 2 that are actually
+on it), Apple Music, YouTube (via the auto-generated "Marck - Topic"
+channel), Pandora, and SoundCloud (Marck's own account has a proper album
+for each one, just under different playlist slugs than the album titles).
+Only the 2008 dog gods CD has no digital presence anywhere — it appears
+to have never been released beyond a physical CD.
+
 ## Version 22 — Sunday, September 6, 2026
 The editor's Music section was still pointed at an old, orphaned data file
 that nothing on the live Music page reads anymore (a leftover from before

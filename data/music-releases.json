@@ -33,7 +33,13 @@
     "year": "2025",
     "credit": "Cover by Tricia T. Baar",
     "cover": "/images/music-rotation/cover-tectonic-plates.jpg",
-    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+    "links": {
+      "spotify": "https://open.spotify.com/album/1Al0onWYPOAagUJFI9R5LP",
+      "apple": "https://music.apple.com/us/album/tectonic-plates/1865773169",
+      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_nFUnE_llf5JEvAokP0zz7mNh6YJs327Fk",
+      "pandora": "https://www.pandora.com/AL:58942241",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/americana-noir"
+    }
   },
   {
     "slug": "songs-for-the-bog-queen",
@@ -41,7 +47,13 @@
     "year": "2025",
     "credit": "Cover by Tricia T. Baar",
     "cover": "/images/music-rotation/cover-bog-queen.jpg",
-    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+    "links": {
+      "spotify": "https://open.spotify.com/album/0BQvnjjuVjDjqm7rP87k96",
+      "apple": "https://music.apple.com/us/album/songs-for-the-bog-queen/1805928857",
+      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_nSYPNe2jmO1pLiCgtJzb8xc8XG7I44TDI",
+      "pandora": "https://www.pandora.com/AL:46632370",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/folk-album-2025"
+    }
   },
   {
     "slug": "pastel-gods",
@@ -49,7 +61,13 @@
     "year": "2024",
     "credit": "Cover by Tricia T. Baar",
     "cover": "/images/music-rotation/cover-pastel-gods.jpg",
-    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+    "links": {
+      "spotify": "",
+      "apple": "https://music.apple.com/us/album/pastel-gods/1783144589",
+      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_nmFs329gbHUOXDVmr14Qb_hG5dZ6XFnZY",
+      "pandora": "https://www.pandora.com/AL:42437634",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/the-pastel-gods-2024"
+    }
   },
   {
     "slug": "psychedelic-pants",
@@ -57,21 +75,39 @@
     "year": "2024",
     "credit": "Cover by Tricia T. Baar",
     "cover": "/images/music-rotation/cover-psychedelic-pants.jpg",
-    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+    "links": {
+      "spotify": "",
+      "apple": "https://music.apple.com/us/album/psychedelic-pants/1734659471",
+      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_mZS2TSfLhvO-AB_v-0BkkYtIyDPUKI-rc",
+      "pandora": "https://www.pandora.com/AL:32453119",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/psychedelic-pants"
+    }
   },
   {
     "slug": "weather-app",
     "title": "Weather App",
     "year": "2023",
     "cover": "/images/music-rotation/cover-weather-app.jpg",
-    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+    "links": {
+      "spotify": "",
+      "apple": "https://music.apple.com/us/album/weather-app/1714749129",
+      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_mVulJF9JOrNQCH6Z7VmGJQTICbq5ayuSY",
+      "pandora": "https://www.pandora.com/AL:28709777",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/weather-app-by-marck"
+    }
   },
   {
     "slug": "negative-light",
     "title": "Negative Light",
     "year": "2023",
     "cover": "/images/music-rotation/cover-negative-light.jpg",
-    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+    "links": {
+      "spotify": "",
+      "apple": "https://music.apple.com/us/album/negative-light/1689300759",
+      "youtube": "",
+      "pandora": "https://www.pandora.com/AL:24155194",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/negative-light"
+    }
   },
   {
     "slug": "dog-gods-2008",
