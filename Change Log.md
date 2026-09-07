@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 59 (ab9f584) — Monday, September 7, 2026
+Two more from Marck. Dropped the "forthcoming" label from dog gods:
+singles (card and its player popup both read the same field, so
+clearing it removes it in both places at once). Changed every page
+title from red to black on every page except Home, which was already
+black — also dropped the now-invisible black drop-shadow that used to
+sit behind the red text, since a black shadow behind black text was
+just dead CSS.
+
 ## Version 58 (14723bd) — Monday, September 7, 2026
 Three fixes from a full-site audit. Cliffs of Moher's cover photo was
 a random house with a horse in a field, not a cliff — swapped to an
