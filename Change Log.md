@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 54 (d2d93e8) — Monday, September 7, 2026
+Consolidated the two dog gods cards into one. The 2008 album had no
+real streaming links, so its card just opened to an empty "not
+available to stream" message — removed it and added that album as a
+final, non-playable line at the bottom of the dog gods: singles track
+list instead, shown with a dash rather than a play arrow. Also
+tightened the track list's row padding to match the spacing
+convention used elsewhere, and removed the now-unused 2008 cover image.
+
 ## Version 53 (094980c) — Monday, September 7, 2026
 "My videos on YouTube" now breaks to two lines ("My videos" / "on
 YouTube"), with the icon bumped from 22px to 50px so it matches the
