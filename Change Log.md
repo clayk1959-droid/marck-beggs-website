@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 39 (4a3992f) — Monday, September 7, 2026
+Removed the Music page's "Arkansas rock & roll" eyebrow above "dog
+gods" — unclear origin, so it's gone along with the spacing that was
+pinned to it. The heading now sits right at the top of the page.
+
 ## Version 38 (2f8809c) — Monday, September 7, 2026
 Removed the "hit play" band-wide streaming buttons section from the
 Music page entirely — its purpose was unclear, so it's gone rather
