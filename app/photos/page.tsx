@@ -23,6 +23,7 @@ export default function PhotosPage() {
 
       <section className="wrap section" style={{ paddingTop: 0 }}>
         <div
+          id="collections-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",

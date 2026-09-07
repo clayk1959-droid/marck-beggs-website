@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PHOTOS = [
   {
@@ -18,20 +18,44 @@ const PHOTOS = [
 
 export function StrayPhotos() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [cardWidth, setCardWidth] = useState<number | null>(null);
   const open = openIndex !== null ? PHOTOS[openIndex] : null;
+
+  useEffect(() => {
+    const grid = document.getElementById("collections-grid");
+    const firstCard = grid?.firstElementChild as HTMLElement | null;
+    if (!grid || !firstCard) return;
+
+    function measure() {
+      setCardWidth(firstCard!.getBoundingClientRect().width);
+    }
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(grid);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: 20, flexWrap: "wrap" }}>
         {PHOTOS.map((photo, index) => (
           <button
             key={photo.src}
             type="button"
             onClick={() => setOpenIndex(index)}
-            style={{ textAlign: "center", width: 160, background: "none", border: "none", cursor: "zoom-in", padding: 0 }}
+            style={{
+              textAlign: "center",
+              width: cardWidth ?? 160,
+              background: "none",
+              border: "none",
+              cursor: "zoom-in",
+              padding: 0,
+              visibility: cardWidth === null ? "hidden" : "visible",
+            }}
           >
             <div className="card" style={{ overflow: "hidden", position: "relative", width: "100%", aspectRatio: "4 / 5" }}>
-              <Image src={photo.src} alt={photo.alt} fill style={{ objectFit: "cover", objectPosition: "top" }} sizes="160px" />
+              <Image src={photo.src} alt={photo.alt} fill style={{ objectFit: "cover", objectPosition: "top" }} sizes="220px" />
             </div>
             <p className="mono" style={{ fontSize: 10.5, color: "var(--ink-soft)", marginTop: 8 }}>
               {photo.caption}
