@@ -1,4 +1,3 @@
-import { StreamingButtons } from "../../components/StreamingButtons";
 import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
 import musicReleases from "../../data/music-releases.json";
 
@@ -34,17 +33,10 @@ export default function MusicPage() {
         </p>
       </section>
 
-      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)", paddingBottom: "var(--space-4)" }}>
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
         <h2 className="section-title">Releases</h2>
         <p className="section-note" style={{ fontSize: 16 }}>tap a cover, pick a service</p>
         <MusicReleaseGallery releases={sortedReleases} />
-      </section>
-
-      <section className="wrap section" style={{ paddingTop: "var(--space-4)" }}>
-        <div className="section-note" style={{ textAlign: "center" }}>
-          hit play →
-        </div>
-        <StreamingButtons />
       </section>
     </main>
   );
