@@ -1,4 +1,5 @@
 import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
+import { SoundcloudSinglesList } from "../../components/SoundcloudSinglesList";
 import { ServiceIcon } from "../../lib/service-icons";
 import musicReleases from "../../data/music-releases.json";
 
@@ -61,19 +62,7 @@ export default function MusicPage() {
           >
             <ServiceIcon service="soundcloud" variant="color" size={44} />
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {SOUNDCLOUD_SINGLES.map((single) => (
-              <a
-                key={single.href}
-                href={single.href}
-                target="_blank"
-                rel="noreferrer"
-                style={{ display: "inline-block", padding: "2px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
-              >
-                {single.title}
-              </a>
-            ))}
-          </div>
+          <SoundcloudSinglesList singles={SOUNDCLOUD_SINGLES} />
         </div>
 
         <a
