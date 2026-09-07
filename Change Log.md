@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 69 (a0fcc60) — Monday, September 7, 2026
+The Arkansas Literary Forum archive was only reachable from a card at
+the bottom of the Writings page. Added it to the hamburger menu as
+"ALF" — the full "Arkansas Literary Forum (archive)" name is too long
+for a nav item — with the full name as a hover tooltip. Sits between
+Writings and Photos.
+
 ## Version 68 (a98396b) — Monday, September 7, 2026
 Clay found on mobile that the Monster Trucks/Iceman mini-players
 (added in V65) had no visible way to close — you had to know to tap
