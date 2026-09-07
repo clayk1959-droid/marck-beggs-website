@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getEditorSession } from "../../../lib/editor-session";
-import musicArt from "../../../data/music-art.json";
-import { MusicArtEditor } from "../../../components/editor/MusicArtEditor";
+import musicReleases from "../../../data/music-releases.json";
+import { MusicReleaseEditor } from "../../../components/editor/MusicReleaseEditor";
 
 export default async function EditorMusicPage() {
   const session = await getEditorSession();
@@ -15,12 +15,12 @@ export default async function EditorMusicPage() {
           ← Editor
         </Link>
         <h1 style={{ fontSize: 30, marginTop: 12, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
-          Music Cover Art
+          Music Releases
         </h1>
       </section>
 
       <section className="wrap section">
-        <MusicArtEditor initialItems={musicArt} />
+        <MusicReleaseEditor initialReleases={musicReleases} />
       </section>
     </main>
   );

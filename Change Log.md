@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 22 — Sunday, September 6, 2026
+The editor's Music section was still pointed at an old, orphaned data file
+that nothing on the live Music page reads anymore (a leftover from before
+the Releases gallery redesign) — editing or deleting a "cover art" entry
+there had zero effect on the actual site. Repointed it at the real
+releases file: editing a release now updates its title, year, credit line,
+and the 5 streaming-service links (or shows a note instead, for New Jams,
+since it plays from its own track list rather than links); deleting a
+release removes it and its cover image. Adding a brand-new release with
+new cover art still isn't possible from the editor yet — that needs the
+upload step that was always the deferred next phase.
+
 ## Version 21 — Sunday, September 6, 2026
 Folded "New Jams" (the forthcoming dog gods record) into the Releases
 gallery as the first tile, treated like any other album. Tapping LISTEN

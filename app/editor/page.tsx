@@ -4,12 +4,12 @@ import { getEditorSession } from "../../lib/editor-session";
 import { EditorLogoutButton } from "../../components/EditorLogoutButton";
 import collections from "../../data/photo-collections.json";
 import books from "../../data/books.json";
-import musicArt from "../../data/music-art.json";
+import musicReleases from "../../data/music-releases.json";
 
 const SECTIONS = [
   { href: "/editor/photos", label: "Photos", count: collections.length },
   { href: "/editor/books", label: "Books", count: books.collections.length + books.anthologies.length },
-  { href: "/editor/music", label: "Music", count: musicArt.length },
+  { href: "/editor/music", label: "Music", count: musicReleases.length },
 ];
 
 export default async function EditorDashboardPage() {
