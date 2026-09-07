@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 33 (ba073dc) — Monday, September 7, 2026
+Dropped the rule line between Issues and About the Journal on the ALF
+page and pulled the two sections together — 48px of section padding
+cut to 16px on the touching sides. Each link also picked up 6px of
+invisible vertical padding, so the tap target stays comfortable even
+as the visual gap tightens.
+
 ## Version 32 (2f487f7) — Monday, September 7, 2026
 Issues list text dropped from 22pt to 19pt to match the About the
 Journal list. Both lists now use the site's var(--space-2) spacing
