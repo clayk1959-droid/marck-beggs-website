@@ -38,13 +38,14 @@ export function StrayPhotos() {
 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "center", gap: 20, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", gap: 20, flexWrap: "wrap" }}>
         {PHOTOS.map((photo, index) => (
           <button
             key={photo.src}
             type="button"
             onClick={() => setOpenIndex(index)}
             style={{
+              display: "block",
               textAlign: "center",
               width: cardWidth ?? 160,
               background: "none",
