@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 65 (a1eb7d6) — Monday, September 7, 2026
+Monster Trucks and Iceman (the two SoundCloud singles listed next to
+the YouTube link) opened SoundCloud in a new tab, same inconsistency
+as the 2008 album before it was fixed. Clicking either title now opens
+a real inline mini-player right under it, same as every other release
+on the page — click again to close it.
+
 ## Version 64 (8195afb) — Monday, September 7, 2026
 Marck reported the 2008 dog gods album "just does the first song."
 The link was fine — his new shortlink resolved to the exact same
