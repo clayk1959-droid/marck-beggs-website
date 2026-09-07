@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getEmbedUrl, SERVICE_LABELS, StreamingService } from "../lib/streaming-embed";
 
 type Track = { title: string; note?: string; audioUrl: string };
@@ -26,13 +26,119 @@ const EMBED_HEIGHT: Record<StreamingService, number> = {
   pandora: 0,
 };
 
-const TRACK_DOT_COLORS = ["var(--accent)", "var(--gold)", "var(--teal)", "var(--accent)", "var(--gold)", "var(--teal)"];
+function TrackPlayer({ release, onClose }: { release: Release; onClose: () => void }) {
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const tracks = release.tracks || [];
+  const currentTrack = currentIndex !== null ? tracks[currentIndex] : null;
+
+  useEffect(() => {
+    if (currentIndex !== null) {
+      audioRef.current?.play().catch(() => {});
+    }
+  }, [currentIndex]);
+
+  function handleTrackClick(index: number) {
+    if (index === currentIndex) {
+      if (isPlaying) audioRef.current?.pause();
+      else audioRef.current?.play().catch(() => {});
+    } else {
+      setCurrentIndex(index);
+    }
+  }
+
+  function handleEnded() {
+    if (currentIndex !== null && currentIndex < tracks.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      setIsPlaying(false);
+    }
+  }
+
+  return (
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      <div style={{ position: "absolute", inset: 0 }}>
+        <Image src={release.cover} alt="" fill style={{ objectFit: "cover", opacity: 0.16, filter: "saturate(0.35) brightness(1.4)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "var(--bg)", opacity: 0.55 }} />
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%", padding: 24 }}>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          style={{ position: "absolute", top: 10, right: 14, background: "none", border: "none", fontSize: 24, cursor: "pointer", color: "var(--ink)" }}
+        >
+          ×
+        </button>
+        <h3 style={{ fontSize: 20, color: "var(--accent)", textShadow: "2px 2px 0 var(--ink)", paddingRight: 30 }}>{release.title}</h3>
+        <p className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
+          {[release.year, release.credit].filter(Boolean).join(" · ")}
+        </p>
+
+        <div style={{ flex: 1, overflowY: "auto", marginTop: 12, display: "flex", flexDirection: "column", gap: 2 }}>
+          {tracks.map((track, index) => {
+            const isCurrent = index === currentIndex;
+            return (
+              <button
+                key={track.title}
+                type="button"
+                onClick={() => handleTrackClick(index)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "7px 6px",
+                  background: isCurrent ? "rgba(36,27,46,0.08)" : "none",
+                  border: "none",
+                  textAlign: "left",
+                  cursor: "pointer",
+                }}
+              >
+                <span style={{ fontSize: 13, color: isCurrent ? "var(--accent)" : "var(--ink)", width: 16, flexShrink: 0 }}>
+                  {isCurrent && isPlaying ? "❚❚" : "▶"}
+                </span>
+                <span style={{ minWidth: 0 }}>
+                  <span style={{ fontWeight: isCurrent ? 800 : 600, fontSize: 14, display: "block" }}>{track.title}</span>
+                  {track.note ? (
+                    <span className="mono" style={{ fontSize: 10, color: "var(--ink-soft)" }}>
+                      {track.note}
+                    </span>
+                  ) : null}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {currentTrack ? (
+          <div style={{ marginTop: 10, paddingTop: 10, borderTop: "2px solid var(--ink)" }}>
+            <div className="mono" style={{ fontSize: 11, fontWeight: 700, marginBottom: 4 }}>
+              {currentTrack.title}
+            </div>
+            <audio
+              ref={audioRef}
+              controls
+              src={currentTrack.audioUrl}
+              style={{ width: "100%", height: 32, display: "block" }}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              onEnded={handleEnded}
+            />
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
 
 export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
   const [embedService, setEmbedService] = useState<StreamingService | null>(null);
 
   const active = releases.find((r) => r.slug === activeSlug) || null;
+  const hasTracks = Boolean(active?.tracks && active.tracks.length > 0);
 
   function close() {
     setActiveSlug(null);
@@ -124,123 +230,85 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
             padding: 20,
           }}
         >
-          <div
-            onClick={(event) => event.stopPropagation()}
-            className="card"
-            style={{ background: "var(--bg)", maxWidth: 420, width: "100%", maxHeight: "85vh", overflowY: "auto", padding: 24, position: "relative" }}
-          >
-            <button
-              type="button"
-              onClick={close}
-              aria-label="Close"
-              style={{ position: "absolute", top: 10, right: 14, background: "none", border: "none", fontSize: 24, cursor: "pointer", color: "var(--ink)" }}
+          {hasTracks ? (
+            <div
+              onClick={(event) => event.stopPropagation()}
+              className="card"
+              style={{ background: "var(--bg)", maxWidth: 420, width: "100%", aspectRatio: "1 / 1", overflow: "hidden", padding: 0 }}
             >
-              ×
-            </button>
-            <h3 style={{ fontSize: 22, color: "var(--accent)", textShadow: "2px 2px 0 var(--ink)" }}>{active.title}</h3>
-            <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 4 }}>
-              {[active.year, active.credit].filter(Boolean).join(" · ")}
-            </p>
-
-            {active.tracks && active.tracks.length > 0 ? (
-              <div
-                style={{
-                  marginTop: 16,
-                  background: "var(--ink)",
-                  border: "3px solid var(--ink)",
-                  padding: 12,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 8,
-                }}
+              <TrackPlayer key={active!.slug} release={active!} onClose={close} />
+            </div>
+          ) : (
+            <div
+              onClick={(event) => event.stopPropagation()}
+              className="card"
+              style={{ background: "var(--bg)", maxWidth: 420, width: "100%", maxHeight: "85vh", overflowY: "auto", padding: 24, position: "relative" }}
+            >
+              <button
+                type="button"
+                onClick={close}
+                aria-label="Close"
+                style={{ position: "absolute", top: 10, right: 14, background: "none", border: "none", fontSize: 24, cursor: "pointer", color: "var(--ink)" }}
               >
-                {active.tracks.map((track, index) => (
-                  <div key={track.title} style={{ background: "var(--card)", padding: "10px 12px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <div
-                        className="mono"
-                        style={{
-                          width: 24,
-                          height: 24,
-                          borderRadius: "50%",
-                          background: TRACK_DOT_COLORS[index % TRACK_DOT_COLORS.length],
-                          color: "var(--bg)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontSize: 11,
-                          fontWeight: 700,
-                          flexShrink: 0,
-                        }}
-                      >
-                        {index + 1}
-                      </div>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontWeight: 800, fontSize: 13 }}>{track.title}</div>
-                        {track.note ? (
-                          <div className="mono" style={{ fontSize: 10, color: "var(--ink-soft)" }}>
-                            {track.note}
-                          </div>
-                        ) : null}
-                      </div>
-                    </div>
-                    <audio controls preload="none" style={{ width: "100%", marginTop: 6, height: 32 }}>
-                      <source src={track.audioUrl} type="audio/mpeg" />
-                    </audio>
-                  </div>
-                ))}
-              </div>
-            ) : embedService ? (
-              <div style={{ marginTop: 16 }}>
-                <button
-                  type="button"
-                  onClick={() => setEmbedService(null)}
-                  className="mono"
-                  style={{ fontSize: 12, background: "none", border: "none", cursor: "pointer", textDecoration: "underline", padding: 0, marginBottom: 10 }}
-                >
-                  ← back
-                </button>
-                <iframe
-                  src={getEmbedUrl(embedService, active.links?.[embedService] || "") || ""}
-                  width="100%"
-                  height={EMBED_HEIGHT[embedService]}
-                  style={{ border: "none", display: "block" }}
-                  allow="autoplay; encrypted-media; fullscreen"
-                  loading="lazy"
-                />
-              </div>
-            ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 16 }}>
-                {SERVICES.filter((service) => active.links?.[service]).map((service) => {
-                  const url = active.links![service]!;
-                  const embeddable = Boolean(getEmbedUrl(service, url));
-                  if (embeddable) {
+                ×
+              </button>
+              <h3 style={{ fontSize: 22, color: "var(--accent)", textShadow: "2px 2px 0 var(--ink)" }}>{active.title}</h3>
+              <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 4 }}>
+                {[active.year, active.credit].filter(Boolean).join(" · ")}
+              </p>
+
+              {embedService ? (
+                <div style={{ marginTop: 16 }}>
+                  <button
+                    type="button"
+                    onClick={() => setEmbedService(null)}
+                    className="mono"
+                    style={{ fontSize: 12, background: "none", border: "none", cursor: "pointer", textDecoration: "underline", padding: 0, marginBottom: 10 }}
+                  >
+                    ← back
+                  </button>
+                  <iframe
+                    src={getEmbedUrl(embedService, active.links?.[embedService] || "") || ""}
+                    width="100%"
+                    height={EMBED_HEIGHT[embedService]}
+                    style={{ border: "none", display: "block" }}
+                    allow="autoplay; encrypted-media; fullscreen"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 16 }}>
+                  {SERVICES.filter((service) => active.links?.[service]).map((service) => {
+                    const url = active.links![service]!;
+                    const embeddable = Boolean(getEmbedUrl(service, url));
+                    if (embeddable) {
+                      return (
+                        <button
+                          key={service}
+                          type="button"
+                          onClick={() => setEmbedService(service)}
+                          className="btn"
+                          style={{ fontSize: 13, cursor: "pointer" }}
+                        >
+                          {SERVICE_LABELS[service]}
+                        </button>
+                      );
+                    }
                     return (
-                      <button
-                        key={service}
-                        type="button"
-                        onClick={() => setEmbedService(service)}
-                        className="btn"
-                        style={{ fontSize: 13, cursor: "pointer" }}
-                      >
-                        {SERVICE_LABELS[service]}
-                      </button>
+                      <a key={service} href={url} target="_blank" rel="noreferrer" className="btn" style={{ fontSize: 13 }}>
+                        {SERVICE_LABELS[service]} ↗
+                      </a>
                     );
-                  }
-                  return (
-                    <a key={service} href={url} target="_blank" rel="noreferrer" className="btn" style={{ fontSize: 13 }}>
-                      {SERVICE_LABELS[service]} ↗
-                    </a>
-                  );
-                })}
-                {SERVICES.every((service) => !active.links?.[service]) ? (
-                  <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)" }}>
-                    Not currently available to stream.
-                  </p>
-                ) : null}
-              </div>
-            )}
-          </div>
+                  })}
+                  {SERVICES.every((service) => !active.links?.[service]) ? (
+                    <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)" }}>
+                      Not currently available to stream.
+                    </p>
+                  ) : null}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       ) : null}
     </>
