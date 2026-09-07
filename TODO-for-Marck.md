@@ -1,51 +1,38 @@
 # What's needed from Marck before this goes live
 
-## Links & assets still open
-
-- **Real Spotify and Apple Music URLs** for the band-wide streaming
-  buttons under "hit play" on the Music page — still empty, rendering
-  as greyed-out "coming soon". (Not to be confused with the per-release
-  streaming links in the Releases gallery above it, which are already
-  filled in for 7 of 8 releases.)
-- **CD Baby link** — old site said "available at CDBaby.com" but never
-  linked it.
-- **What this bottom section actually is.** Briefly labeled
-  "Discography" and reworked — reverted, since it's unclear where that
-  framing came from or whether it's the right one. Revisit once Clay
-  and Marck decide what this section should actually be/say.
-- **Higher-resolution cover art**, if he has more — most of `public/images/`
-  is still whatever resolution the old site published at.
-
-Every book's buy link is now resolved — either a real link (Amazon or
-Salmon Poetry's own site) or an explicit "out of print" note where no
-link exists (Godworm has a Kindle link despite being out of print in
-paperback; "Salmon: A Journey in Poetry, 1981-2007" has no purchase path
-anywhere and just shows the out-of-print note).
-
-## Known open issue — come back to this
+## Open
 
 - **Wide-desktop layout still reads as centered, not left-shifted.**
   Version 18 widened the content column on large windows (720px ->
   960/1100px) so there's less dead space overall, but Clay flagged that
   the content itself did not shift left the way he expected — it's still
-  center-aligned, just in a wider column. Explicitly told not to fix this
-  yet; revisit when asked.
+  center-aligned, just in a wider column. Marck's email (2026-09-07) says
+  "set up desk-wide however you think is best," delegating the call —
+  Clay/Claude to decide the actual fix.
 
-## Decisions only Marck can make
+## Resolved — Marck's email, 2026-09-07
 
-- **dog gods vs. Sloppy Birds.** His new bio (added 2026-09-06) calls dog
-  gods his *former* band and mentions a new one, Sloppy Birds, debuting
-  2027. The Music page still presents dog gods as the current/active band
-  with a "forthcoming record." **Explicitly holding off on changing the
-  Music page until Sloppy Birds has real content (songs/art) to show** —
-  don't touch this without being asked again.
-- Real **contact form**, or is the mailto link on the Contact page enough?
+Answered or closed out everything that was previously open:
+
+- Spotify links for Pastel Gods, Psychedelic Pants, Weather App, and
+  Negative Light — filled in.
+- CD Baby link — not needed, ignore.
+- "Discography" section confusion — moot; all his Spotify links are
+  either on the site already or were sent directly.
+- dog gods vs. Sloppy Birds — dog gods is his old band, now archived
+  (Music page hero, and the "New Jams"/dog gods pairing at the end of
+  Releases, both reflect this). Emphasis is on his solo projects.
+  Sloppy Birds' debut album is still a year out.
+- Cover art quality — what he sent is the best he has; not revisiting.
+- FRACTALS and the two stray photos — both dropped.
+- Contact form — mailto link is enough, no form needed.
+- Domain autorenewal — confirmed on via PayPal.
 
 ## Domain / hosting (checked via public WHOIS + DNS, no login needed)
 
 - Registrar, DNS, and hosting are all the **same Bluehost account**. The
-  domain registration **expires November 1, 2026** — worth confirming
-  auto-renew is on, independent of this rebuild.
+  domain registration **expires November 1, 2026**; autorenewal is on via
+  PayPal (confirmed by Marck 2026-09-07).
 - Cutover mechanics for later: DNS lives in Bluehost's own zone editor, so
   going live just means editing the A/CNAME records there to point at
   Vercel — no nameserver change or account transfer required.

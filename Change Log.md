@@ -3,6 +3,21 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 47 (92763d0) — Monday, September 7, 2026
+A batch of changes straight from Marck's own email. Music page: hero
+replaced with just "Music" (dropping the dog gods band framing, since
+dog gods is his old band now being archived in favor of his solo
+work); "New Jams" renamed to "dog gods: singles" and moved to sit next
+to the 2008 dog gods album at the very end of Releases, so solo
+projects lead; added the four missing Spotify links (Pastel Gods,
+Psychedelic Pants, Weather App, Negative Light); added a "Singles on
+SoundCloud" section (Monster Trucks, Iceman) and a "Miscellaneous
+Videos" YouTube link; moved Pandora to the top of every release's
+service picker. Photos page: removed the two stray photos entirely
+per his request. Writings: "Salmon: A Journey in Poetry" is actually
+back in stock via Salmon's own bookshop, so it's linked instead of
+showing "out of print."
+
 ## Version 46 (eaa1190) — Monday, September 7, 2026
 Fixed a Safari-only bug on the stray photo cards: the Howdy card sat
 24px lower than the Sirius card, exactly matching the extra caption
