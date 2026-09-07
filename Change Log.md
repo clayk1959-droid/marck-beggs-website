@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 26 — Sunday, September 6, 2026
+Bumped the Releases section's "tap a cover, pick a service" note from
+12pt to 16pt and dropped the "New Jams plays right here" clause, since
+that's now obvious from the card labels themselves.
+
 ## Version 25 — Sunday, September 6, 2026
 Release cards showed only cover art and a LISTEN banner, so New Jams
 looked identical to every other cover until you tapped it — each card
