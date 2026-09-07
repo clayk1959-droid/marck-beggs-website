@@ -3,6 +3,10 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 30 — Sunday, September 6, 2026
+Added the ALF logo to the archive link on the Writings page too, so it
+shows up everywhere the journal is referenced.
+
 ## Version 29 — Sunday, September 6, 2026
 Added the Arkansas Literary Forum's own logo — the Arkansas-shaped
 eye/hand artwork — to the new landing page hero and to the small
