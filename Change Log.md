@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 34 (28ce9a2) — Monday, September 7, 2026
+Applied the ALF page's tight-spacing style to the Music page's bottom
+section: dropped the rule line between Releases and the streaming
+buttons, tightened the shared padding from 48px to 16px on each side.
+
 ## Version 33 (ba073dc) — Monday, September 7, 2026
 Dropped the rule line between Issues and About the Journal on the ALF
 page and pulled the two sections together — 48px of section padding
