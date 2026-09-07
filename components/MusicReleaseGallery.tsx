@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { getEmbedUrl, SERVICE_LABELS, StreamingService } from "../lib/streaming-embed";
 import { ServiceIcon } from "../lib/service-icons";
 
-type Track = { title: string; note?: string; audioUrl?: string };
+type Track = { title: string; note?: string; audioUrl?: string; externalUrl?: string };
 
 type Release = {
   slug: string;
@@ -82,13 +82,15 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
           {tracks.map((track, index) => {
             const isCurrent = index === currentIndex;
             const playable = Boolean(track.audioUrl);
+            const linkable = Boolean(track.externalUrl);
+            const active = playable || linkable;
             const rowContent = (
               <>
-                <span style={{ fontSize: 13, color: playable ? (isCurrent ? "var(--accent)" : "var(--ink)") : "var(--ink-soft)", width: 16, flexShrink: 0 }}>
-                  {playable ? (isCurrent && isPlaying ? "❚❚" : "▶") : "—"}
+                <span style={{ fontSize: 13, color: active ? (isCurrent ? "var(--accent)" : "var(--ink)") : "var(--ink-soft)", width: 16, flexShrink: 0 }}>
+                  {linkable ? "↗" : playable ? (isCurrent && isPlaying ? "❚❚" : "▶") : "—"}
                 </span>
                 <span style={{ minWidth: 0 }}>
-                  <span style={{ fontWeight: isCurrent ? 800 : 600, fontSize: 14, display: "block", color: playable ? "var(--ink)" : "var(--ink-soft)" }}>
+                  <span style={{ fontWeight: isCurrent ? 800 : 600, fontSize: 14, display: "block", color: active ? "var(--ink)" : "var(--ink-soft)" }}>
                     {track.title}
                   </span>
                   {track.note ? (
@@ -107,7 +109,16 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
               background: isCurrent ? "rgba(36,27,46,0.08)" : "none",
               border: "none",
               textAlign: "left",
+              textDecoration: "none",
+              color: "inherit",
             };
+            if (linkable) {
+              return (
+                <a key={track.title} href={track.externalUrl} target="_blank" rel="noreferrer" style={{ ...rowStyle, cursor: "pointer" }}>
+                  {rowContent}
+                </a>
+              );
+            }
             if (!playable) {
               return (
                 <div key={track.title} style={rowStyle}>
