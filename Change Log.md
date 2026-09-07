@@ -3,6 +3,16 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 62 (5a43ab0) — Monday, September 7, 2026
+The 2008 dog gods album is a real 15-track release with a real
+SoundCloud home now, not a footnote — gave it back its own card in
+the Releases grid (still grouped at the end, next to dog gods:
+singles). Added a general rule to the picker: when a release has
+exactly one streaming service, skip the "pick a service" screen and
+open straight into that service's embed — pointing at the SoundCloud
+*set* means the embed itself plays the full 15-track playlist.
+Multi-service releases are unaffected.
+
 ## Version 61 (1893e97) — Monday, September 7, 2026
 The 2008 dog gods album's SoundCloud link opened externally instead of
 playing inline like every other release. Reused the same embed
