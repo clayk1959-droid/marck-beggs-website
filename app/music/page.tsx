@@ -12,13 +12,9 @@ export default function MusicPage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 40, textAlign: "center" }}>
-        <span className="eyebrow" style={{ transform: "rotate(-2deg)", display: "inline-block" }}>
-          Arkansas rock &amp; roll
-        </span>
         <h1
           style={{
             fontSize: 52,
-            marginTop: 16,
             color: "var(--accent)",
             textShadow: "3px 3px 0 var(--ink)",
           }}
