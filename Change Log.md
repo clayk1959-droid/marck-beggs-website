@@ -3,6 +3,16 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 25 — Sunday, September 6, 2026
+Release cards showed only cover art and a LISTEN banner, so New Jams
+looked identical to every other cover until you tapped it — each card
+now shows its title and year underneath. Releases sort newest-first by
+year; New Jams stays pinned at the top for now, since its "forthcoming"
+year sorts ahead of any real one and the pin falls away on its own once
+it ships with a real year. Moved the Releases gallery above the general
+"hit play" streaming-service buttons, which now sit at the bottom of
+the page instead of between the hero and the gallery.
+
 ## Version 24 — Sunday, September 6, 2026
 The service picker used to show a disabled "Spotify — soon" button for
 any release missing a link, implying it was just a matter of time. For

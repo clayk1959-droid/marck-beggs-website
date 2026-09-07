@@ -2,6 +2,13 @@ import { StreamingButtons } from "../../components/StreamingButtons";
 import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
 import musicReleases from "../../data/music-releases.json";
 
+const sortedReleases = [...musicReleases].sort((a, b) => {
+  const aForthcoming = a.year === "forthcoming";
+  const bForthcoming = b.year === "forthcoming";
+  if (aForthcoming || bForthcoming) return aForthcoming ? -1 : 1;
+  return Number(b.year) - Number(a.year);
+});
+
 export default function MusicPage() {
   return (
     <main>
@@ -27,17 +34,17 @@ export default function MusicPage() {
         </p>
       </section>
 
-      <section className="wrap section">
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
+        <h2 className="section-title">Releases</h2>
+        <p className="section-note">tap a cover, pick a service — New Jams plays right here</p>
+        <MusicReleaseGallery releases={sortedReleases} />
+      </section>
+
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
         <div className="section-note" style={{ textAlign: "center" }}>
           hit play →
         </div>
         <StreamingButtons />
-      </section>
-
-      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
-        <h2 className="section-title">Releases</h2>
-        <p className="section-note">tap a cover, pick a service — New Jams plays right here</p>
-        <MusicReleaseGallery releases={musicReleases} />
       </section>
     </main>
   );
