@@ -9,32 +9,29 @@ const PLATFORMS = [
 
 export function StreamingButtons() {
   return (
-    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 12,
+      }}
+    >
       {PLATFORMS.map((platform) => {
         const url = links.streaming[platform.key];
         const ready = Boolean(url);
         return (
-          <li key={platform.key}>
-            {ready ? (
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
-              >
-                {platform.label}
-              </a>
-            ) : (
-              <span style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink-soft)" }}>
-                {platform.label}{" "}
-                <span className="mono" style={{ fontSize: 14 }}>
-                  (Coming Soon)
-                </span>
-              </span>
-            )}
-          </li>
+          <a
+            key={platform.key}
+            href={ready ? url : undefined}
+            aria-disabled={!ready}
+            target={ready ? "_blank" : undefined}
+            rel={ready ? "noreferrer" : undefined}
+            className="btn"
+          >
+            {ready ? platform.label : `${platform.label} — soon`}
+          </a>
         );
       })}
-    </ul>
+    </div>
   );
 }
