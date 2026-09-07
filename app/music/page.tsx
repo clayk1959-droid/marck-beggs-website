@@ -69,10 +69,14 @@ export default function MusicPage() {
           href="https://www.youtube.com/playlist?list=PLMyluuYWb_fw0-ZQDLiaBT5AvrxTDAR7c"
           target="_blank"
           rel="noreferrer"
-          style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
         >
-          <ServiceIcon service="youtube" variant="color" size={22} />
-          My videos on YouTube
+          <ServiceIcon service="youtube" variant="color" size={50} />
+          <span style={{ display: "block", lineHeight: 1.3 }}>
+            My videos
+            <br />
+            on YouTube
+          </span>
         </a>
       </section>
     </main>
