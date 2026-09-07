@@ -35,14 +35,34 @@ export function SoundcloudSinglesList({ singles }: { singles: Single[] }) {
               {single.title}
             </button>
             {isOpen && embedUrl ? (
-              <iframe
-                src={embedUrl}
-                width="100%"
-                height={166}
-                style={{ border: "none", display: "block", marginTop: 4, marginBottom: 8, maxWidth: 400 }}
-                allow="autoplay; encrypted-media; fullscreen"
-                loading="lazy"
-              />
+              <div style={{ marginTop: 4, marginBottom: 8, maxWidth: 400 }}>
+                <iframe
+                  src={embedUrl}
+                  width="100%"
+                  height={166}
+                  style={{ border: "none", display: "block" }}
+                  allow="autoplay; encrypted-media; fullscreen"
+                  loading="lazy"
+                />
+                <button
+                  type="button"
+                  onClick={() => setOpenHref(null)}
+                  className="mono"
+                  style={{
+                    display: "block",
+                    marginTop: 4,
+                    padding: "4px 0",
+                    fontSize: 12,
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                    color: "var(--ink-soft)",
+                  }}
+                >
+                  × Close
+                </button>
+              </div>
             ) : null}
           </div>
         );
