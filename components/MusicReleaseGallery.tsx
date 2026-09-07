@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { getEmbedUrl, SERVICE_LABELS, StreamingService } from "../lib/streaming-embed";
 import { ServiceIcon } from "../lib/service-icons";
 
@@ -261,44 +261,50 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                   />
                 </div>
               ) : (
-                <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 16 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginTop: 16 }}>
                   {SERVICES.filter((service) => active.links?.[service]).map((service) => {
                     const url = active.links![service]!;
                     const embeddable = Boolean(getEmbedUrl(service, url));
                     const iconVariant = ICON_VARIANT[active.slug];
                     const icon = iconVariant ? (
-                      <ServiceIcon service={service} variant={iconVariant} size={18} />
+                      <ServiceIcon service={service} variant={iconVariant} size={44} />
                     ) : null;
+                    const content = (
+                      <>
+                        {icon}
+                        <span className="mono" style={{ fontSize: 11, color: "var(--ink)" }}>
+                          {SERVICE_LABELS[service]}
+                          {embeddable ? "" : " ↗"}
+                        </span>
+                      </>
+                    );
+                    const itemStyle: CSSProperties = {
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 8,
+                      padding: "10px 4px",
+                      background: "none",
+                      border: "none",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    };
                     if (embeddable) {
                       return (
-                        <button
-                          key={service}
-                          type="button"
-                          onClick={() => setEmbedService(service)}
-                          className="btn"
-                          style={{ fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
-                        >
-                          {icon}
-                          {SERVICE_LABELS[service]}
+                        <button key={service} type="button" onClick={() => setEmbedService(service)} style={itemStyle}>
+                          {content}
                         </button>
                       );
                     }
                     return (
-                      <a
-                        key={service}
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn"
-                        style={{ fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
-                      >
-                        {icon}
-                        {SERVICE_LABELS[service]} ↗
+                      <a key={service} href={url} target="_blank" rel="noreferrer" style={itemStyle}>
+                        {content}
                       </a>
                     );
                   })}
                   {SERVICES.every((service) => !active.links?.[service]) ? (
-                    <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)" }}>
+                    <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", gridColumn: "1 / -1" }}>
                       Not currently available to stream.
                     </p>
                   ) : null}
