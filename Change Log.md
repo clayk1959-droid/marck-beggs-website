@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 60 (c1ae1b0) — Monday, September 7, 2026
+Marck put the 2008 dog gods album out on SoundCloud (his call — just
+there for now, nowhere else). The "I am large, I contain multitudes"
+line inside the dog gods: singles player was a dead end ("not
+available to stream") — it's now a real external link to the
+SoundCloud set.
+
 ## Version 59 (ab9f584) — Monday, September 7, 2026
 Two more from Marck. Dropped the "forthcoming" label from dog gods:
 singles (card and its player popup both read the same field, so
