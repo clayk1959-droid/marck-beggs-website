@@ -20,7 +20,7 @@ type Release = {
   credit?: string;
   cover: string;
   links?: Partial<Record<StreamingService, string>>;
-  tracks?: { title: string; note?: string; audioUrl: string }[];
+  tracks?: { title: string; note?: string; audioUrl?: string }[];
 };
 
 const inputStyle: React.CSSProperties = {

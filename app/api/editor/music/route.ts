@@ -10,7 +10,7 @@ type Release = {
   credit?: string;
   cover: string;
   links?: Record<string, string>;
-  tracks?: { title: string; note?: string; audioUrl: string }[];
+  tracks?: { title: string; note?: string; audioUrl?: string }[];
 };
 
 export async function PATCH(request: Request) {

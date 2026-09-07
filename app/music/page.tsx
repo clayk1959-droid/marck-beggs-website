@@ -2,15 +2,10 @@ import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
 import { ServiceIcon } from "../../lib/service-icons";
 import musicReleases from "../../data/music-releases.json";
 
-const DOG_GODS_ORDER = ["dog-gods-singles", "dog-gods-2008"];
-
 const sortedReleases = [...musicReleases].sort((a, b) => {
-  const aDogGods = DOG_GODS_ORDER.indexOf(a.slug);
-  const bDogGods = DOG_GODS_ORDER.indexOf(b.slug);
-  if (aDogGods !== -1 || bDogGods !== -1) {
-    if (aDogGods !== -1 && bDogGods !== -1) return aDogGods - bDogGods;
-    return aDogGods !== -1 ? 1 : -1;
-  }
+  const aDogGods = a.slug === "dog-gods-singles";
+  const bDogGods = b.slug === "dog-gods-singles";
+  if (aDogGods || bDogGods) return aDogGods ? 1 : -1;
   return Number(b.year) - Number(a.year);
 });
 

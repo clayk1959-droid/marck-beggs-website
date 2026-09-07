@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { getEmbedUrl, SERVICE_LABELS, StreamingService } from "../lib/streaming-embed";
 import { ServiceIcon } from "../lib/service-icons";
 
-type Track = { title: string; note?: string; audioUrl: string };
+type Track = { title: string; note?: string; audioUrl?: string };
 
 type Release = {
   slug: string;
@@ -78,36 +78,46 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
           {[release.year, release.credit].filter(Boolean).join(" · ")}
         </p>
 
-        <div style={{ flex: 1, overflowY: "auto", marginTop: 12, display: "flex", flexDirection: "column", gap: 2 }}>
+        <div style={{ flex: 1, overflowY: "auto", marginTop: 8, display: "flex", flexDirection: "column" }}>
           {tracks.map((track, index) => {
             const isCurrent = index === currentIndex;
-            return (
-              <button
-                key={track.title}
-                type="button"
-                onClick={() => handleTrackClick(index)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "7px 6px",
-                  background: isCurrent ? "rgba(36,27,46,0.08)" : "none",
-                  border: "none",
-                  textAlign: "left",
-                  cursor: "pointer",
-                }}
-              >
-                <span style={{ fontSize: 13, color: isCurrent ? "var(--accent)" : "var(--ink)", width: 16, flexShrink: 0 }}>
-                  {isCurrent && isPlaying ? "❚❚" : "▶"}
+            const playable = Boolean(track.audioUrl);
+            const rowContent = (
+              <>
+                <span style={{ fontSize: 13, color: playable ? (isCurrent ? "var(--accent)" : "var(--ink)") : "var(--ink-soft)", width: 16, flexShrink: 0 }}>
+                  {playable ? (isCurrent && isPlaying ? "❚❚" : "▶") : "—"}
                 </span>
                 <span style={{ minWidth: 0 }}>
-                  <span style={{ fontWeight: isCurrent ? 800 : 600, fontSize: 14, display: "block" }}>{track.title}</span>
+                  <span style={{ fontWeight: isCurrent ? 800 : 600, fontSize: 14, display: "block", color: playable ? "var(--ink)" : "var(--ink-soft)" }}>
+                    {track.title}
+                  </span>
                   {track.note ? (
                     <span className="mono" style={{ fontSize: 10, color: "var(--ink-soft)" }}>
                       {track.note}
                     </span>
                   ) : null}
                 </span>
+              </>
+            );
+            const rowStyle: CSSProperties = {
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              padding: "4px 6px",
+              background: isCurrent ? "rgba(36,27,46,0.08)" : "none",
+              border: "none",
+              textAlign: "left",
+            };
+            if (!playable) {
+              return (
+                <div key={track.title} style={rowStyle}>
+                  {rowContent}
+                </div>
+              );
+            }
+            return (
+              <button key={track.title} type="button" onClick={() => handleTrackClick(index)} style={{ ...rowStyle, cursor: "pointer" }}>
+                {rowContent}
               </button>
             );
           })}
