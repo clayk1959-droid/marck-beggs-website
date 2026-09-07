@@ -1,6 +1,12 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import links from "../data/links.json";
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  const hideEmail = pathname === "/contact";
+
   return (
     <footer
       style={{
@@ -24,9 +30,11 @@ export function SiteFooter() {
         <p className="mono" style={{ fontSize: 12 }}>
           © {new Date().getFullYear()} Marck Beggs
         </p>
-        <a href={`mailto:${links.email}`} className="mono" style={{ fontSize: 12, textDecoration: "underline" }}>
-          {links.email}
-        </a>
+        {hideEmail ? null : (
+          <a href={`mailto:${links.email}`} className="mono" style={{ fontSize: 12, textDecoration: "underline" }}>
+            {links.email}
+          </a>
+        )}
       </div>
     </footer>
   );
