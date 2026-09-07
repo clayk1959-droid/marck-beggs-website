@@ -206,7 +206,8 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
             type="button"
             onClick={() => {
               setActiveSlug(release.slug);
-              setEmbedService(null);
+              const availableServices = SERVICES.filter((service) => release.links?.[service]);
+              setEmbedService(availableServices.length === 1 ? availableServices[0] : null);
             }}
             className="card"
             style={{ padding: 0, overflow: "hidden", cursor: "pointer", background: "none" }}
@@ -291,7 +292,11 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                 <div style={{ marginTop: 16 }}>
                   <button
                     type="button"
-                    onClick={() => setEmbedService(null)}
+                    onClick={() => {
+                      const availableServices = SERVICES.filter((service) => active.links?.[service]);
+                      if (availableServices.length === 1) close();
+                      else setEmbedService(null);
+                    }}
                     className="mono"
                     style={{ fontSize: 12, background: "none", border: "none", cursor: "pointer", textDecoration: "underline", padding: 0, marginBottom: 10 }}
                   >
