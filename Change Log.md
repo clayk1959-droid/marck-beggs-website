@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 63 (bc6096f) — Monday, September 7, 2026
+Clay liked the look of a paid Elfsight audio-player widget (big cover
+art, real transport controls, cleaner track list) and asked for our
+own version instead of paying for that service. The dog gods: singles
+player — the only release we play back ourselves rather than embedding
+a streaming service — now shows a crisp cover thumbnail next to the
+title, a scrubber with elapsed/remaining time, and real
+previous/play-pause/next buttons in place of the browser's plain audio
+bar. Previous restarts the current track once you're more than 3
+seconds in, otherwise it jumps back a track, matching how most music
+apps behave.
+
 ## Version 62 (5a43ab0) — Monday, September 7, 2026
 The 2008 dog gods album is a real 15-track release with a real
 SoundCloud home now, not a footnote — gave it back its own card in
