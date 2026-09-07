@@ -3,6 +3,16 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 67 (521ad55) — Monday, September 7, 2026
+Clay spotted it right after the wide-layout fix: the home page hero
+photo (fixed at 420px) and the Music/Writings row below it (stretched
+to fill the full column) no longer lined up on a wide screen — the
+cards row was visibly wider than the hero above it. Gave both the same
+600px max-width, centered together: hero is larger than before, the
+two cards are smaller than they'd grown to, and both blocks now share
+the same edges. Mobile is untouched — it was already narrower than
+600px.
+
 ## Version 66 (b72a9c3) — Monday, September 7, 2026
 Wide-desktop layout fix. Widening the content column on big screens
 (V18) never actually shifted it left — it just grew as a wider centered

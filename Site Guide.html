@@ -270,6 +270,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 67</span><span class="version-hash">(521ad55)</span><span class="version-date">Monday, September 7, 2026</span></div>
+      <ul>
+        <li>Clay spotted it right after the wide-layout fix: the home page hero photo (fixed at 420px) and the Music/Writings row below it (stretched to fill the full column) no longer lined up on a wide screen — the cards row was visibly wider than the hero above it. Gave both the same 600px max-width, centered together: hero is larger than before, the two cards are smaller than they'd grown to, and both blocks now share the same edges. Mobile is untouched.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 66</span><span class="version-hash">(b72a9c3)</span><span class="version-date">Monday, September 7, 2026</span></div>
       <ul>
         <li>Wide-desktop layout fix. Widening the content column on big screens (V18) never actually shifted it left — it just grew as a wider centered box, margins still equal on both sides. Marck delegated the call. Now the content sits with a real but modest left margin (scales with the window) and the leftover space collects on the right instead of splitting evenly — shifted left with room to breathe, not crowded. Mobile and tablet are untouched.</li>
