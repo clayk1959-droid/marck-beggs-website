@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 48 (cd8274c) — Monday, September 7, 2026
+Added real streaming-service logos (Pandora, Spotify, Apple Music,
+YouTube, SoundCloud) to the picker, inlined as SVG — no external CDN.
+Temporary A/B test ahead of a style decision: 12 Steps shows the logos
+in full brand color, Tectonic Plates shows the same logos in a single
+ink color. Every other release is untouched until a direction is
+picked.
+
 ## Version 47 (92763d0) — Monday, September 7, 2026
 A batch of changes straight from Marck's own email. Music page: hero
 replaced with just "Music" (dropping the dog gods band framing, since
