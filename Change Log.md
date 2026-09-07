@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 21 — Sunday, September 6, 2026
+Folded "New Jams" (the forthcoming dog gods record) into the Releases
+gallery as the first tile, treated like any other album. Tapping LISTEN
+skips straight to a track-list mini-player (numbered dots, same style
+as the other mini-players) instead of the streaming-service picker,
+since these six songs are self-hosted rather than on any platform.
+Removed the now-fully-superseded standalone New Jams section, the
+TrackList component, and tracks.json.
+
 ## Version 20 — Sunday, September 6, 2026
 Replaced the Music page's static Cover Art grid with an interactive
 Releases gallery, adopting the multi-release catalog (2008-2026, 8
