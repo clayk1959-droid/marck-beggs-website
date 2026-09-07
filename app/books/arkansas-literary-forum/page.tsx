@@ -51,16 +51,16 @@ export default function ArkansasLiteraryForumPage() {
         </p>
       </section>
 
-      <section className="wrap section">
+      <section className="wrap section" style={{ paddingBottom: "var(--space-4)" }}>
         <h2 className="section-title">Issues</h2>
-        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column" }}>
           {VOLUMES.map((volume) => (
             <li key={volume.year}>
               <a
                 href={`/ALF/${volume.year}/${volume.year}.html`}
                 target="_blank"
                 rel="noreferrer"
-                style={{ fontSize: 19, fontWeight: 700, color: "var(--ink)", textDecoration: "underline" }}
+                style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 700, color: "var(--ink)", textDecoration: "underline" }}
               >
                 {volume.label}
               </a>
@@ -74,16 +74,16 @@ export default function ArkansasLiteraryForumPage() {
         </ul>
       </section>
 
-      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
+      <section className="wrap section" style={{ paddingTop: "var(--space-4)" }}>
         <h2 className="section-title">About the Journal</h2>
-        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column" }}>
           {INFO_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                style={{ fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+                style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
               >
                 {link.label}
               </a>
