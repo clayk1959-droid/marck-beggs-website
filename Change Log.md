@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 35 (d7548f1) — Monday, September 7, 2026
+Gave the bottom Music section a proper "Discography" header instead
+of just the "hit play" note, matching the Releases section's pattern.
+A real discography link may get added here later.
+
 ## Version 34 (28ce9a2) — Monday, September 7, 2026
 Applied the ALF page's tight-spacing style to the Music page's bottom
 section: dropped the rule line between Releases and the streaming
