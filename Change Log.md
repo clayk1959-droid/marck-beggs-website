@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 43 (b314cd4) — Monday, September 7, 2026
+Added the two stray photos from the old site — Marck with Johnny A at
+Sirius holding the guitar he won, and the "Howdy" facemask photo — as
+a new centered row at the top of the Photos page, above the
+collections grid. Pulled the real source images from marckbeggs.com
+(they'd never been carried into the rebuild) and resized them with
+the same pipeline as everything else.
+
 ## Version 42 (daf54ea) — Monday, September 7, 2026
 Redesigned the New Jams player as a square playlist window: the cover
 art now sits behind the track list as a very light, desaturated
