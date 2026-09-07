@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 53 (094980c) — Monday, September 7, 2026
+"My videos on YouTube" now breaks to two lines ("My videos" / "on
+YouTube"), with the icon bumped from 22px to 50px so it matches the
+depth of the two-line text instead of looking small next to it.
+
 ## Version 52 (bb1918c) — Monday, September 7, 2026
 "Miscellaneous Videos" relabeled "My videos on YouTube," with the same
 color YouTube icon from the streaming picker placed right before the
