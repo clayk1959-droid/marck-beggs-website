@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 64 (8195afb) — Monday, September 7, 2026
+Marck reported the 2008 dog gods album "just does the first song."
+The link was fine — his new shortlink resolved to the exact same
+15-track set — the embed box was just sized for a single track
+(166px), too short to show the tracklist below the first song's
+player. Playlist/set links now get a 600px-tall embed so the full
+15-track list is visible and playable; plain single-track links are
+unaffected.
+
 ## Version 63 (bc6096f) — Monday, September 7, 2026
 Clay liked the look of a paid Elfsight audio-player widget (big cover
 art, real transport controls, cleaner track list) and asked for our
