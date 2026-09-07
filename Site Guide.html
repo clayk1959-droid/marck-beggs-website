@@ -193,6 +193,16 @@ npm run dev</code></pre>
       and <code>.../thumbs/</code> — full-size capped at 3200px, thumbnails
       at 750px, both mozjpeg — matching the resize rules used on the Carson
       &amp; Muller photo site.</p>
+    <p><code>public/ALF/</code> is a special case: a straight, unedited mirror
+      of the old Arkansas Literary Forum journal (1999-2008, ~740MB) served
+      as static files at <code>/ALF/...</code>, outside the JSON-driven
+      content system entirely — nothing in <code>data/</code> describes it,
+      and the editor can't touch it. The landing page at
+      <code>/books/arkansas-literary-forum</code> (a normal page component)
+      is the only styled part; every page under <code>/ALF/</code> itself is
+      exactly the original 2000s-era HTML, unstyled and not mobile-friendly
+      by design — reformatting it wasn't worth the risk of altering other
+      people's original work.</p>
   </section>
 
   <section id="adding">
@@ -258,6 +268,12 @@ npm run dev</code></pre>
     <p>Most recent first. Hosted on Vercel, deployed from GitHub — every push
       to <code>main</code> goes live automatically within a minute or two.</p>
 
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 27</span><span class="version-date">Sunday, September 6, 2026</span></div>
+      <ul>
+        <li>Preserved the Arkansas Literary Forum, the online literary journal Marck edited from 1999-2008 — it was still live on the same Bluehost account as the old WordPress site, which disappears once marckbeggs.com's DNS gets repointed here. Mirrored all 10 volumes (2,600+ pages and images, ~740MB) exactly as originally published rather than reformatting 25-year-old table layouts for mobile. Built a new landing page at <code>/books/arkansas-literary-forum</code> in the site's own design, listing the 10 issues and info pages; the archive pages themselves are untouched behind it. Linked to it from the Writings page.</li>
+      </ul>
+    </div>
     <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 26</span><span class="version-date">Sunday, September 6, 2026</span></div>
       <ul>

@@ -3,6 +3,20 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 27 — Sunday, September 6, 2026
+Preserved the Arkansas Literary Forum, the online literary journal Marck
+edited from 1999-2008 — it was still live on the same Bluehost account
+as the old WordPress site, which disappears once marckbeggs.com's DNS
+gets repointed here, so it needed a real home. Mirrored all 10 volumes
+(2,600+ pages and images, ~740MB) exactly as originally published —
+reformatting several hundred pages of 25-year-old table layouts for
+mobile risked introducing errors into other people's original work for
+something that mostly exists as an archive. Built a new landing page at
+/books/arkansas-literary-forum in the site's own design, listing the 10
+issues and info pages, replacing the old bare FrontPage menu as the
+front door; the archive pages themselves are untouched behind it.
+Linked to it from the Writings page.
+
 ## Version 26 — Sunday, September 6, 2026
 Bumped the Releases section's "tap a cover, pick a service" note from
 12pt to 16pt and dropped the "New Jams plays right here" clause, since
