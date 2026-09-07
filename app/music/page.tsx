@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { StreamingButtons } from "../../components/StreamingButtons";
 import { TrackList } from "../../components/TrackList";
-import musicArt from "../../data/music-art.json";
+import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
+import musicReleases from "../../data/music-releases.json";
 
 export default function MusicPage() {
   return (
@@ -42,23 +42,9 @@ export default function MusicPage() {
       </section>
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
-        <h2 className="section-title">Cover Art</h2>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 16,
-            marginTop: 16,
-          }}
-        >
-          {musicArt.map((art) => (
-            <div key={art.image} className="card" style={{ overflow: "hidden", padding: 8 }}>
-              <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", overflow: "hidden" }}>
-                <Image src={art.image} alt={art.label || "dog gods cover art"} fill style={{ objectFit: "cover" }} sizes="45vw" />
-              </div>
-            </div>
-          ))}
-        </div>
+        <h2 className="section-title">Releases</h2>
+        <p className="section-note">tap a cover, pick a service</p>
+        <MusicReleaseGallery releases={musicReleases} />
       </section>
     </main>
   );

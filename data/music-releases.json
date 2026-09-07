@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "12-steps",
+    "title": "12 Steps",
+    "year": "2026",
+    "cover": "/images/music-rotation/cover-12-steps.png",
+    "links": {
+      "spotify": "https://open.spotify.com/album/7oUPlHFL6lCjix4tGDHhXS?si=Fg3myv-lTQifadiRfqVuww",
+      "apple": "https://music.apple.com/us/album/12-steps/1896092806",
+      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_kilIywQinJO6qbW6YZR0zrGmNMVh-VBR8",
+      "pandora": "https://www.pandora.com/artist/marck/12-steps/AL5qt95cKJq3qVm",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/12-steps"
+    }
+  },
+  {
+    "slug": "tectonic-plates",
+    "title": "Tectonic Plates",
+    "year": "2025",
+    "credit": "Cover by Tricia T. Baar",
+    "cover": "/images/music-rotation/cover-tectonic-plates.jpg",
+    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+  },
+  {
+    "slug": "songs-for-the-bog-queen",
+    "title": "Songs for the Bog Queen",
+    "year": "2025",
+    "credit": "Cover by Tricia T. Baar",
+    "cover": "/images/music-rotation/cover-bog-queen.jpg",
+    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+  },
+  {
+    "slug": "pastel-gods",
+    "title": "Pastel Gods",
+    "year": "2024",
+    "credit": "Cover by Tricia T. Baar",
+    "cover": "/images/music-rotation/cover-pastel-gods.jpg",
+    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+  },
+  {
+    "slug": "psychedelic-pants",
+    "title": "Psychedelic Pants",
+    "year": "2024",
+    "credit": "Cover by Tricia T. Baar",
+    "cover": "/images/music-rotation/cover-psychedelic-pants.jpg",
+    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+  },
+  {
+    "slug": "weather-app",
+    "title": "Weather App",
+    "year": "2023",
+    "cover": "/images/music-rotation/cover-weather-app.jpg",
+    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+  },
+  {
+    "slug": "negative-light",
+    "title": "Negative Light",
+    "year": "2023",
+    "cover": "/images/music-rotation/cover-negative-light.jpg",
+    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+  },
+  {
+    "slug": "dog-gods-2008",
+    "title": "dog gods — I am large, I contain multitudes",
+    "year": "2008",
+    "cover": "/images/music/doggods-art-1.jpg",
+    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "" }
+  }
+]
