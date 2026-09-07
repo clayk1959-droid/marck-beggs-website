@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>ALF Slideshow</title>
+</head>
+
+<body link="#000000" vlink="#000000" alink="#000000" background="../../borders/ARlogoborderfracta.jpg">
+<SCRIPT LANGUAGE="JavaScript">
+theimage = new Array();
+
+theimage[0]=["PHOTO NAME", "thmbrobotA.jpg"];
+theimage[1]=["PHOTO NAME", "thmbrobotB.jpg"];
+theimage[2]=["PHOTO NAME", "thmbrobotC.jpg"];
+theimage[3]=["PHOTO NAME", "thmbrobotD.jpg"];
+theimage[4]=["PHOTO NAME", "thmbrobotE.jpg"];
+theimage[5]=["PHOTO NAME", "thmbrobotF.jpg"];
+theimage[6]=["PHOTO NAME", "thmbrobotG.jpg"];
+theimage[7]=["PHOTO NAME", "thmbrobotH.jpg"];
+theimage[8]=["PHOTO NAME", "thmbrobotI.jpg"];
+theimage[9]=["PHOTO NAME", "thmbrobotJ.jpg"];
+theimage[10]=["PHOTO NAME", "thmbrobotK.jpg"];
+theimage[11]=["PHOTO NAME", "thmbrobotL.jpg"];
+theimage[12]=["PHOTO NAME", "thmbrobotM.jpg"];
+theimage[13]=["PHOTO NAME", "thmbrobotN.jpg"];
+theimage[14]=["PHOTO NAME", "thmbrobotO.jpg"];
+theimage[15]=["PHOTO NAME", "thmbrobotP.jpg"];
+theimage[16]=["PHOTO NAME", "thmbrobotQ.jpg"];
+theimage[17]=["PHOTO NAME", "thmbrobotR.jpg"];
+theimage[18]=["PHOTO NAME", "thmbrobotS.jpg"];
+theimage[19]=["PHOTO NAME", "thmbrobotT.jpg"];
+theimage[20]=["PHOTO NAME", "thmbrobotU.jpg"];
+theimage[21]=["PHOTO NAME", "thmbrobotV.jpg"];
+theimage[22]=["PHOTO NAME", "thmbrobotW.jpg"];
+theimage[23]=["PHOTO NAME", "thmbrobotX.jpg"];
+theimage[24]=["PHOTO NAME", "thmbrobotY.jpg"];
+theimage[25]=["PHOTO NAME", "thmbrobotZ.jpg"];
+
+
+playspeed=7000; 
+dotrans=1;   
+transtype='blendTrans';  
+transattributes='duration=1,transition=23';  
+randomorder=1;
+playdiffernce=500;  
+autostart=1;
+preloadslides=1;
+function makeRandom() {
+tempimage = new Array();
+for(p=0;p<theimage.length;p++){
+for(p1=0;p1>-1;p1) {tempNum = Math.floor(Math.random()*theimage.length)
+if(!tempimage[tempNum]){tempimage[tempNum]=theimage[p];break}}}
+for(p=0;p<theimage.length;p++)theimage[p]=tempimage[p]}
+if(randomorder==1)makeRandom()
+
+function preloadSlide() {for(k=0;k<til;k++) {theimage[k][1]=new Image().src=theimage[k][1];}}
+
+window.onload=function(){
+if(window.preloadslides)preloadSlide();if(window.autostart)slidePlay();}
+
+window.onresize=function(){
+if(document.layers)this.location=this.location;}
+</SCRIPT>
+
+<p align="center"><font size="4">Poems and Fractals by Michael Karl (Ritchie) 
+and Terry Wright</font><br>
+<br>
+
+
+</p>
+
+
+<FORM NAME="slideshow">
+<DIV ALIGN="CENTER">
+<TABLE border=0 CELLPADDING=0 CELLSPACING=0 BGCOLOR="black">
+<TR>
+<TD ALIGN=CENTER>
+<div align="center">
+  <center>
+<TABLE border=0 CELLPADDING=10 CELLSPACING=1 style="border: 1px solid #008080; ">
+<TR>
+	<TD ALIGN=CENTER BGCOLOR="#030233" colspan="5" style="border: 1px solid #000000; ">
+    <b><font face="Verdana,Arial,Helvetica" size="2" color="#FFFFFF">Robot</font></b></TD>
+</TR>
+<TR>
+	<TD ALIGN=CENTER BGCOLOR="#FFFFFF" colspan="5" width="250" height="270" style="border: 1px solid #000000; "><A HREF="#" onmouseover="this.href=theimage[i][2];return false"><SCRIPT>document.write('<IMG NAME="slideimage"  STYLE="filter:'+transtype+'('+transattributes+');" SRC="'+theimage[0][1]+'" BORDER=0>')</SCRIPT></A></TD>
+</TR>
+<TR>
+	<TD ALIGN=CENTER BGCOLOR="#030233" colspan="5" style="border: 1px solid #000000; "><SCRIPT>
+for (y=0;y<theimage.length;y++) {document.slideshow.theimages[y]=new Option(theimage[y][0])}</SCRIPT>&nbsp;</TD>
+</TR>
+<TR>
+	<TD ALIGN=CENTER BGCOLOR="#030233" style="border: 1px solid #000000; "><b><font
+      color="#000000"><a
+      HREF="javascript:slideImage(0);" onfocus="this.blur()">
+    <font
+      face="Verdana,Arial,Helvetica" size="2" color="#FFFFFF">&lt;&lt;</font></a><font
+      face="Verdana,Arial,Helvetica" size="2" color="#FFFFFF"><SCRIPT>imgStop=new Image().src='../beta/slideshow/b4.jpg';</SCRIPT></font></font></b></TD>
+	<TD ALIGN=CENTER BGCOLOR="#030233" style="border: 1px solid #000000; "><a
+      href="javascript:slideImage(0);"><b>
+    <font face="Verdana,Arial,Helvetica"
+      size="2" color="#FFFFFF">&lt;</font></b></a></TD>
+	<TD ALIGN=CENTER BGCOLOR="#030233" style="border: 1px solid #000000; "><a
+      href="javascript:slidePlay();"><b>
+    <font face="Verdana,Arial,Helvetica"
+      size="2" color="#FFFFFF">Play/Stop</font></b></a></TD>
+	<TD ALIGN=CENTER BGCOLOR="#030233" style="border: 1px solid #000000; "><a
+      href="javascript:slideImage(i+1);"><b>
+    <font face="Verdana,Arial,Helvetica"
+      size="2" color="#FFFFFF">&gt;</font></b></a></TD>
+	<TD ALIGN=CENTER BGCOLOR="#030233" style="border: 1px solid #000000; "><a
+      HREF="javascript:slideImage(theimage.length-1);" onfocus="this.blur()"><b>
+    <font
+      face="Verdana,Arial,Helvetica" size="2" color="#FFFFFF">&gt;&gt;</font></b></a></TD>
+</TR>
+</TABLE>
+  </center>
+</div>
+</TD>
+</TR>
+</TABLE>
+</FORM>
+
+<SCRIPT>
+with(document){i=0,play=0,di=images,dl=links,form=slideshow,til=theimage.length}
+
+function slideImage(num) {
+i=num%til;if(i<0)i=til-1;
+if(document.all&&dotrans==1)eval('di.slideimage.filters.'+transtype+'.apply()')
+di.slideimage.src=theimage[i][1];
+if(document.all&&dotrans==1)eval('di.slideimage.filters.'+transtype+'.play()')
+if(form.theimages)form.theimages.selectedIndex = i;
+if(form.slidebox)form.slidebox.value = theimage[i][0];
+if(form.slidecount)form.slidecount.value = "Image "+(i+1)+" of "+til;
+if(form.slidespeed)doSpeed(0);}
+
+function slidePlay() {
+if (!window.playing) {
+slidePlaying(i+1);
+if(form.play)form.play.value="   Stop   ";}
+else {playing=clearTimeout(playing);
+if(form.play)form.play.value="   Play   ";}
+if(di.imgPlay){setTimeout('di.imgPlay.src="'+imgStop+'"',1);imgStop=di.imgPlay.src}}
+
+function slidePlaying(num) {
+playing=setTimeout('slidePlaying(i+1);slideImage(i+1);', playspeed);}
+
+slideImage(0);
+</SCRIPT>
+<div align="right">
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="85%" id="AutoNumber1">
+    <tr>
+      <td width="100%">This image/poem slideshow is designed to display in random order.&nbsp; If 
+you are using a dial-up connection, it may be necessary to use the navigation 
+arrows to forward through the array.&nbsp; The images will still appear in 
+random order in this event.<p>Also, if you want to pause and study any given 
+      image-poem, use the Play/Stop function.</p>
+      <p>The &quot;Full Screen&quot; function on your browser will allow you to see these 
+      images in...well...a full screen mode, genius.</td>
+    </tr>
+  </table>
+</div>
+<p align="center"><a href="../2003.html">HOME</a></p>
+
+</body>
+
+</html>

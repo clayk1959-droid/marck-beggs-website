@@ -1,3 +1,4 @@
+import Link from "next/link";
 import books from "../../data/books.json";
 import { BookGrid } from "../../components/BookGrid";
 
@@ -46,6 +47,19 @@ export default function BooksPage() {
           </div>
         </section>
       ) : null}
+
+      <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
+        <Link
+          href="/books/arkansas-literary-forum"
+          className="card"
+          style={{ display: "block", padding: 20, textDecoration: "none", color: "inherit" }}
+        >
+          <div style={{ fontWeight: 800, fontSize: 15 }}>Arkansas Literary Forum (archive) →</div>
+          <div className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 4 }}>
+            the online journal Marck edited, 1999&ndash;2008
+          </div>
+        </Link>
+      </section>
     </main>
   );
 }
