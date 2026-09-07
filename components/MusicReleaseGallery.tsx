@@ -30,6 +30,7 @@ const EMBED_HEIGHT: Record<StreamingService, number> = {
 function TrackPlayer({ release, onClose }: { release: Release; onClose: () => void }) {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [embedUrl, setEmbedUrl] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const tracks = release.tracks || [];
   const currentTrack = currentIndex !== null ? tracks[currentIndex] : null;
@@ -79,7 +80,27 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
         </p>
 
         <div style={{ flex: 1, overflowY: "auto", marginTop: 8, display: "flex", flexDirection: "column" }}>
-          {tracks.map((track, index) => {
+          {embedUrl ? (
+            <div>
+              <button
+                type="button"
+                onClick={() => setEmbedUrl(null)}
+                className="mono"
+                style={{ fontSize: 12, background: "none", border: "none", cursor: "pointer", textDecoration: "underline", padding: "4px 6px", marginBottom: 10 }}
+              >
+                ← back
+              </button>
+              <iframe
+                src={embedUrl}
+                width="100%"
+                height={166}
+                style={{ border: "none", display: "block" }}
+                allow="autoplay; encrypted-media; fullscreen"
+                loading="lazy"
+              />
+            </div>
+          ) : (
+          tracks.map((track, index) => {
             const isCurrent = index === currentIndex;
             const playable = Boolean(track.audioUrl);
             const linkable = Boolean(track.externalUrl);
@@ -113,6 +134,14 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
               color: "inherit",
             };
             if (linkable) {
+              const embeddable = getEmbedUrl("soundcloud", track.externalUrl!);
+              if (embeddable) {
+                return (
+                  <button key={track.title} type="button" onClick={() => setEmbedUrl(embeddable)} style={{ ...rowStyle, cursor: "pointer" }}>
+                    {rowContent}
+                  </button>
+                );
+              }
               return (
                 <a key={track.title} href={track.externalUrl} target="_blank" rel="noreferrer" style={{ ...rowStyle, cursor: "pointer" }}>
                   {rowContent}
@@ -131,7 +160,8 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
                 {rowContent}
               </button>
             );
-          })}
+          })
+          )}
         </div>
 
         {currentTrack ? (
