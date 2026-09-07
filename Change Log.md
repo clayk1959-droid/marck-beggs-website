@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 36 (d519894) — Monday, September 7, 2026
+Dropped the boxed buttons in the Discography section for plain
+hyperlink text, matching the ALF page and Releases gallery: YouTube
+(the one real link) is a plain underlined link, and Spotify/Apple
+Music/CD Baby show as plain text with "(Coming Soon)" instead of a
+disabled button.
+
 ## Version 35 (d7548f1) — Monday, September 7, 2026
 Gave the bottom Music section a proper "Discography" header instead
 of just the "hit play" note, matching the Releases section's pattern.
