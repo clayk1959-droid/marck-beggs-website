@@ -27,6 +27,11 @@ const EMBED_HEIGHT: Record<StreamingService, number> = {
   pandora: 0,
 };
 
+function embedHeightFor(service: StreamingService, url: string): number {
+  if (service === "soundcloud" && url.includes("/sets/")) return 600;
+  return EMBED_HEIGHT[service];
+}
+
 function formatTime(seconds: number): string {
   if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
   const mins = Math.floor(seconds / 60);
@@ -426,7 +431,7 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                   <iframe
                     src={getEmbedUrl(embedService, active.links?.[embedService] || "") || ""}
                     width="100%"
-                    height={EMBED_HEIGHT[embedService]}
+                    height={embedHeightFor(embedService, active.links?.[embedService] || "")}
                     style={{ border: "none", display: "block" }}
                     allow="autoplay; encrypted-media; fullscreen"
                     loading="lazy"
