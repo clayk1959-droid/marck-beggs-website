@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/music", label: "Music" },
   { href: "/books", label: "Writings" },
+  { href: "/books/arkansas-literary-forum", label: "ALF", title: "Arkansas Literary Forum (archive)" },
   { href: "/photos", label: "Photos" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -45,7 +46,7 @@ export function SiteHeader() {
           {open && (
             <nav className="nav-menu" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
-                <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+                <Link key={item.href} href={item.href} title={item.title} onClick={() => setOpen(false)}>
                   {item.label}
                 </Link>
               ))}
