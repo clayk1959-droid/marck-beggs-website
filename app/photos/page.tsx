@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import collections from "../../data/photo-collections.json";
-import { StrayPhotos } from "../../components/StrayPhotos";
 
 export default function PhotosPage() {
   return (
@@ -17,13 +16,8 @@ export default function PhotosPage() {
         </h1>
       </section>
 
-      <section className="wrap" style={{ paddingTop: 24, paddingBottom: 24 }}>
-        <StrayPhotos />
-      </section>
-
-      <section className="wrap section" style={{ paddingTop: 0 }}>
+      <section className="wrap section">
         <div
-          id="collections-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",

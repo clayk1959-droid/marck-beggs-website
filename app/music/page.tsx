@@ -1,12 +1,28 @@
 import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
 import musicReleases from "../../data/music-releases.json";
 
+const DOG_GODS_ORDER = ["dog-gods-singles", "dog-gods-2008"];
+
 const sortedReleases = [...musicReleases].sort((a, b) => {
-  const aForthcoming = a.year === "forthcoming";
-  const bForthcoming = b.year === "forthcoming";
-  if (aForthcoming || bForthcoming) return aForthcoming ? -1 : 1;
+  const aDogGods = DOG_GODS_ORDER.indexOf(a.slug);
+  const bDogGods = DOG_GODS_ORDER.indexOf(b.slug);
+  if (aDogGods !== -1 || bDogGods !== -1) {
+    if (aDogGods !== -1 && bDogGods !== -1) return aDogGods - bDogGods;
+    return aDogGods !== -1 ? 1 : -1;
+  }
   return Number(b.year) - Number(a.year);
 });
+
+const SOUNDCLOUD_SINGLES = [
+  {
+    title: "Monster Trucks",
+    href: "https://soundcloud.com/marck-96594539/monster-trucks?in=marck-96594539/sets/marck-music",
+  },
+  {
+    title: "Iceman",
+    href: "https://soundcloud.com/marck-96594539/iceman?in=marck-96594539/sets/misc",
+  },
+];
 
 export default function MusicPage() {
   return (
@@ -19,20 +35,43 @@ export default function MusicPage() {
             textShadow: "3px 3px 0 var(--ink)",
           }}
         >
-          dog gods
+          Music
         </h1>
-        <p className="mono" style={{ fontSize: 13, color: "var(--ink-soft)", marginTop: 6 }}>
-          (sometimes known as Bohemian Sauce)
-        </p>
-        <p style={{ maxWidth: 420, margin: "16px auto 0", fontWeight: 500 }}>
-          Marck L. Beggs: vocals &amp; guitar · Luke Pittman: guitar, bass &amp; vocals · Craig Seager: drums &amp; bass
-        </p>
       </section>
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)", paddingTop: "var(--space-5)" }}>
         <h2 className="section-title">Releases</h2>
         <p className="section-note" style={{ fontSize: 16 }}>tap a cover, pick a service</p>
         <MusicReleaseGallery releases={sortedReleases} />
+      </section>
+
+      <section className="wrap section" style={{ paddingTop: "var(--space-4)" }}>
+        <h2 className="section-title">Singles on SoundCloud</h2>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+          {SOUNDCLOUD_SINGLES.map((single) => (
+            <li key={single.href}>
+              <a
+                href={single.href}
+                target="_blank"
+                rel="noreferrer"
+                style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+              >
+                {single.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="wrap section" style={{ paddingTop: "var(--space-4)" }}>
+        <a
+          href="https://www.youtube.com/playlist?list=PLMyluuYWb_fw0-ZQDLiaBT5AvrxTDAR7c"
+          target="_blank"
+          rel="noreferrer"
+          style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+        >
+          Miscellaneous Videos
+        </a>
       </section>
     </main>
   );
