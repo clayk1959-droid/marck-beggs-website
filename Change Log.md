@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 31 — Monday, September 7, 2026
+Tried a different treatment for the ALF landing page's Issues and About
+the Journal lists — a wall of small type crammed into card boxes wasn't
+working. Replaced both with a plain list of larger underlined hyperlink
+text (22pt for issues, 19pt for info pages) and no boxes at all.
+
 ## Version 30 — Sunday, September 6, 2026
 Added the ALF logo to the archive link on the Writings page too, so it
 shows up everywhere the journal is referenced.
