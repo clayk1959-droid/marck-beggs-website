@@ -3,7 +3,7 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
-## Version 32 — Monday, September 7, 2026
+## Version 32 (2f487f7) — Monday, September 7, 2026
 Issues list text dropped from 22pt to 19pt to match the About the
 Journal list. Both lists now use the site's var(--space-2) spacing
 token for their line gap instead of a one-off number, tightened down

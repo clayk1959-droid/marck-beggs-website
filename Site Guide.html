@@ -75,6 +75,7 @@
   .version-entry:last-child { border-bottom: none; }
   .version-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
   .version-num { font-weight: 700; font-size: 15px; }
+  .version-hash { font-family: monospace; font-size: 12px; color: var(--muted); }
   .version-date { color: var(--muted); font-size: 13px; }
   .badge { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; padding: 2px 8px; border-radius: 999px; background: var(--code-bg); color: var(--muted); }
   .note { background: #fbf6e9; border: 1px solid #ecdfb3; border-radius: 8px; padding: 12px 16px; font-size: 14px; margin: 0 0 14px; }
@@ -269,7 +270,7 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
-      <div class="version-head"><span class="version-num">Version 32</span><span class="version-date">Monday, September 7, 2026</span></div>
+      <div class="version-head"><span class="version-num">Version 32</span><span class="version-hash">(2f487f7)</span><span class="version-date">Monday, September 7, 2026</span></div>
       <ul>
         <li>Issues list text dropped from 22pt to 19pt to match the About the Journal list; both now use the site's var(--space-2) spacing token for their line gap instead of a one-off number.</li>
       </ul>
