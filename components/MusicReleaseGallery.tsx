@@ -27,16 +27,30 @@ const EMBED_HEIGHT: Record<StreamingService, number> = {
   pandora: 0,
 };
 
+function formatTime(seconds: number): string {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
+}
+
 function TrackPlayer({ release, onClose }: { release: Release; onClose: () => void }) {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [embedUrl, setEmbedUrl] = useState<string | null>(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const tracks = release.tracks || [];
   const currentTrack = currentIndex !== null ? tracks[currentIndex] : null;
+  const playableIndexes = tracks.reduce<number[]>((acc, track, index) => {
+    if (track.audioUrl) acc.push(index);
+    return acc;
+  }, []);
 
   useEffect(() => {
     if (currentIndex !== null) {
+      setCurrentTime(0);
       audioRef.current?.play().catch(() => {});
     }
   }, [currentIndex]);
@@ -58,6 +72,29 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
     }
   }
 
+  function playAdjacent(direction: 1 | -1) {
+    if (currentIndex === null) return;
+    if (direction === -1 && currentTime > 3) {
+      if (audioRef.current) audioRef.current.currentTime = 0;
+      return;
+    }
+    const pos = playableIndexes.indexOf(currentIndex);
+    const nextPos = pos + direction;
+    if (nextPos >= 0 && nextPos < playableIndexes.length) {
+      setCurrentIndex(playableIndexes[nextPos]);
+    } else if (direction === -1 && audioRef.current) {
+      audioRef.current.currentTime = 0;
+    }
+  }
+
+  function handleScrub(value: number) {
+    if (audioRef.current) audioRef.current.currentTime = value;
+    setCurrentTime(value);
+  }
+
+  const hasPrev = currentIndex !== null && playableIndexes.indexOf(currentIndex) > 0;
+  const hasNext = currentIndex !== null && playableIndexes.indexOf(currentIndex) < playableIndexes.length - 1;
+
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       <div style={{ position: "absolute", inset: 0 }}>
@@ -74,10 +111,17 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
         >
           ×
         </button>
-        <h3 style={{ fontSize: 20, color: "var(--accent)", textShadow: "2px 2px 0 var(--ink)", paddingRight: 30 }}>{release.title}</h3>
-        <p className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
-          {[release.year, release.credit].filter(Boolean).join(" · ")}
-        </p>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, paddingRight: 30 }}>
+          <div style={{ position: "relative", width: 56, height: 56, flexShrink: 0, border: "2px solid var(--ink)", boxShadow: "2px 3px 0 rgba(36,27,46,0.28)" }}>
+            <Image src={release.cover} alt="" fill style={{ objectFit: "cover" }} sizes="56px" />
+          </div>
+          <div style={{ minWidth: 0 }}>
+            <h3 style={{ fontSize: 18, color: "var(--accent)", textShadow: "2px 2px 0 var(--ink)", lineHeight: 1.2 }}>{release.title}</h3>
+            <p className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
+              {[release.year, release.credit].filter(Boolean).join(" · ")}
+            </p>
+          </div>
+        </div>
 
         <div style={{ flex: 1, overflowY: "auto", marginTop: 8, display: "flex", flexDirection: "column" }}>
           {embedUrl ? (
@@ -166,18 +210,95 @@ function TrackPlayer({ release, onClose }: { release: Release; onClose: () => vo
 
         {currentTrack ? (
           <div style={{ marginTop: 10, paddingTop: 10, borderTop: "2px solid var(--ink)" }}>
-            <div className="mono" style={{ fontSize: 11, fontWeight: 700, marginBottom: 4 }}>
-              {currentTrack.title}
-            </div>
             <audio
               ref={audioRef}
-              controls
               src={currentTrack.audioUrl}
-              style={{ width: "100%", height: 32, display: "block" }}
+              onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+              onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onEnded={handleEnded}
+              style={{ display: "none" }}
             />
+
+            <div className="mono" style={{ fontSize: 12, fontWeight: 700, marginBottom: 6, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+              {currentTrack.title}
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span className="mono" style={{ fontSize: 10, color: "var(--ink-soft)", width: 32, flexShrink: 0 }}>
+                {formatTime(currentTime)}
+              </span>
+              <input
+                type="range"
+                min={0}
+                max={duration || 0}
+                step={0.1}
+                value={Math.min(currentTime, duration || 0)}
+                onChange={(e) => handleScrub(Number(e.target.value))}
+                style={{ flex: 1, accentColor: "var(--accent)" }}
+                aria-label="Seek"
+              />
+              <span className="mono" style={{ fontSize: 10, color: "var(--ink-soft)", width: 32, flexShrink: 0, textAlign: "right" }}>
+                {formatTime(duration)}
+              </span>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, marginTop: 8 }}>
+              <button
+                type="button"
+                onClick={() => playAdjacent(-1)}
+                aria-label="Previous track"
+                disabled={!hasPrev && currentTime <= 3}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: 20,
+                  cursor: "pointer",
+                  color: hasPrev || currentTime > 3 ? "var(--ink)" : "var(--ink-soft)",
+                  padding: 4,
+                }}
+              >
+                ⏮
+              </button>
+              <button
+                type="button"
+                onClick={() => handleTrackClick(currentIndex!)}
+                aria-label={isPlaying ? "Pause" : "Play"}
+                style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: "50%",
+                  border: "2px solid var(--ink)",
+                  boxShadow: "3px 4px 0 rgba(36,27,46,0.28)",
+                  background: "var(--accent)",
+                  color: "var(--accent-ink)",
+                  fontSize: 18,
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {isPlaying ? "❚❚" : "▶"}
+              </button>
+              <button
+                type="button"
+                onClick={() => playAdjacent(1)}
+                aria-label="Next track"
+                disabled={!hasNext}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: 20,
+                  cursor: "pointer",
+                  color: hasNext ? "var(--ink)" : "var(--ink-soft)",
+                  padding: 4,
+                }}
+              >
+                ⏭
+              </button>
+            </div>
           </div>
         ) : null}
       </div>
