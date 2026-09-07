@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 68 (a98396b) — Monday, September 7, 2026
+Clay found on mobile that the Monster Trucks/Iceman mini-players
+(added in V65) had no visible way to close — you had to know to tap
+the title again. Added an explicit "× Close" link under the player,
+same as every other closeable panel on the site.
+
 ## Version 67 (521ad55) — Monday, September 7, 2026
 Clay spotted it right after the wide-layout fix: the home page hero
 photo (fixed at 420px) and the Music/Writings row below it (stretched
