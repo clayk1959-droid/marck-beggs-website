@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 61 (1893e97) — Monday, September 7, 2026
+The 2008 dog gods album's SoundCloud link opened externally instead of
+playing inline like every other release. Reused the same embed
+transform already used elsewhere in the picker — tapping it now opens
+a real mini-player (with a back button) right in the modal.
+
 ## Version 60 (c1ae1b0) — Monday, September 7, 2026
 Marck put the 2008 dog gods album out on SoundCloud (his call — just
 there for now, nowhere else). The "I am large, I contain multitudes"
