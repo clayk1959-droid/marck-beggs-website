@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 56 (2d8f7f2) — Monday, September 7, 2026
+Paired the SoundCloud singles and YouTube link as matched two-column
+blocks instead of two disjointed sections — SoundCloud icon spanning
+both Monster Trucks/Iceman on one side, YouTube icon + link at the
+same depth on the other. Used a responsive auto-fit grid so it stacks
+vertically on narrow phones instead of squeezing text into awkward
+wraps.
+
 ## Version 55 (4d99bd2) — Monday, September 7, 2026
 Tightened the Singles on SoundCloud list (removed the gap, cut each
 single's padding from 6px to 3px) and pulled the YouTube link section
