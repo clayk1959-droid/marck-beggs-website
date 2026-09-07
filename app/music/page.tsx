@@ -41,16 +41,16 @@ export default function MusicPage() {
         <MusicReleaseGallery releases={sortedReleases} />
       </section>
 
-      <section className="wrap section" style={{ paddingTop: "var(--space-4)" }}>
+      <section className="wrap section" style={{ paddingTop: "var(--space-4)", paddingBottom: "var(--space-4)" }}>
         <h2 className="section-title">Singles on SoundCloud</h2>
-        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column" }}>
           {SOUNDCLOUD_SINGLES.map((single) => (
             <li key={single.href}>
               <a
                 href={single.href}
                 target="_blank"
                 rel="noreferrer"
-                style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+                style={{ display: "inline-block", padding: "3px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
               >
                 {single.title}
               </a>
