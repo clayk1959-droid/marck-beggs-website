@@ -41,9 +41,8 @@ export default function MusicPage() {
       </section>
 
       <section className="wrap section" style={{ paddingTop: "var(--space-4)" }}>
-        <div className="section-note" style={{ textAlign: "center" }}>
-          hit play →
-        </div>
+        <h2 className="section-title">Discography</h2>
+        <p className="section-note">hit play →</p>
         <StreamingButtons />
       </section>
     </main>
