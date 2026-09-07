@@ -3,6 +3,16 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 66 (b72a9c3) — Monday, September 7, 2026
+Wide-desktop layout fix. Widening the content column on big screens
+(V18) never actually shifted it left — it just grew as a wider centered
+box, margins still equal on both sides. Marck delegated the call
+("set up desk-wide however you think is best"). Now the content sits
+with a real but modest left margin (scales with the window, 48-64px+)
+and the leftover space collects on the right instead of splitting
+evenly — shifted left with room to breathe, not crowded. Mobile and
+tablet are untouched.
+
 ## Version 65 (a1eb7d6) — Monday, September 7, 2026
 Monster Trucks and Iceman (the two SoundCloud singles listed next to
 the YouTube link) opened SoundCloud in a new tab, same inconsistency

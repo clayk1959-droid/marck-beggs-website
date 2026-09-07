@@ -2,13 +2,18 @@
 
 ## Open
 
-- **Wide-desktop layout still reads as centered, not left-shifted.**
-  Version 18 widened the content column on large windows (720px ->
-  960/1100px) so there's less dead space overall, but Clay flagged that
-  the content itself did not shift left the way he expected — it's still
-  center-aligned, just in a wider column. Marck's email (2026-09-07) says
-  "set up desk-wide however you think is best," delegating the call —
-  Clay/Claude to decide the actual fix.
+Nothing currently open.
+
+## Resolved — wide-desktop layout, 2026-09-07 (V66)
+
+Version 18 widened the content column on large windows (720px ->
+960/1100px) so there's less dead space overall, but Clay flagged that
+the content itself did not shift left the way he expected — it was
+still center-aligned, just in a wider column. Marck delegated the call
+("set up desk-wide however you think is best"). Fixed by giving the
+column a real but modest left margin instead of auto-centering, so it
+sits shifted left with room to breathe while the leftover space
+collects on the right. Mobile/tablet untouched.
 
 ## Resolved — Marck's email, 2026-09-07
 
