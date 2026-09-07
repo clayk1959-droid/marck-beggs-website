@@ -3,6 +3,16 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 42 (daf54ea) — Monday, September 7, 2026
+Redesigned the New Jams player as a square playlist window: the cover
+art now sits behind the track list as a very light, desaturated
+background instead of a busy header image. Tracks dropped their
+numbered dots and individual audio players for a play-arrow icon each
+— tapping one loads it into a single shared player pinned at the
+bottom, which auto-advances to the next track and toggles the arrow
+to a pause icon while playing. Every other release (the streaming-
+service picker) is unchanged.
+
 ## Version 41 (26d8771) — Monday, September 7, 2026
 New Jams needed better labeling on its cover tile — added a diagonal
 "New Jams" ribbon across the upper-left corner, pure CSS, no image
