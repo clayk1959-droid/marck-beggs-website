@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 52 (bb1918c) — Monday, September 7, 2026
+"Miscellaneous Videos" relabeled "My videos on YouTube," with the same
+color YouTube icon from the streaming picker placed right before the
+text — icon plus label, the standard way to mark a platform link.
+
 ## Version 51 (762f617) — Monday, September 7, 2026
 Gave each service logo a consistent bordered square (56x56, 1px
 border) instead of floating free — fixes the bare-shape logos
