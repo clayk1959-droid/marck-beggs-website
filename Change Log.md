@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 46 (eaa1190) — Monday, September 7, 2026
+Fixed a Safari-only bug on the stray photo cards: the Howdy card sat
+24px lower than the Sirius card, exactly matching the extra caption
+line Sirius's longer text takes. Measured a real device screenshot
+pixel-by-pixel to confirm — Safari applies its own default alignment
+behavior to `<button>` that Chrome doesn't, which the Chromium-based
+testing used throughout this project couldn't catch. Fixed by pinning
+the alignment explicitly instead of relying on browser defaults.
+
 ## Version 45 (a2f5da7) — Monday, September 7, 2026
 The two stray photo cards matched each other but not the collection
 cards below — those grow responsively via CSS Grid while the stray
