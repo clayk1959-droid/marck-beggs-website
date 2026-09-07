@@ -3,6 +3,14 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { getEmbedUrl, SERVICE_LABELS, StreamingService } from "../lib/streaming-embed";
+import { ServiceIcon } from "../lib/service-icons";
+
+// TEMPORARY: comparison of icon treatments, requested to test mono vs. brand-color
+// logos on two real releases before deciding which style to use everywhere.
+const ICON_VARIANT: Record<string, "mono" | "color" | undefined> = {
+  "12-steps": "color",
+  "tectonic-plates": "mono",
+};
 
 type Track = { title: string; note?: string; audioUrl: string };
 
@@ -257,6 +265,10 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                   {SERVICES.filter((service) => active.links?.[service]).map((service) => {
                     const url = active.links![service]!;
                     const embeddable = Boolean(getEmbedUrl(service, url));
+                    const iconVariant = ICON_VARIANT[active.slug];
+                    const icon = iconVariant ? (
+                      <ServiceIcon service={service} variant={iconVariant} size={18} />
+                    ) : null;
                     if (embeddable) {
                       return (
                         <button
@@ -264,14 +276,23 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                           type="button"
                           onClick={() => setEmbedService(service)}
                           className="btn"
-                          style={{ fontSize: 13, cursor: "pointer" }}
+                          style={{ fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
                         >
+                          {icon}
                           {SERVICE_LABELS[service]}
                         </button>
                       );
                     }
                     return (
-                      <a key={service} href={url} target="_blank" rel="noreferrer" className="btn" style={{ fontSize: 13 }}>
+                      <a
+                        key={service}
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn"
+                        style={{ fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
+                      >
+                        {icon}
                         {SERVICE_LABELS[service]} ↗
                       </a>
                     );
