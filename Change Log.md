@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 51 (762f617) — Monday, September 7, 2026
+Gave each service logo a consistent bordered square (56x56, 1px
+border) instead of floating free — fixes the bare-shape logos
+(SoundCloud, Pandora) reading weaker than ones with their own filled
+background (Spotify, Apple Music, YouTube).
+
 ## Version 50 (08ec030) — Monday, September 7, 2026
 Color logos are the final call. Switched the service-picker modal
 from the site's sage-green background to white, since the bare-shape
