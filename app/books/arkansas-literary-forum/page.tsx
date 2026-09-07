@@ -37,7 +37,7 @@ export default function ArkansasLiteraryForumPage() {
           height={253}
           style={{ width: "100%", maxWidth: 300, height: "auto", margin: "0 auto" }}
         />
-        <h1 style={{ fontSize: 40, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)", marginTop: 12 }}>
+        <h1 style={{ fontSize: 40, color: "var(--ink)", marginTop: 12 }}>
           Arkansas Literary Forum
         </h1>
         <p style={{ maxWidth: 480, margin: "16px auto 0" }}>

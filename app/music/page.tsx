@@ -27,8 +27,7 @@ export default function MusicPage() {
         <h1
           style={{
             fontSize: 52,
-            color: "var(--accent)",
-            textShadow: "3px 3px 0 var(--ink)",
+            color: "var(--ink)",
           }}
         >
           Music

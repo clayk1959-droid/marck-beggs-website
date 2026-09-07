@@ -193,9 +193,11 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
             </div>
             <div style={{ padding: "8px 10px", textAlign: "left" }}>
               <div style={{ fontWeight: 700, fontSize: 14, lineHeight: 1.2 }}>{release.title}</div>
-              <div className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
-                {release.year}
-              </div>
+              {release.year ? (
+                <div className="mono" style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 2 }}>
+                  {release.year}
+                </div>
+              ) : null}
             </div>
           </button>
         ))}

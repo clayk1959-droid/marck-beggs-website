@@ -20,7 +20,7 @@ export default async function PhotoCollectionPage({ params }: { params: Promise<
             ← Photos
           </Link>
         </div>
-        <h1 style={{ fontSize: 38, marginTop: 12, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <h1 style={{ fontSize: 38, marginTop: 12, color: "var(--ink)" }}>
           {collection.title}
         </h1>
         <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 8 }}>

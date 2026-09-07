@@ -9,7 +9,7 @@ export default function BooksPage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 40, textAlign: "center" }}>
-        <h1 style={{ fontSize: 44, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <h1 style={{ fontSize: 44, color: "var(--ink)" }}>
           Writings
         </h1>
       </section>

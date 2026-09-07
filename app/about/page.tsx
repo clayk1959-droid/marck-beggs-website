@@ -7,7 +7,7 @@ export default function AboutPage() {
         <span className="eyebrow" style={{ transform: "rotate(-2deg)", display: "inline-block" }}>
           about
         </span>
-        <h1 style={{ fontSize: 44, marginTop: 16, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <h1 style={{ fontSize: 44, marginTop: 16, color: "var(--ink)" }}>
           Marck Beggs
         </h1>
       </section>

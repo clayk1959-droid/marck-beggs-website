@@ -11,7 +11,7 @@ export default function PhotosPage() {
             ← Home
           </Link>
         </div>
-        <h1 style={{ fontSize: 44, marginTop: 12, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <h1 style={{ fontSize: 44, marginTop: 12, color: "var(--ink)" }}>
           Photos
         </h1>
       </section>
