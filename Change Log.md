@@ -3,6 +3,11 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 41 (26d8771) — Monday, September 7, 2026
+New Jams needed better labeling on its cover tile — added a diagonal
+"New Jams" ribbon across the upper-left corner, pure CSS, no image
+asset needed. Only shows on that one release.
+
 ## Version 40 (c6a6bf0) — Monday, September 7, 2026
 Halved the gap between the rule line and "Releases" on the Music page
 — 48px padding down to 24px.
