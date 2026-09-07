@@ -2,10 +2,16 @@
 
 ## Links & assets still open
 
-- **Real Spotify and Apple Music URLs** for the streaming buttons (Music
-  page and home page) — still empty, rendering as greyed-out "coming soon".
+- **Real Spotify and Apple Music URLs** for the band-wide streaming
+  buttons in the Music page's Discography section — still empty,
+  rendering as greyed-out "coming soon". (Not to be confused with the
+  per-release streaming links in the Releases gallery above it, which
+  are already filled in for 7 of 8 releases.)
 - **CD Baby link** — old site said "available at CDBaby.com" but never
   linked it.
+- **A real discography link** for the Discography section (Clay is
+  trying to track one down — could replace or sit alongside the
+  band-wide streaming buttons).
 - **Higher-resolution cover art**, if he has more — most of `public/images/`
   is still whatever resolution the old site published at.
 
