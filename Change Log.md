@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 38 (2f8809c) — Monday, September 7, 2026
+Removed the "hit play" band-wide streaming buttons section from the
+Music page entirely — its purpose was unclear, so it's gone rather
+than guessed at further. The page now ends with Releases (footer
+still renders normally below it). Left the StreamingButtons component
+and its data in place, unused, in case this comes back once there's a
+real plan for it.
+
 ## Version 37 (11ba259) — Monday, September 7, 2026
 Reverted the "Discography" header and the boxes-to-plain-text swap on
 the Music page's bottom section — not settled that this section
