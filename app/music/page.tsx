@@ -1,4 +1,5 @@
 import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
+import { ServiceIcon } from "../../lib/service-icons";
 import musicReleases from "../../data/music-releases.json";
 
 const DOG_GODS_ORDER = ["dog-gods-singles", "dog-gods-2008"];
@@ -68,9 +69,10 @@ export default function MusicPage() {
           href="https://www.youtube.com/playlist?list=PLMyluuYWb_fw0-ZQDLiaBT5AvrxTDAR7c"
           target="_blank"
           rel="noreferrer"
-          style={{ display: "inline-block", padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
         >
-          Miscellaneous Videos
+          <ServiceIcon service="youtube" variant="color" size={22} />
+          My videos on YouTube
         </a>
       </section>
     </main>
