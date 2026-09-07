@@ -5,13 +5,6 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { getEmbedUrl, SERVICE_LABELS, StreamingService } from "../lib/streaming-embed";
 import { ServiceIcon } from "../lib/service-icons";
 
-// TEMPORARY: comparison of icon treatments, requested to test mono vs. brand-color
-// logos on two real releases before deciding which style to use everywhere.
-const ICON_VARIANT: Record<string, "mono" | "color" | undefined> = {
-  "12-steps": "color",
-  "tectonic-plates": "mono",
-};
-
 type Track = { title: string; note?: string; audioUrl: string };
 
 type Release = {
@@ -226,7 +219,7 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
             <div
               onClick={(event) => event.stopPropagation()}
               className="card"
-              style={{ background: "var(--bg)", maxWidth: 420, width: "100%", maxHeight: "85vh", overflowY: "auto", padding: 24, position: "relative" }}
+              style={{ background: "#fff", maxWidth: 420, width: "100%", maxHeight: "85vh", overflowY: "auto", padding: 24, position: "relative" }}
             >
               <button
                 type="button"
@@ -265,10 +258,7 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                   {SERVICES.filter((service) => active.links?.[service]).map((service) => {
                     const url = active.links![service]!;
                     const embeddable = Boolean(getEmbedUrl(service, url));
-                    const iconVariant = ICON_VARIANT[active.slug];
-                    const icon = iconVariant ? (
-                      <ServiceIcon service={service} variant={iconVariant} size={44} />
-                    ) : null;
+                    const icon = <ServiceIcon service={service} variant="color" size={44} />;
                     const content = (
                       <>
                         {icon}
