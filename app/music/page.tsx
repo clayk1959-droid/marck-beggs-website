@@ -43,7 +43,20 @@ export default function MusicPage() {
 
       <section className="wrap section" style={{ paddingTop: "var(--space-4)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <ServiceIcon service="soundcloud" variant="color" size={50} />
+          <div
+            style={{
+              width: 64,
+              height: 64,
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "2px solid rgba(36,27,46,0.35)",
+              borderRadius: 6,
+            }}
+          >
+            <ServiceIcon service="soundcloud" variant="color" size={44} />
+          </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {SOUNDCLOUD_SINGLES.map((single) => (
               <a
@@ -65,7 +78,20 @@ export default function MusicPage() {
           rel="noreferrer"
           style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
         >
-          <ServiceIcon service="youtube" variant="color" size={50} />
+          <div
+            style={{
+              width: 64,
+              height: 64,
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "2px solid rgba(36,27,46,0.35)",
+              borderRadius: 6,
+            }}
+          >
+            <ServiceIcon service="youtube" variant="color" size={44} />
+          </div>
           <span style={{ display: "block", lineHeight: 1.3 }}>
             My videos
             <br />
