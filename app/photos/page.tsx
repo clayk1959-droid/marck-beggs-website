@@ -16,7 +16,40 @@ export default function PhotosPage() {
         </h1>
       </section>
 
-      <section className="wrap section">
+      <section className="wrap" style={{ paddingTop: 24, paddingBottom: 24 }}>
+        <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap" }}>
+          <div style={{ textAlign: "center", maxWidth: 180 }}>
+            <div className="card" style={{ overflow: "hidden" }}>
+              <Image
+                src="/images/stray/sirius-guitar.jpg"
+                alt="Marck with Johnny A at Sirius, holding a guitar he won"
+                width={1050}
+                height={1400}
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </div>
+            <p className="mono" style={{ fontSize: 10.5, color: "var(--ink-soft)", marginTop: 8 }}>
+              NYC, June 2004 — won this Johnny A Signature guitar
+            </p>
+          </div>
+          <div style={{ textAlign: "center", maxWidth: 140 }}>
+            <div className="card" style={{ overflow: "hidden" }}>
+              <Image
+                src="/images/stray/howdy-facemask.jpg"
+                alt="Marck wearing a face mask and tie"
+                width={343}
+                height={527}
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </div>
+            <p className="mono" style={{ fontSize: 10.5, color: "var(--ink-soft)", marginTop: 8 }}>
+              Howdy!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="wrap section" style={{ paddingTop: 0 }}>
         <div
           style={{
             display: "grid",
