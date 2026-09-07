@@ -3,6 +3,20 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 58 (14723bd) — Monday, September 7, 2026
+Three fixes from a full-site audit. Cliffs of Moher's cover photo was
+a random house with a horse in a field, not a cliff — swapped to an
+actual cliffside/ocean shot from the same collection. Contact page
+showed the same email twice on screen (its own card plus the footer
+right below) — the footer now hides its email specifically on
+/contact. Writings was the last page still using the old boxed-card,
+rule-line look from earlier in the rebuild — applied the same tight
+spacing/no-boxes treatment used on Music and the ALF page: plain
+underlined links for Saint Anonymous, Kilty Sue, and the ALF archive
+link (now with the same bordered-square logo treatment). The book
+cover grids themselves are untouched — those are real image cards,
+not text links.
+
 ## Version 57 (edc0330) — Monday, September 7, 2026
 Added a bordered square around the SoundCloud/YouTube logos, same
 treatment as the streaming picker but heavier (2px at 35% opacity
