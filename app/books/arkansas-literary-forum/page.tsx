@@ -53,14 +53,14 @@ export default function ArkansasLiteraryForumPage() {
 
       <section className="wrap section">
         <h2 className="section-title">Issues</h2>
-        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16 }}>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
           {VOLUMES.map((volume) => (
             <li key={volume.year}>
               <a
                 href={`/ALF/${volume.year}/${volume.year}.html`}
                 target="_blank"
                 rel="noreferrer"
-                style={{ fontSize: 22, fontWeight: 700, color: "var(--ink)", textDecoration: "underline" }}
+                style={{ fontSize: 19, fontWeight: 700, color: "var(--ink)", textDecoration: "underline" }}
               >
                 {volume.label}
               </a>
@@ -76,7 +76,7 @@ export default function ArkansasLiteraryForumPage() {
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
         <h2 className="section-title">About the Journal</h2>
-        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
           {INFO_LINKS.map((link) => (
             <li key={link.href}>
               <a
