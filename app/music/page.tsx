@@ -36,7 +36,7 @@ export default function MusicPage() {
 
       <section className="wrap section" style={{ borderTop: "3px solid var(--ink)" }}>
         <h2 className="section-title">Releases</h2>
-        <p className="section-note">tap a cover, pick a service — New Jams plays right here</p>
+        <p className="section-note" style={{ fontSize: 16 }}>tap a cover, pick a service</p>
         <MusicReleaseGallery releases={sortedReleases} />
       </section>
 
