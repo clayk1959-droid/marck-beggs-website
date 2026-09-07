@@ -22,7 +22,7 @@ export default function HomePage() {
       </section>
 
       <section className="wrap" style={{ paddingBottom: "var(--space-4)" }}>
-        <div className="card" style={{ overflow: "hidden", maxWidth: 420, margin: "0 auto" }}>
+        <div className="card" style={{ overflow: "hidden", maxWidth: 600, margin: "0 auto" }}>
           <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 3" }}>
             <Image
               src="/images/site/marck-hero.jpg"
@@ -30,32 +30,34 @@ export default function HomePage() {
               fill
               style={{ objectFit: "cover" }}
               priority
-              sizes="420px"
+              sizes="600px"
             />
           </div>
         </div>
       </section>
 
       <section className="wrap" style={{ borderTop: "3px solid var(--ink)", paddingTop: "var(--space-4)", paddingBottom: "var(--space-4)" }}>
-        <div style={{ display: "flex", gap: "var(--space-3)" }}>
-          <Link href="/music" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
-            <span style={{ fontSize: 23 }}>Music</span>
-          </Link>
-          <Link href="/books" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
-            <span style={{ fontSize: 23 }}>Writings</span>
-          </Link>
-        </div>
-        <div style={{ display: "flex", gap: "var(--space-3)", marginTop: "var(--space-1)" }}>
-          <Link href="/music" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
-            <div className="card" style={{ overflow: "hidden" }}>
-              <RotatingCoverBox images={musicRotation} intervalMs={ROTATION_INTERVAL_MS} startDelayMs={ROTATION_INTERVAL_MS} />
-            </div>
-          </Link>
-          <Link href="/books" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
-            <div className="card" style={{ overflow: "hidden" }}>
-              <RotatingCoverBox images={writingRotation} intervalMs={ROTATION_INTERVAL_MS} startDelayMs={ROTATION_INTERVAL_MS / 2} />
-            </div>
-          </Link>
+        <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <div style={{ display: "flex", gap: "var(--space-3)" }}>
+            <Link href="/music" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
+              <span style={{ fontSize: 23 }}>Music</span>
+            </Link>
+            <Link href="/books" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
+              <span style={{ fontSize: 23 }}>Writings</span>
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "var(--space-3)", marginTop: "var(--space-1)" }}>
+            <Link href="/music" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
+              <div className="card" style={{ overflow: "hidden" }}>
+                <RotatingCoverBox images={musicRotation} intervalMs={ROTATION_INTERVAL_MS} startDelayMs={ROTATION_INTERVAL_MS} />
+              </div>
+            </Link>
+            <Link href="/books" style={{ flex: 1, textDecoration: "none", color: "inherit" }}>
+              <div className="card" style={{ overflow: "hidden" }}>
+                <RotatingCoverBox images={writingRotation} intervalMs={ROTATION_INTERVAL_MS} startDelayMs={ROTATION_INTERVAL_MS / 2} />
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
     </main>
