@@ -1,5 +1,20 @@
 [
   {
+    "slug": "new-jams",
+    "title": "New Jams",
+    "year": "forthcoming",
+    "credit": "dog gods",
+    "cover": "/images/music/doggods-poster-2.jpg",
+    "tracks": [
+      { "title": "Carpe Condoleezza", "audioUrl": "/audio/carpe-condoleezza.mp3" },
+      { "title": "Walking Girl", "audioUrl": "/audio/walking-girl.mp3" },
+      { "title": "The New Gods", "audioUrl": "/audio/the-new-gods.mp3" },
+      { "title": "Graph", "audioUrl": "/audio/graph.mp3" },
+      { "title": "Tear You Apart", "audioUrl": "/audio/tear-you-apart.mp3" },
+      { "title": "Vuvuzela Blues", "note": "live · feat. Alan Pittman on bass", "audioUrl": "/audio/vuvuzela-blues.mp3" }
+    ]
+  },
+  {
     "slug": "12-steps",
     "title": "12 Steps",
     "year": "2026",

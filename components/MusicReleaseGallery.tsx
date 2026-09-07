@@ -4,13 +4,16 @@ import Image from "next/image";
 import { useState } from "react";
 import { getEmbedUrl, SERVICE_LABELS, StreamingService } from "../lib/streaming-embed";
 
+type Track = { title: string; note?: string; audioUrl: string };
+
 type Release = {
   slug: string;
   title: string;
   year: string;
   credit?: string;
   cover: string;
-  links: Record<StreamingService, string>;
+  links?: Record<StreamingService, string>;
+  tracks?: Track[];
 };
 
 const SERVICES: StreamingService[] = ["spotify", "apple", "youtube", "soundcloud", "pandora"];
@@ -22,6 +25,8 @@ const EMBED_HEIGHT: Record<StreamingService, number> = {
   soundcloud: 166,
   pandora: 0,
 };
+
+const TRACK_DOT_COLORS = ["var(--accent)", "var(--gold)", "var(--teal)", "var(--accent)", "var(--gold)", "var(--teal)"];
 
 export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
@@ -92,7 +97,7 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
           <div
             onClick={(event) => event.stopPropagation()}
             className="card"
-            style={{ background: "var(--bg)", maxWidth: 420, width: "100%", padding: 24, position: "relative" }}
+            style={{ background: "var(--bg)", maxWidth: 420, width: "100%", maxHeight: "85vh", overflowY: "auto", padding: 24, position: "relative" }}
           >
             <button
               type="button"
@@ -107,7 +112,55 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
               {[active.year, active.credit].filter(Boolean).join(" · ")}
             </p>
 
-            {embedService ? (
+            {active.tracks && active.tracks.length > 0 ? (
+              <div
+                style={{
+                  marginTop: 16,
+                  background: "var(--ink)",
+                  border: "3px solid var(--ink)",
+                  padding: 12,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 8,
+                }}
+              >
+                {active.tracks.map((track, index) => (
+                  <div key={track.title} style={{ background: "var(--card)", padding: "10px 12px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <div
+                        className="mono"
+                        style={{
+                          width: 24,
+                          height: 24,
+                          borderRadius: "50%",
+                          background: TRACK_DOT_COLORS[index % TRACK_DOT_COLORS.length],
+                          color: "var(--bg)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: 11,
+                          fontWeight: 700,
+                          flexShrink: 0,
+                        }}
+                      >
+                        {index + 1}
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontWeight: 800, fontSize: 13 }}>{track.title}</div>
+                        {track.note ? (
+                          <div className="mono" style={{ fontSize: 10, color: "var(--ink-soft)" }}>
+                            {track.note}
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                    <audio controls preload="none" style={{ width: "100%", marginTop: 6, height: 32 }}>
+                      <source src={track.audioUrl} type="audio/mpeg" />
+                    </audio>
+                  </div>
+                ))}
+              </div>
+            ) : embedService ? (
               <div style={{ marginTop: 16 }}>
                 <button
                   type="button"
@@ -118,7 +171,7 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                   ← back
                 </button>
                 <iframe
-                  src={getEmbedUrl(embedService, active.links[embedService]) || ""}
+                  src={getEmbedUrl(embedService, active.links?.[embedService] || "") || ""}
                   width="100%"
                   height={EMBED_HEIGHT[embedService]}
                   style={{ border: "none", display: "block" }}
@@ -129,7 +182,7 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 16 }}>
                 {SERVICES.map((service) => {
-                  const url = active.links[service];
+                  const url = active.links?.[service];
                   if (!url) {
                     return (
                       <span key={service} className="btn" aria-disabled="true" style={{ fontSize: 13 }}>
