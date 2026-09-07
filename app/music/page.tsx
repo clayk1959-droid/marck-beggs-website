@@ -41,30 +41,29 @@ export default function MusicPage() {
         <MusicReleaseGallery releases={sortedReleases} />
       </section>
 
-      <section className="wrap section" style={{ paddingTop: "var(--space-4)", paddingBottom: "var(--space-4)" }}>
-        <h2 className="section-title">Singles on SoundCloud</h2>
-        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column" }}>
-          {SOUNDCLOUD_SINGLES.map((single) => (
-            <li key={single.href}>
+      <section className="wrap section" style={{ paddingTop: "var(--space-4)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <ServiceIcon service="soundcloud" variant="color" size={50} />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {SOUNDCLOUD_SINGLES.map((single) => (
               <a
+                key={single.href}
                 href={single.href}
                 target="_blank"
                 rel="noreferrer"
-                style={{ display: "inline-block", padding: "3px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+                style={{ display: "inline-block", padding: "2px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
               >
                 {single.title}
               </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+            ))}
+          </div>
+        </div>
 
-      <section className="wrap section" style={{ paddingTop: "var(--space-4)" }}>
         <a
           href="https://www.youtube.com/playlist?list=PLMyluuYWb_fw0-ZQDLiaBT5AvrxTDAR7c"
           target="_blank"
           rel="noreferrer"
-          style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "6px 0", fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
+          style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 19, fontWeight: 600, color: "var(--ink)", textDecoration: "underline" }}
         >
           <ServiceIcon service="youtube" variant="color" size={50} />
           <span style={{ display: "block", lineHeight: 1.3 }}>
