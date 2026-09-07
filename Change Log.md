@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 44 (0dafdc8) — Monday, September 7, 2026
+The two stray photo cards were different sizes since each rendered at
+its own natural aspect ratio. Both are now the same fixed 4:5 card
+(matching the collection cards below), with the taller Sirius photo
+cropping at the bottom instead of stretching the card. Both now open
+a lightbox on click — full uncropped image, with prev/next between
+the two — reusing the same dialog pattern as the collection galleries.
+
 ## Version 43 (b314cd4) — Monday, September 7, 2026
 Added the two stray photos from the old site — Marck with Johnny A at
 Sirius holding the guitar he won, and the "Howdy" facemask photo — as
