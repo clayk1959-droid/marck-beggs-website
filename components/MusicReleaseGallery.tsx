@@ -55,6 +55,30 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
           >
             <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1" }}>
               <Image src={release.cover} alt={release.title} fill style={{ objectFit: "cover" }} sizes="(min-width: 640px) 220px, 45vw" />
+              {release.slug === "new-jams" ? (
+                <div
+                  className="mono"
+                  style={{
+                    position: "absolute",
+                    top: 18,
+                    left: -38,
+                    width: 160,
+                    transform: "rotate(-45deg)",
+                    background: "var(--accent)",
+                    color: "#fff",
+                    textAlign: "center",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    padding: "5px 0",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.35)",
+                    zIndex: 2,
+                  }}
+                >
+                  New Jams
+                </div>
+              ) : null}
               <div
                 className="mono"
                 style={{
