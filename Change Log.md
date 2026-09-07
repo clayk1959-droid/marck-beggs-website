@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 57 (edc0330) — Monday, September 7, 2026
+Added a bordered square around the SoundCloud/YouTube logos, same
+treatment as the streaming picker but heavier (2px at 35% opacity
+vs. the picker's 1px at 20%) so it holds its own next to the album
+cards' 3px borders.
+
 ## Version 56 (2d8f7f2) — Monday, September 7, 2026
 Paired the SoundCloud singles and YouTube link as matched two-column
 blocks instead of two disjointed sections — SoundCloud icon spanning
