@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 29 — Sunday, September 6, 2026
+Added the Arkansas Literary Forum's own logo — the Arkansas-shaped
+eye/hand artwork — to the new landing page hero and to the small
+back-to-site banner on every one of the 494 archived pages, since
+Marck is proud of it and it deserved more than plain text.
+
 ## Version 28 — Sunday, September 6, 2026
 The mirrored ALF pages had no way back to the current site once you
 clicked into them — no nav, nothing, since they predate this rebuild
