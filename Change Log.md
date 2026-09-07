@@ -3,6 +3,10 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 40 (c6a6bf0) — Monday, September 7, 2026
+Halved the gap between the rule line and "Releases" on the Music page
+— 48px padding down to 24px.
+
 ## Version 39 (4a3992f) — Monday, September 7, 2026
 Removed the Music page's "Arkansas rock & roll" eyebrow above "dog
 gods" — unclear origin, so it's gone along with the spacing that was
