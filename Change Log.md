@@ -3,6 +3,13 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 28 — Sunday, September 6, 2026
+The mirrored ALF pages had no way back to the current site once you
+clicked into them — no nav, nothing, since they predate this rebuild
+by two decades. Added a small "back to MarckBeggs.com" banner to the
+top of all 494 archived pages, linking to the new landing page,
+without touching any of the original content below it.
+
 ## Version 27 — Sunday, September 6, 2026
 Preserved the Arkansas Literary Forum, the online literary journal Marck
 edited from 1999-2008 — it was still live on the same Bluehost account
