@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 24 — Sunday, September 6, 2026
+The service picker used to show a disabled "Spotify — soon" button for
+any release missing a link, implying it was just a matter of time. For
+several releases that's not true — it's a distributor choice, not a
+delay — and the 2008 dog gods CD has no digital release anywhere at
+all. Now the picker only lists services that actually have a real
+link; a release with none shows a plain "not currently available to
+stream" note instead of a wall of fake "soon" buttons.
+
 ## Version 23 — Sunday, September 6, 2026
 Filled in the real streaming links for 6 of the 7 releases that were
 showing "coming soon" — found by browsing each platform directly rather

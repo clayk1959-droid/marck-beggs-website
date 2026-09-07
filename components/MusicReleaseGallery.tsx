@@ -181,15 +181,8 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
               </div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 16 }}>
-                {SERVICES.map((service) => {
-                  const url = active.links?.[service];
-                  if (!url) {
-                    return (
-                      <span key={service} className="btn" aria-disabled="true" style={{ fontSize: 13 }}>
-                        {SERVICE_LABELS[service]} — soon
-                      </span>
-                    );
-                  }
+                {SERVICES.filter((service) => active.links?.[service]).map((service) => {
+                  const url = active.links![service]!;
                   const embeddable = Boolean(getEmbedUrl(service, url));
                   if (embeddable) {
                     return (
@@ -210,6 +203,11 @@ export function MusicReleaseGallery({ releases }: { releases: Release[] }) {
                     </a>
                   );
                 })}
+                {SERVICES.every((service) => !active.links?.[service]) ? (
+                  <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)" }}>
+                    Not currently available to stream.
+                  </p>
+                ) : null}
               </div>
             )}
           </div>
