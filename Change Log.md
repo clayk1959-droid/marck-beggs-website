@@ -3,6 +3,17 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 20 — Sunday, September 6, 2026
+Replaced the Music page's static Cover Art grid with an interactive
+Releases gallery, adopting the multi-release catalog (2008-2026, 8
+releases) from the format doc Marck sent. Tap a cover, pick a service —
+Spotify, Apple Music, YouTube, and SoundCloud all play in a real
+embedded mini-player right in the modal (verified live against 12
+Steps' actual Spotify link); Pandora has no public embed format so it
+always opens in a new tab instead. Only 12 Steps has real links so far;
+the rest show a disabled "coming soon" state per service until Marck
+sends them. The page's hero/band framing and track list are untouched.
+
 ## Version 19 — Sunday, September 6, 2026
 "Salmon: A Journey in Poetry, 1981-2007" (edited by Jessie Lendennie) was
 pointing at Salmon Poetry's generic homepage as a placeholder — confirmed
