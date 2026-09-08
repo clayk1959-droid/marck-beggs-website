@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -60,6 +61,11 @@ export default function EditorLoginPage() {
             {submitting ? "Checking…" : "Log in"}
           </button>
         </form>
+        <p style={{ marginTop: 20 }}>
+          <Link href="/editor/guide" className="mono" style={{ fontSize: 12, textDecoration: "underline" }}>
+            New here? Read how this works →
+          </Link>
+        </p>
       </section>
     </main>
   );

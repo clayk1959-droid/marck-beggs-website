@@ -28,7 +28,12 @@ export default async function EditorDashboardPage() {
             signed in as {session.name}
           </p>
         </div>
-        <EditorLogoutButton />
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 }}>
+          <EditorLogoutButton />
+          <Link href="/editor/guide" className="mono" style={{ fontSize: 12, textDecoration: "underline" }}>
+            How to use this →
+          </Link>
+        </div>
       </section>
 
       <section className="wrap section">
