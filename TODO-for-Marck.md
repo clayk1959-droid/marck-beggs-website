@@ -45,7 +45,7 @@ Answered or closed out everything that was previously open:
 
 ## How to edit content
 
-See `Site Guide.html` for the full version:
+See [Site Guide](/site-guide.html) for the full version:
 
 - **Books and music releases** — fully self-serve through `/editor` now:
   edit, delete, or add brand-new with a cover photo upload, all from the
