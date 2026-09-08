@@ -290,6 +290,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 86</span><span class="version-hash">(fc43862)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
+      <ul>
+        <li>A text alongside the email, without repeating the Twilio verification ordeal from Clay Carson Photography. Reuses that project's already-verified Twilio account, sending number, and Clay's own already-confirmed phone number — the A2P 10DLC campaign approval is tied to the Twilio account, not this codebase, and this only ever texts Clay about his own site, so none of the photo site's public opt-in/subscriber-list machinery is needed here. Fires in the same two places the email already does: a brief text whenever Marck adds, edits, or deletes something, and a separate one if a save fails outright. Verified with a direct Twilio send and again through a real save on production.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 85</span><span class="version-hash">(996c09c)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
       <ul>
         <li>Closes a real gap: Vercel only emails on a build failure, and that only fires once a deployment is triggered — which needs a GitHub commit to land first. If the commit step itself fails outright (bad token, GitHub API down, an exhausted merge-conflict retry), no commit happens, no push happens, Vercel is never invoked — zero email from anyone. Clay now gets a brief email whenever Marck adds, edits, or deletes something (skipped for Clay's own edits), plus a separate failure alert for anyone whenever a save fails outright. Reuses the same Resend account/verified domain as Clay Carson Photography. Verified end-to-end on production.</li>

@@ -3,6 +3,19 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 86 (fc43862) — Tuesday, September 8, 2026
+A text alongside the email, without repeating the Twilio verification
+ordeal from Clay Carson Photography. Reuses that project's already-
+verified Twilio account, sending number, and Clay's own already-
+confirmed phone number — the A2P 10DLC campaign approval is tied to the
+Twilio account, not this codebase, and this only ever texts Clay about
+his own site, so none of the photo site's public opt-in/subscriber-list
+machinery is needed here. Fires in the same two places the email
+already does: a brief text whenever Marck adds, edits, or deletes
+something, and a separate one if a save fails outright. Verified with a
+direct Twilio send (confirmed delivered), then again through a real
+save on production logged in as Marck.
+
 ## Version 85 (996c09c) — Tuesday, September 8, 2026
 Two things, closing a real gap: Vercel only emails on a *build* failure,
 and that only fires once a deployment is actually triggered — which
