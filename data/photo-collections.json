@@ -2,7 +2,7 @@
   {
     "slug": "cliffs-of-moher",
     "title": "Cliffs of Moher",
-    "subtitle": "County Clare, Ireland \u2014 2004",
+    "subtitle": "County Clare, Ireland — 2004",
     "cover": "img125",
     "photos": [
       "img113",
@@ -21,7 +21,7 @@
   {
     "slug": "dublin",
     "title": "Dublin",
-    "subtitle": "Ireland \u2014 2004",
+    "subtitle": "Ireland — 2004",
     "cover": "img038",
     "photos": [
       "img038",
@@ -36,7 +36,7 @@
   {
     "slug": "hopkins-grave",
     "title": "Gerard Manley Hopkins' Grave",
-    "subtitle": "Ireland \u2014 2004",
+    "subtitle": "Ireland — 2004",
     "cover": "img016",
     "photos": [
       "img016",
@@ -47,7 +47,7 @@
   {
     "slug": "irish-writers-museum",
     "title": "Irish Writers' Museum & Centre",
-    "subtitle": "Dublin, Ireland \u2014 2004",
+    "subtitle": "Dublin, Ireland — 2004",
     "cover": "img086",
     "photos": [
       "img086",
@@ -58,7 +58,7 @@
   {
     "slug": "trinity-college",
     "title": "Trinity College",
-    "subtitle": "Dublin, Ireland \u2014 2004",
+    "subtitle": "Dublin, Ireland — 2004",
     "cover": "img097",
     "photos": [
       "img097",
@@ -69,7 +69,7 @@
   {
     "slug": "christchurch-dublin-castle",
     "title": "Christchurch & Dublin Castle",
-    "subtitle": "Dublin, Ireland \u2014 2004",
+    "subtitle": "Dublin, Ireland — 2004",
     "cover": "img057",
     "photos": [
       "img057",
@@ -80,21 +80,12 @@
   {
     "slug": "dalkey",
     "title": "Dalkey",
-    "subtitle": "Ireland \u2014 2004",
+    "subtitle": "Ireland — 2004",
     "cover": "img107",
     "photos": [
       "img107",
       "img109",
       "img111"
-    ]
-  },
-  {
-    "slug": "zzz-test-collection",
-    "title": "TEST collection - delete me",
-    "subtitle": "test",
-    "cover": "img1",
-    "photos": [
-      "img1"
     ]
   }
 ]
