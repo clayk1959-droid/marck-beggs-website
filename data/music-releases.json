@@ -145,10 +145,10 @@
     "slug": "test-delete-me",
     "title": "TEST — delete me",
     "year": "2026",
-    "credit": "test",
+    "credit": "test (edited)",
     "cover": "/images/music/test-delete-me.jpg",
     "links": {
-      "spotify": "",
+      "spotify": "https://open.spotify.com/album/fake",
       "apple": "",
       "youtube": "",
       "pandora": "",
