@@ -36,8 +36,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="wrap" style={{ borderTop: "3px solid var(--ink)", paddingTop: "var(--space-4)", paddingBottom: "var(--space-4)" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto" }}>
+      <section className="wrap" style={{ paddingBottom: "var(--space-4)" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", borderTop: "3px solid var(--ink)", paddingTop: "var(--space-4)" }}>
           <div style={{ display: "flex", gap: "var(--space-3)" }}>
             <Link href="/music" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 23 }}>Music</span>
