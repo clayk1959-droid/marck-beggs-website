@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 88 (b60f8f8) — Tuesday, September 8, 2026
+Site Guide.html moved into public/ so it's actually reachable at
+/site-guide.html, and linked from the editor dashboard right under
+"How to use this," which also bumped from 12px to 13px along with the
+new link. This is Clay's own technical reference (account names,
+architecture notes — no passwords or tokens), now visible on the same
+dashboard Marck sees after logging in; a deliberate call after
+flagging that tradeoff.
+
 ## Version 87 (9d85292) — Tuesday, September 8, 2026
 Dropped the same hard-offset text-shadow from the rest of the editor
 headings — Editor home, Music, Books, Photos, and Login. Version 83
