@@ -1,7 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+// How long the "Saved" confirmation stays up before the row collapses.
+// Saving used to collapse the (tall) edit form instantly, which yanked
+// everything below it up the page right as you might click the next
+// thing -- long enough to misfire onto a different row entirely. This
+// pause keeps the layout stable while it's fresh, and the row confirms
+// its own title so a mistaken click before the collapse is obvious.
+const SAVE_CONFIRMATION_MS = 1400;
 import { CoverImageInput } from "./CoverImageInput";
 
 type StreamingService = "spotify" | "apple" | "youtube" | "pandora" | "soundcloud";
@@ -42,6 +50,12 @@ function Row({ release, onDeleted, onSaved }: { release: Release; onDeleted: () 
   const [coverBlobUrl, setCoverBlobUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [justSaved, setJustSaved] = useState(false);
+  const collapseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (collapseTimeout.current) clearTimeout(collapseTimeout.current);
+  }, []);
 
   async function handleSave() {
     setBusy(true);
@@ -59,7 +73,11 @@ function Row({ release, onDeleted, onSaved }: { release: Release; onDeleted: () 
     }
     const data = await response.json();
     onSaved(data.release);
-    setEditing(false);
+    setJustSaved(true);
+    collapseTimeout.current = setTimeout(() => {
+      setJustSaved(false);
+      setEditing(false);
+    }, SAVE_CONFIRMATION_MS);
   }
 
   async function handleDelete() {
@@ -130,14 +148,20 @@ function Row({ release, onDeleted, onSaved }: { release: Release; onDeleted: () 
           )}
 
           {error ? <p className="mono" style={{ color: "var(--accent)", fontSize: 11 }}>{error}</p> : null}
-          <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
-            <button type="button" className="btn" disabled={busy} onClick={handleSave} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
-              {busy ? "Saving…" : "Save"}
-            </button>
-            <button type="button" className="btn" disabled={busy} onClick={() => setEditing(false)} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
-              Cancel
-            </button>
-          </div>
+          {justSaved ? (
+            <p className="mono" style={{ fontSize: 12, fontWeight: 700, color: "var(--ink)", marginTop: 4 }}>
+              ✓ Saved &ldquo;{title}&rdquo;
+            </p>
+          ) : (
+            <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
+              <button type="button" className="btn" disabled={busy} onClick={handleSave} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
+                {busy ? "Saving…" : "Save"}
+              </button>
+              <button type="button" className="btn" disabled={busy} onClick={() => setEditing(false)} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
+                Cancel
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
@@ -175,6 +199,12 @@ function AddReleaseForm({ onAdded }: { onAdded: (r: Release) => void }) {
   const [coverBlobUrl, setCoverBlobUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [justAdded, setJustAdded] = useState<string | null>(null);
+  const collapseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (collapseTimeout.current) clearTimeout(collapseTimeout.current);
+  }, []);
 
   function reset() {
     setTitle("");
@@ -209,8 +239,12 @@ function AddReleaseForm({ onAdded }: { onAdded: (r: Release) => void }) {
     }
     const data = await response.json();
     onAdded(data.release);
-    reset();
-    setOpen(false);
+    setJustAdded(title);
+    collapseTimeout.current = setTimeout(() => {
+      setJustAdded(null);
+      reset();
+      setOpen(false);
+    }, SAVE_CONFIRMATION_MS);
   }
 
   if (!open) {
@@ -258,23 +292,29 @@ function AddReleaseForm({ onAdded }: { onAdded: (r: Release) => void }) {
         ))}
       </div>
       {error ? <p className="mono" style={{ color: "var(--accent)", fontSize: 11 }}>{error}</p> : null}
-      <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
-        <button type="button" className="btn" disabled={busy} onClick={handleAdd} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
-          {busy ? "Adding…" : "Add release"}
-        </button>
-        <button
-          type="button"
-          className="btn"
-          disabled={busy}
-          onClick={() => {
-            reset();
-            setOpen(false);
-          }}
-          style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}
-        >
-          Cancel
-        </button>
-      </div>
+      {justAdded ? (
+        <p className="mono" style={{ fontSize: 12, fontWeight: 700, color: "var(--ink)", marginTop: 4 }}>
+          ✓ Added &ldquo;{justAdded}&rdquo;
+        </p>
+      ) : (
+        <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
+          <button type="button" className="btn" disabled={busy} onClick={handleAdd} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
+            {busy ? "Adding…" : "Add release"}
+          </button>
+          <button
+            type="button"
+            className="btn"
+            disabled={busy}
+            onClick={() => {
+              reset();
+              setOpen(false);
+            }}
+            style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}
+          >
+            Cancel
+          </button>
+        </div>
+      )}
     </div>
   );
 }

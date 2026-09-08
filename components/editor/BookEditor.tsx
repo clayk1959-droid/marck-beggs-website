@@ -1,7 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CoverImageInput } from "./CoverImageInput";
+
+// How long the "Saved" confirmation stays up before the row collapses.
+// Saving used to collapse the (tall) edit form instantly, which yanked
+// everything below it up the page right as you might click the next
+// thing -- long enough to misfire onto a different row entirely. This
+// pause keeps the layout stable while it's fresh, and confirms which
+// title just saved so a mistaken click before the collapse is obvious.
+const SAVE_CONFIRMATION_MS = 1400;
 
 type Book = { id: string; title: string; year?: string; publisher?: string; note?: string; cover: string; buyUrl?: string };
 
@@ -28,6 +36,12 @@ function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collection
   const [coverBlobUrl, setCoverBlobUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [justSaved, setJustSaved] = useState(false);
+  const collapseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (collapseTimeout.current) clearTimeout(collapseTimeout.current);
+  }, []);
 
   async function handleSave() {
     setBusy(true);
@@ -45,7 +59,11 @@ function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collection
     }
     const data = await response.json();
     onSaved(data.book);
-    setEditing(false);
+    setJustSaved(true);
+    collapseTimeout.current = setTimeout(() => {
+      setJustSaved(false);
+      setEditing(false);
+    }, SAVE_CONFIRMATION_MS);
   }
 
   async function handleDelete() {
@@ -87,14 +105,20 @@ function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collection
             </div>
           ))}
           {error ? <p className="mono" style={{ color: "var(--accent)", fontSize: 11 }}>{error}</p> : null}
-          <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
-            <button type="button" className="btn" disabled={busy} onClick={handleSave} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
-              {busy ? "Saving…" : "Save"}
-            </button>
-            <button type="button" className="btn" disabled={busy} onClick={() => setEditing(false)} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
-              Cancel
-            </button>
-          </div>
+          {justSaved ? (
+            <p className="mono" style={{ fontSize: 12, fontWeight: 700, color: "var(--ink)", marginTop: 4 }}>
+              ✓ Saved &ldquo;{fields.title}&rdquo;
+            </p>
+          ) : (
+            <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
+              <button type="button" className="btn" disabled={busy} onClick={handleSave} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
+                {busy ? "Saving…" : "Save"}
+              </button>
+              <button type="button" className="btn" disabled={busy} onClick={() => setEditing(false)} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
+                Cancel
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
@@ -124,6 +148,12 @@ function AddBookForm({ list, onAdded }: { list: "collections" | "anthologies"; o
   const [coverBlobUrl, setCoverBlobUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [justAdded, setJustAdded] = useState<string | null>(null);
+  const collapseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (collapseTimeout.current) clearTimeout(collapseTimeout.current);
+  }, []);
 
   function reset() {
     setFields({ title: "", year: "", publisher: "", note: "", buyUrl: "" });
@@ -155,8 +185,12 @@ function AddBookForm({ list, onAdded }: { list: "collections" | "anthologies"; o
     }
     const data = await response.json();
     onAdded(data.book);
-    reset();
-    setOpen(false);
+    setJustAdded(fields.title);
+    collapseTimeout.current = setTimeout(() => {
+      setJustAdded(null);
+      reset();
+      setOpen(false);
+    }, SAVE_CONFIRMATION_MS);
   }
 
   if (!open) {
@@ -186,23 +220,29 @@ function AddBookForm({ list, onAdded }: { list: "collections" | "anthologies"; o
         </div>
       ))}
       {error ? <p className="mono" style={{ color: "var(--accent)", fontSize: 11 }}>{error}</p> : null}
-      <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
-        <button type="button" className="btn" disabled={busy} onClick={handleAdd} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
-          {busy ? "Adding…" : "Add book"}
-        </button>
-        <button
-          type="button"
-          className="btn"
-          disabled={busy}
-          onClick={() => {
-            reset();
-            setOpen(false);
-          }}
-          style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}
-        >
-          Cancel
-        </button>
-      </div>
+      {justAdded ? (
+        <p className="mono" style={{ fontSize: 12, fontWeight: 700, color: "var(--ink)", marginTop: 4 }}>
+          ✓ Added &ldquo;{justAdded}&rdquo;
+        </p>
+      ) : (
+        <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
+          <button type="button" className="btn" disabled={busy} onClick={handleAdd} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
+            {busy ? "Adding…" : "Add book"}
+          </button>
+          <button
+            type="button"
+            className="btn"
+            disabled={busy}
+            onClick={() => {
+              reset();
+              setOpen(false);
+            }}
+            style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}
+          >
+            Cancel
+          </button>
+        </div>
+      )}
     </div>
   );
 }
