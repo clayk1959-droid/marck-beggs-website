@@ -140,19 +140,5 @@
       "pandora": "https://www.pandora.com/AL:24155194",
       "soundcloud": "https://soundcloud.com/marck-96594539/sets/negative-light"
     }
-  },
-  {
-    "slug": "test-delete-me-2",
-    "title": "TEST — delete me 2",
-    "year": "2026",
-    "credit": "",
-    "cover": "/images/music/test-delete-me-2.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/album/fake",
-      "apple": "",
-      "youtube": "",
-      "pandora": "",
-      "soundcloud": ""
-    }
   }
 ]
