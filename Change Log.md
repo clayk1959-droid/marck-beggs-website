@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 82 (a0254c4) — Tuesday, September 8, 2026
+Clay's inspection of the dashboard/guide caught three things: the
+dashboard actually has 3 sections (Photos, Books, Music) but the
+guide's instructions only mentioned two and didn't explain that Photos
+works differently (edit/delete only, no self-serve add) — fixed; both
+the dashboard's list and the guide now go Music, then Writings, then
+Photos last, matching actual importance instead of alphabetical-ish
+order; and the bordered, drop-shadowed box treatment on the dashboard's
+3 section rows and the guide's step/warning boxes is gone — flat now,
+no frame, a 15% ink-tinted gray fill instead of white. Scoped to just
+these editor/guide boxes, not the site's public-facing card grids.
+
 ## Version 81 (1651b24) — Tuesday, September 8, 2026
 Clay caught that the plain-language Marck guide from V80 wasn't
 actually reachable from anywhere on the live site — just a file sitting
