@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 71 (251ba26) — Monday, September 7, 2026
+Two footer fixes plus another pass on the wide-desktop shift. The
+footer's copyright and email used to spread edge-to-edge across the
+full wide column, so on pages with narrower content (About's small
+centered photo, for instance) the email drifted way out past the
+actual content into empty space — and at 12px it was hard to read
+regardless. Both now sit tucked together near the left edge on every
+page, and the text is close to double the size on desktop (13px on
+mobile, unchanged in practice; 22px at 1024px+). Also shifted the
+whole wide-desktop content column further left per Clay's request —
+same mechanism as V66, just a stronger pull. Mobile/tablet untouched.
+
 ## Version 70 (56be36c) — Monday, September 7, 2026
 The rule line above Music/Writings on the home page stretched across
 the full (now wider) column while the hero photo and cards above/below
