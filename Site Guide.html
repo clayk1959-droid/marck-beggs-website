@@ -270,6 +270,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 72</span><span class="version-hash">(cd10e33)</span><span class="version-date">Monday, September 7, 2026</span></div>
+      <ul>
+        <li>Clay confirmed V71's wide-desktop pull went too far — too much dead space on the right on a genuinely wide screen. Split the difference between V71 and the original V66 shift: still left of center with room to breathe, just not as extreme. Mobile/tablet untouched.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 71</span><span class="version-hash">(251ba26)</span><span class="version-date">Monday, September 7, 2026</span></div>
       <ul>
         <li>Two footer fixes plus another pass on the wide-desktop shift. The footer's copyright and email used to spread edge-to-edge across the full wide column, so on pages with narrower content (About's small centered photo, for instance) the email drifted way out past the actual content into empty space — and at 12px it was hard to read regardless. Both now sit tucked together near the left edge on every page, and the text is close to double the size on desktop (13px on mobile, unchanged in practice; 22px at 1024px+). Also shifted the whole wide-desktop content column further left — same mechanism as V66, just a stronger pull. Mobile/tablet untouched.</li>

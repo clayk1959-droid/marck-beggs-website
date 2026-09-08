@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 72 (cd10e33) — Monday, September 7, 2026
+Clay confirmed V71's wide-desktop pull went too far — too much dead
+space on the right on a genuinely wide screen. Split the difference
+between V71 and the original V66 shift: still left of center with room
+to breathe, just not as extreme. Mobile/tablet untouched.
+
 ## Version 71 (251ba26) — Monday, September 7, 2026
 Two footer fixes plus another pass on the wide-desktop shift. The
 footer's copyright and email used to spread edge-to-edge across the
