@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 79 (38422e3) — Monday, September 7, 2026
+Clay's second edit landed on the wrong release (Negative Light instead
+of Tectonic Plates) right after saving the first one. Likely cause:
+saving instantly collapsed that row's editing form back down to a
+one-line row, yanking everything below it up the page — a click on
+"Edit" right after could land on whatever shifted into that spot.
+Every editor row (Music and Books, both edit and add) now holds a
+"Saved/Added [title]" confirmation in place of the buttons for 1.4
+seconds before collapsing — same height the whole time, so nothing
+shifts right when you're about to click the next thing, and the title
+shown confirms which entry actually just changed.
+
 ## Version 78 (f9e2ae0) — Monday, September 7, 2026
 Clay's first real edit through the new editor (retitling dog gods:
 singles) broke the build. Root cause: the editor always sends a links

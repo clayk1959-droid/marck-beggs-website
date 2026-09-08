@@ -273,6 +273,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 79</span><span class="version-hash">(38422e3)</span><span class="version-date">Monday, September 7, 2026</span></div>
+      <ul>
+        <li>Clay's second edit landed on the wrong release (Negative Light instead of Tectonic Plates) right after saving the first one — saving instantly collapsed that row's editing form, yanking everything below it up the page right as the next click landed. Every editor row (Music and Books, edit and add) now holds a "Saved/Added [title]" confirmation in place of the buttons for 1.4 seconds before collapsing, so nothing shifts right when you're about to click the next thing.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 78</span><span class="version-hash">(f9e2ae0)</span><span class="version-date">Monday, September 7, 2026</span></div>
       <ul>
         <li>Clay's first real edit through the new editor (retitling dog gods: singles) broke the build — the editor always sent a links object on save, even for a tracks-based release with no links field at all, and the PATCH route stamped an empty `links: {}` onto it regardless, which doesn't satisfy the data type and failed the next deploy's type check. The site stayed up (Vercel kept serving the prior build), but the retitle never went live. Fixed the route to only touch `links` when there's an actual value or it already existed; repaired the data and restored the title. Verified by replaying the exact same save against production.</li>
