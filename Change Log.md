@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 81 (1651b24) — Tuesday, September 8, 2026
+Clay caught that the plain-language Marck guide from V80 wasn't
+actually reachable from anywhere on the live site — just a file sitting
+in the repo. Built it as a real page instead, <code>/editor/guide</code>
+(not gated behind login, since it's just instructions), linked from
+both the editor dashboard and the login page. Same content, matching
+the site's own look instead of a separate document's own styling.
+Also found and fixed a real bug while verifying it: several spots lost
+their space entirely between bold text and the words right after it
+("Deleteasks", "/editorin") — a JSX quirk, not just a display glitch,
+confirmed at the actual rendered HTML. Fixed throughout.
+
 ## Version 80 (416aaeb) — Tuesday, September 8, 2026
 Clay asked whether Site Guide.html covered everything Marck needs to
 use the editor — it didn't, and shouldn't: it's Clay's own technical

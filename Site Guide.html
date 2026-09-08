@@ -282,6 +282,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 81</span><span class="version-hash">(1651b24)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
+      <ul>
+        <li>The plain-language Marck guide from V80 wasn't actually reachable from anywhere on the live site — just a file in the repo. Built it as a real page instead, <code>/editor/guide</code> (not gated behind login), linked from both the editor dashboard and the login page. Also fixed a real JSX bug found while verifying it: several spots lost their space entirely between bold text and the following word ("Deleteasks", "/editorin") — confirmed at the raw rendered HTML, not just a display glitch. Fixed throughout with explicit {" "} between the tags.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 80</span><span class="version-hash">(416aaeb)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
       <ul>
         <li>New "Editor Guide for Marck.html" — a short, plain-language, repo-root doc (same pattern as this file/Change Log.md) walking Marck through logging in, editing/deleting, adding something brand new, what happens after each click, and the wait-for-the-confirmation tip. This file (Site Guide.html) is Clay's own technical reference and was never meant for that audience. Also fixed this file's own stale workflow summary and editor capability table, which still described the pre-V77 edit/delete-only state.</li>
