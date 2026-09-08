@@ -3,6 +3,30 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 77 (1860f43) — Monday, September 7, 2026
+Big one: the editor can now add brand-new music releases and books, not
+just edit/delete existing ones. Click "+ Add a release" or "+ Add a
+book" at the top of either editor page, pick a cover photo from your
+computer, fill in the fields, save — the photo uploads, gets resized
+automatically, and the whole thing goes live in one commit, same as any
+other editor save. For music: one streaming link makes the card open
+straight into a mini-player when tapped; more than one shows the
+pick-a-service screen, exactly like every existing release already
+does. Cover photos are editable now too, on both Add and Edit.
+
+Also fixed a real bug this surfaced: deleting anything with a cover
+image (which is nearly everything) had been silently broken for a
+while — the delete logic tried to rebuild the entire repo's file tree
+in one request, which now 502s once the repo passed ~1400 files.
+Rewritten to only touch the specific file(s) being removed; confirmed
+fast (2-3 seconds) for a single cover, a nested file, and a whole photo
+collection directory.
+
+Photo collections stay a step Clay does locally for now
+(`scripts/add-gallery-collection.mjs`, same 3200px/750px resize rules
+as everywhere else) since Marck hasn't needed to add photos himself —
+see the Site Guide for how that works if it's ever needed.
+
 ## Version 76 (251bfd7) — Monday, September 7, 2026
 Six rounds of wide-desktop tuning (V66-V75) never converged — every
 fix chased the last screenshot instead of landing. Reverted cleanly

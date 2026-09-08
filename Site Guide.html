@@ -273,6 +273,14 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 77</span><span class="version-hash">(1860f43)</span><span class="version-date">Monday, September 7, 2026</span></div>
+      <ul>
+        <li>The editor can now add brand-new music releases and books, not just edit/delete existing ones — "+ Add a release"/"+ Add a book" with a cover photo upload, resized and committed live in one save. One streaming link opens a mini-player directly when tapped; more than one shows the pick-a-service screen, same as every existing release. Cover photos are now editable on existing entries too.</li>
+        <li>Fixed a real bug this surfaced: deleting anything with a cover image was silently broken once the repo passed ~1400 files (the delete logic tried to rebuild the entire file tree in one request, which 502s at that size). Rewritten to only touch the file(s) actually being removed — confirmed fast for a single file, a nested file, and a whole photo-collection directory.</li>
+        <li>Photo collections stay a local step for Clay (scripts/add-gallery-collection.mjs, same resize rules as everywhere else) since Marck hasn't needed to add photos himself.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 76</span><span class="version-hash">(251bfd7)</span><span class="version-date">Monday, September 7, 2026</span></div>
       <ul>
         <li>Six rounds of wide-desktop tuning (V66-V75) never converged — every fix chased the last screenshot instead of landing. Reverted cleanly back to the pre-session baseline: `.wrap` is a plain centered 720/960/1100px column again, and the home page hero is back to its original 420px centered photo with a plain flex Music/Writings row below it. The footer tuck-in/font-size fix from V71 stays. Mobile unaffected throughout.</li>
