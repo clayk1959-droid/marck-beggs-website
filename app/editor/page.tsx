@@ -7,9 +7,9 @@ import books from "../../data/books.json";
 import musicReleases from "../../data/music-releases.json";
 
 const SECTIONS = [
-  { href: "/editor/photos", label: "Photos", count: collections.length },
-  { href: "/editor/books", label: "Books", count: books.collections.length + books.anthologies.length },
   { href: "/editor/music", label: "Music", count: musicReleases.length },
+  { href: "/editor/books", label: "Books", count: books.collections.length + books.anthologies.length },
+  { href: "/editor/photos", label: "Photos", count: collections.length },
 ];
 
 export default async function EditorDashboardPage() {
@@ -42,7 +42,6 @@ export default async function EditorDashboardPage() {
             <Link
               key={section.href}
               href={section.href}
-              className="card"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -50,6 +49,7 @@ export default async function EditorDashboardPage() {
                 padding: "18px 20px",
                 textDecoration: "none",
                 color: "inherit",
+                background: "rgba(36, 27, 46, 0.15)",
               }}
             >
               <h2 style={{ fontSize: 20 }}>{section.label}</h2>

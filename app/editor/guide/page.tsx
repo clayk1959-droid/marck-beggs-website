@@ -25,7 +25,7 @@ function StepCard({ number, title, children }: { number: number; title: string; 
         </span>
         {title}
       </h2>
-      <div className="card" style={{ padding: "16px 20px", marginTop: 10 }}>
+      <div style={{ padding: "16px 20px", marginTop: 10, background: "rgba(36, 27, 46, 0.15)" }}>
         {children}
       </div>
     </section>
@@ -93,15 +93,21 @@ export default function EditorGuidePage() {
           </WhatHappens>
         </StepCard>
 
-        <StepCard number={2} title="Pick Music or Writings">
+        <StepCard number={2} title="Pick Music, Writings, or Photos">
           <p>
-            You&rsquo;ll see a page with two things you can manage: <strong>Music</strong>{" "}(your albums and singles)
-            and <strong>Writings</strong>{" "}(your books and anthologies). Click whichever one you want to change.
+            You&rsquo;ll see a page with three things you can manage: <strong>Music</strong>{" "}(your albums and
+            singles), <strong>Writings</strong>{" "}(your books and anthologies), and <strong>Photos</strong>{" "}
+            (your galleries). Click whichever one you want to change.
+          </p>
+          <p style={{ marginTop: 8 }}>
+            Music and Writings work exactly the same either way — edit, delete, or add something brand new. Photos
+            is a little different: you can edit a gallery&rsquo;s title or delete it, but adding a whole new photo
+            gallery is still a step Clay does for you.
           </p>
         </StepCard>
 
         <StepCard number={3} title="Change something that's already there">
-          <p>Every album or book is listed with an Edit button and a Delete button next to it.</p>
+          <p>Every album, book, or photo gallery is listed with an Edit button and a Delete button next to it.</p>
           <ul style={{ marginTop: 8 }}>
             <li>
               <strong>Edit</strong>{" "}opens up the fields for that one entry — title, year, links, and so on. Change
@@ -155,7 +161,7 @@ export default function EditorGuidePage() {
 
         <section style={{ marginTop: 28 }}>
           <h2 style={{ fontSize: 20 }}>If something looks wrong</h2>
-          <div className="card" style={{ padding: "16px 20px", marginTop: 10 }}>
+          <div style={{ padding: "16px 20px", marginTop: 10, background: "rgba(36, 27, 46, 0.15)" }}>
             <p style={{ margin: 0 }}>
               You can&rsquo;t break anything permanently — every change can be undone. If you&rsquo;re not sure what
               happened, just text or email Clay and he&rsquo;ll sort it out.
