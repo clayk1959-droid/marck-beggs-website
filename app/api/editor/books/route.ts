@@ -1,6 +1,7 @@
 import { getEditorSession } from "../../../../lib/editor-session";
 import { getFileContent, commitChanges, type CommitWrite } from "../../../../lib/github-commit";
 import { resizeCoverImage } from "../../../../lib/image-resize";
+import { notifyEditorChange, notifyEditorFailure } from "../../../../lib/editor-notify";
 import { del } from "@vercel/blob";
 
 const DATA_PATH = "data/books.json";
@@ -77,17 +78,23 @@ export async function POST(request: Request) {
   }
   books.push(book);
 
-  await commitChanges(
-    {
-      writes: [
-        { path: DATA_PATH, content: JSON.stringify(data, null, 2) + "\n" },
-        { path: `public/images/books/${id}.jpg`, content: coverBuffer.toString("base64"), encoding: "base64" },
-      ],
-    },
-    `Editor (${session.name}): add book "${title}"`,
-  );
+  try {
+    await commitChanges(
+      {
+        writes: [
+          { path: DATA_PATH, content: JSON.stringify(data, null, 2) + "\n" },
+          { path: `public/images/books/${id}.jpg`, content: coverBuffer.toString("base64"), encoding: "base64" },
+        ],
+      },
+      `Editor (${session.name}): add book "${title}"`,
+    );
+  } catch (error) {
+    await notifyEditorFailure(session.name, `add a new book ("${title}")`, error);
+    return Response.json({ error: "Failed to save. Clay has been notified." }, { status: 502 });
+  }
 
   await del(coverBlobUrl).catch(() => {});
+  await notifyEditorChange(session.name, `added a new book: "${title}"`);
 
   return Response.json({ ok: true, book });
 }
@@ -127,9 +134,15 @@ export async function PATCH(request: Request) {
   }
   writes.push({ path: DATA_PATH, content: JSON.stringify(data, null, 2) + "\n" });
 
-  await commitChanges({ writes }, `Editor (${session.name}): update "${book.title}"`);
+  try {
+    await commitChanges({ writes }, `Editor (${session.name}): update "${book.title}"`);
+  } catch (error) {
+    await notifyEditorFailure(session.name, `update the book "${book.title}"`, error);
+    return Response.json({ error: "Failed to save. Clay has been notified." }, { status: 502 });
+  }
 
   if (coverBlobUrl) await del(coverBlobUrl).catch(() => {});
+  await notifyEditorChange(session.name, `edited the book "${book.title}"`);
 
   return Response.json({ ok: true, book });
 }
@@ -152,13 +165,20 @@ export async function DELETE(request: Request) {
   if (list === "collections") data.collections = books.filter((item) => item.id !== id);
   else data.anthologies = books.filter((item) => item.id !== id);
 
-  await commitChanges(
-    {
-      writes: [{ path: DATA_PATH, content: JSON.stringify(data, null, 2) + "\n" }],
-      deletes: removedBook?.cover ? [removedBook.cover.replace(/^\//, "public/")] : [],
-    },
-    `Editor (${session.name}): delete book "${id}"`,
-  );
+  try {
+    await commitChanges(
+      {
+        writes: [{ path: DATA_PATH, content: JSON.stringify(data, null, 2) + "\n" }],
+        deletes: removedBook?.cover ? [removedBook.cover.replace(/^\//, "public/")] : [],
+      },
+      `Editor (${session.name}): delete book "${id}"`,
+    );
+  } catch (error) {
+    await notifyEditorFailure(session.name, `delete the book "${id}"`, error);
+    return Response.json({ error: "Failed to delete. Clay has been notified." }, { status: 502 });
+  }
+
+  await notifyEditorChange(session.name, `deleted the book "${removedBook?.title || id}"`);
 
   return Response.json({ ok: true });
 }

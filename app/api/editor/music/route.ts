@@ -1,6 +1,7 @@
 import { getEditorSession } from "../../../../lib/editor-session";
 import { getFileContent, commitChanges, type CommitWrite } from "../../../../lib/github-commit";
 import { resizeCoverImage } from "../../../../lib/image-resize";
+import { notifyEditorChange, notifyEditorFailure } from "../../../../lib/editor-notify";
 import { del } from "@vercel/blob";
 
 const DATA_PATH = "data/music-releases.json";
@@ -75,17 +76,23 @@ export async function POST(request: Request) {
   const release: Release = { slug, title, year, credit, cover: `/images/music/${slug}.jpg`, links: linksFromBody(body) };
   releases.push(release);
 
-  await commitChanges(
-    {
-      writes: [
-        { path: DATA_PATH, content: JSON.stringify(releases, null, 2) + "\n" },
-        { path: coverPath, content: coverBuffer.toString("base64"), encoding: "base64" },
-      ],
-    },
-    `Editor (${session.name}): add release "${title}"`,
-  );
+  try {
+    await commitChanges(
+      {
+        writes: [
+          { path: DATA_PATH, content: JSON.stringify(releases, null, 2) + "\n" },
+          { path: coverPath, content: coverBuffer.toString("base64"), encoding: "base64" },
+        ],
+      },
+      `Editor (${session.name}): add release "${title}"`,
+    );
+  } catch (error) {
+    await notifyEditorFailure(session.name, `add a new release ("${title}")`, error);
+    return Response.json({ error: "Failed to save. Clay has been notified." }, { status: 502 });
+  }
 
   await del(coverBlobUrl).catch(() => {});
+  await notifyEditorChange(session.name, `added a new music release: "${title}"`);
 
   return Response.json({ ok: true, release });
 }
@@ -139,9 +146,15 @@ export async function PATCH(request: Request) {
   }
   writes.push({ path: DATA_PATH, content: JSON.stringify(releases, null, 2) + "\n" });
 
-  await commitChanges({ writes }, `Editor (${session.name}): update "${release.title}" release`);
+  try {
+    await commitChanges({ writes }, `Editor (${session.name}): update "${release.title}" release`);
+  } catch (error) {
+    await notifyEditorFailure(session.name, `update the release "${release.title}"`, error);
+    return Response.json({ error: "Failed to save. Clay has been notified." }, { status: 502 });
+  }
 
   if (coverBlobUrl) await del(coverBlobUrl).catch(() => {});
+  await notifyEditorChange(session.name, `edited the music release "${release.title}"`);
 
   return Response.json({ ok: true, release });
 }
@@ -161,13 +174,20 @@ export async function DELETE(request: Request) {
   const remaining = releases.filter((item) => item.slug !== slug);
   if (remaining.length === releases.length) return Response.json({ error: "Release not found." }, { status: 404 });
 
-  await commitChanges(
-    {
-      writes: [{ path: DATA_PATH, content: JSON.stringify(remaining, null, 2) + "\n" }],
-      deletes: removed?.cover ? [removed.cover.replace(/^\//, "public/")] : [],
-    },
-    `Editor (${session.name}): delete release "${slug}"`,
-  );
+  try {
+    await commitChanges(
+      {
+        writes: [{ path: DATA_PATH, content: JSON.stringify(remaining, null, 2) + "\n" }],
+        deletes: removed?.cover ? [removed.cover.replace(/^\//, "public/")] : [],
+      },
+      `Editor (${session.name}): delete release "${slug}"`,
+    );
+  } catch (error) {
+    await notifyEditorFailure(session.name, `delete the release "${slug}"`, error);
+    return Response.json({ error: "Failed to delete. Clay has been notified." }, { status: 502 });
+  }
+
+  await notifyEditorChange(session.name, `deleted the music release "${removed?.title || slug}"`);
 
   return Response.json({ ok: true });
 }
