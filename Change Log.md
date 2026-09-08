@@ -3,6 +3,21 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 85 (996c09c) — Tuesday, September 8, 2026
+Two things, closing a real gap: Vercel only emails on a *build* failure,
+and that only fires once a deployment is actually triggered — which
+needs a commit to land on GitHub first. If the GitHub commit step
+itself fails outright (bad token, GitHub API down, a merge conflict
+that exhausts the retries), no commit happens, no push happens, Vercel
+is never even invoked — zero email from anyone, just "Failed to save"
+in Marck's browser, easy to miss. Now: Clay gets a brief email whenever
+Marck adds, edits, or deletes something (skipped for Clay's own edits —
+no need to hear about his own actions), and a separate alert email
+whenever a save fails outright, for anyone, specifically covering that
+silent-failure case. Reuses the same Resend account/verified domain
+Clay Carson Photography already uses. Verified end-to-end on
+production with a real save.
+
 ## Version 84 (16fcb62) — Tuesday, September 8, 2026
 Real multi-user login. The auth code already supported multiple named
 users — ported from Clay Carson Photography's own pattern — but the

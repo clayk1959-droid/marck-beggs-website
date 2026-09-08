@@ -290,6 +290,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 85</span><span class="version-hash">(996c09c)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
+      <ul>
+        <li>Closes a real gap: Vercel only emails on a build failure, and that only fires once a deployment is triggered — which needs a GitHub commit to land first. If the commit step itself fails outright (bad token, GitHub API down, an exhausted merge-conflict retry), no commit happens, no push happens, Vercel is never invoked — zero email from anyone. Clay now gets a brief email whenever Marck adds, edits, or deletes something (skipped for Clay's own edits), plus a separate failure alert for anyone whenever a save fails outright. Reuses the same Resend account/verified domain as Clay Carson Photography. Verified end-to-end on production.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 84</span><span class="version-hash">(16fcb62)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
       <ul>
         <li>Real multi-user login — the auth code already supported multiple named users (ported from Clay Carson Photography's pattern), but the login form only collected a password and silently logged everyone in as a generic "Owner." Now: a real Email field; Clay's login matches his photo-site credentials exactly; Marck gets his own named login with his existing password; every editor commit says who made it ("Editor (name): ..."), matching the photo site's format. Verified end-to-end on production.</li>
