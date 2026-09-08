@@ -3,6 +3,19 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 73 (722c2f7) — Monday, September 7, 2026
+Confirmed with Clay on his actual 1920x1080 monitor: shuffling the
+left/right margin ratio was never going to fix the wide-screen void,
+since content was capped at a fixed 1100px no matter how wide the
+screen got. Widened the shared content column itself (1200px at
+1024px+, 1500px at 1400px+) so pages that use the full width — Music,
+Photos, Books, About — actually fill more of a wide screen. Also found
+a second bug specific to the home page: its hero/cards block was
+self-centering inside the wrap instead of following the wrap's own
+left shift, so widening the wrap alone didn't visibly help it. Fixed
+that (no more self-centering) and bumped its own cap from 600px to
+950px. Mobile untouched throughout.
+
 ## Version 72 (cd10e33) — Monday, September 7, 2026
 Clay confirmed V71's wide-desktop pull went too far — too much dead
 space on the right on a genuinely wide screen. Split the difference
