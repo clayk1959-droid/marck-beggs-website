@@ -45,13 +45,12 @@ Answered or closed out everything that was previously open:
 
 ## How to edit content
 
-Two ways, depending on what you're changing — see `Site Guide.html` for
-the full version:
+See `Site Guide.html` for the full version:
 
-- **Editing/deleting something that already exists** (a book's buy link,
-  a photo collection, a music-art image) — log into `/editor` in a
+- **Books and music releases** — fully self-serve through `/editor` now:
+  edit, delete, or add brand-new with a cover photo upload, all from the
   browser. No coding. Commits straight to GitHub, live in about a minute.
-- **Adding something brand-new** (a new book, a new photo collection, new
-  music art) — the editor can't do this yet, so it's still a manual step:
-  drop the file into `public/...`, add the matching entry to the JSON file
-  in `data/`, commit, push.
+- **Photo collections** — the editor can still edit a collection's
+  title/subtitle or delete it, but adding a brand-new collection stays a
+  step Clay does locally (`scripts/add-gallery-collection.mjs`), since
+  Marck hasn't needed to add photos himself.

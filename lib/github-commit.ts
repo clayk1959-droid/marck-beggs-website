@@ -45,13 +45,41 @@ export async function getFileContent(path: string): Promise<string | null> {
 
 export type CommitWrite = { path: string; content: string; encoding?: "utf-8" | "base64" };
 
-type TreeEntry = { path: string; mode: string; type: string; sha: string | null };
+type ContentsEntry = { path: string; type: "file" | "dir" | "symlink" | "submodule" };
+
+/**
+ * Lists every blob path under `path` (itself, if it's a file; everything
+ * beneath it, if it's a directory) via the Contents API -- scoped to just
+ * that path, never the whole repo. A gallery collection is only 2-3 levels
+ * deep (full/, thumbs/), so this is a handful of small requests, not one
+ * giant one. Returns [] if the path doesn't exist.
+ */
+async function listBlobPathsUnder(repo: string, branch: string, path: string): Promise<string[]> {
+  const response = await fetch(`${API_ROOT}/repos/${repo}/contents/${path}?ref=${branch}`, {
+    headers: authHeaders(repoAndBranch().token),
+    cache: "no-store",
+  });
+  if (response.status === 404) return [];
+  if (!response.ok) throw new Error(`GitHub API ${response.status} listing ${path}`);
+  const data = await response.json();
+  if (!Array.isArray(data)) return [path]; // a single file
+
+  const entries = data as ContentsEntry[];
+  const nested = await Promise.all(
+    entries.map((entry) => (entry.type === "dir" ? listBlobPathsUnder(repo, branch, entry.path) : Promise.resolve([entry.path]))),
+  );
+  return nested.flat();
+}
 
 /**
  * One atomic commit: writes (add/update, text or base64) plus deletes
  * (exact paths or directory prefixes -- anything under "gallery/foo/" is
- * removed by passing "gallery/foo"). Retries on a non-fast-forward
- * conflict from a concurrent edit.
+ * removed by passing "gallery/foo"). Deletions use the Git Trees API's
+ * sha:null-against-base_tree trick, so this never has to fetch or
+ * resubmit the whole repo tree -- fast and safe regardless of repo size
+ * (an earlier version rebuilt the full tree for any delete, which started
+ * timing out with a 502 once this repo passed ~1400 files). Retries on a
+ * non-fast-forward conflict from a concurrent edit.
  */
 export async function commitChanges(
   { writes = [], deletes = [] }: { writes?: CommitWrite[]; deletes?: string[] },
@@ -80,40 +108,19 @@ export async function commitChanges(
       }),
     );
 
-    let newTreeSha: string;
+    const deletedPaths = (await Promise.all(deletes.map((target) => listBlobPathsUnder(repo, branch, target)))).flat();
 
-    if (deletes.length > 0) {
-      const treeResponse = await githubFetch(`/repos/${repo}/git/trees/${baseTreeSha}?recursive=1`);
-      const treeData = await treeResponse.json();
-      const isDeleted = (path: string) =>
-        deletes.some((prefix) => path === prefix || path.startsWith(prefix.endsWith("/") ? prefix : `${prefix}/`));
+    const treeEntries = [
+      ...writes.map((write, index) => ({ path: write.path, mode: "100644", type: "blob", sha: blobShas[index] })),
+      ...deletedPaths.map((path) => ({ path, mode: "100644", type: "blob", sha: null })),
+    ];
 
-      const remaining: TreeEntry[] = (treeData.tree as TreeEntry[]).filter(
-        (entry) => entry.type === "blob" && !isDeleted(entry.path),
-      );
-      const writePaths = new Set(writes.map((w) => w.path));
-      const merged = remaining.filter((entry) => !writePaths.has(entry.path));
-      for (const [index, write] of writes.entries()) {
-        merged.push({ path: write.path, mode: "100644", type: "blob", sha: blobShas[index] });
-      }
-
-      const newTreeResponse = await githubFetch(`/repos/${repo}/git/trees`, {
-        method: "POST",
-        body: JSON.stringify({ tree: merged.map(({ path, mode, type, sha }) => ({ path, mode, type, sha })) }),
-      });
-      const newTreeData = await newTreeResponse.json();
-      newTreeSha = newTreeData.sha;
-    } else {
-      const newTreeResponse = await githubFetch(`/repos/${repo}/git/trees`, {
-        method: "POST",
-        body: JSON.stringify({
-          base_tree: baseTreeSha,
-          tree: writes.map((write, index) => ({ path: write.path, mode: "100644", type: "blob", sha: blobShas[index] })),
-        }),
-      });
-      const newTreeData = await newTreeResponse.json();
-      newTreeSha = newTreeData.sha;
-    }
+    const newTreeResponse = await githubFetch(`/repos/${repo}/git/trees`, {
+      method: "POST",
+      body: JSON.stringify({ base_tree: baseTreeSha, tree: treeEntries }),
+    });
+    const newTreeData = await newTreeResponse.json();
+    const newTreeSha: string = newTreeData.sha;
 
     const newCommitResponse = await githubFetch(`/repos/${repo}/git/commits`, {
       method: "POST",

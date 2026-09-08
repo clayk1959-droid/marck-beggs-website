@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CoverImageInput } from "./CoverImageInput";
 
 type Book = { id: string; title: string; year?: string; publisher?: string; note?: string; cover: string; buyUrl?: string };
 
@@ -24,6 +25,7 @@ const FIELDS: { key: keyof Book; label: string }[] = [
 function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collections" | "anthologies"; onDeleted: () => void; onSaved: (b: Book) => void }) {
   const [editing, setEditing] = useState(false);
   const [fields, setFields] = useState({ ...book });
+  const [coverBlobUrl, setCoverBlobUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,7 +35,7 @@ function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collection
     const response = await fetch("/api/editor/books", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...fields, list }),
+      body: JSON.stringify({ ...fields, list, coverBlobUrl: coverBlobUrl || undefined }),
     });
     setBusy(false);
     if (!response.ok) {
@@ -41,7 +43,8 @@ function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collection
       setError(data?.error || "Failed to save.");
       return;
     }
-    onSaved(fields);
+    const data = await response.json();
+    onSaved(data.book);
     setEditing(false);
   }
 
@@ -67,6 +70,12 @@ function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collection
     <div className="card" style={{ padding: "14px 18px" }}>
       {editing ? (
         <div>
+          <div style={{ marginBottom: 10 }}>
+            <label className="mono" style={{ fontSize: 11 }}>Replace cover image</label>
+            <div style={{ marginTop: 4 }}>
+              <CoverImageInput onUploaded={setCoverBlobUrl} />
+            </div>
+          </div>
           {FIELDS.map(({ key, label }) => (
             <div key={key} style={{ marginBottom: 10 }}>
               <label className="mono" style={{ fontSize: 11 }}>{label}</label>
@@ -109,11 +118,101 @@ function Row({ book, list, onDeleted, onSaved }: { book: Book; list: "collection
   );
 }
 
+function AddBookForm({ list, onAdded }: { list: "collections" | "anthologies"; onAdded: (b: Book) => void }) {
+  const [open, setOpen] = useState(false);
+  const [fields, setFields] = useState<Record<string, string>>({ title: "", year: "", publisher: "", note: "", buyUrl: "" });
+  const [coverBlobUrl, setCoverBlobUrl] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  function reset() {
+    setFields({ title: "", year: "", publisher: "", note: "", buyUrl: "" });
+    setCoverBlobUrl(null);
+    setError(null);
+  }
+
+  async function handleAdd() {
+    if (!fields.title.trim()) {
+      setError("Title is required.");
+      return;
+    }
+    if (!coverBlobUrl) {
+      setError("Choose a cover image first.");
+      return;
+    }
+    setBusy(true);
+    setError(null);
+    const response = await fetch("/api/editor/books", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...fields, list, coverBlobUrl }),
+    });
+    setBusy(false);
+    if (!response.ok) {
+      const data = await response.json().catch(() => null);
+      setError(data?.error || "Failed to add.");
+      return;
+    }
+    const data = await response.json();
+    onAdded(data.book);
+    reset();
+    setOpen(false);
+  }
+
+  if (!open) {
+    return (
+      <button type="button" className="btn" onClick={() => setOpen(true)} style={{ padding: "10px 16px", fontSize: 13 }}>
+        + Add a book
+      </button>
+    );
+  }
+
+  return (
+    <div className="card" style={{ padding: "14px 18px" }}>
+      <div style={{ marginBottom: 10 }}>
+        <label className="mono" style={{ fontSize: 11 }}>Cover image</label>
+        <div style={{ marginTop: 4 }}>
+          <CoverImageInput onUploaded={setCoverBlobUrl} />
+        </div>
+      </div>
+      {FIELDS.map(({ key, label }) => (
+        <div key={key} style={{ marginBottom: 10 }}>
+          <label className="mono" style={{ fontSize: 11 }}>{label}</label>
+          <input
+            style={inputStyle}
+            value={fields[key] || ""}
+            onChange={(event) => setFields((current) => ({ ...current, [key]: event.target.value }))}
+          />
+        </div>
+      ))}
+      {error ? <p className="mono" style={{ color: "var(--accent)", fontSize: 11 }}>{error}</p> : null}
+      <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
+        <button type="button" className="btn" disabled={busy} onClick={handleAdd} style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}>
+          {busy ? "Adding…" : "Add book"}
+        </button>
+        <button
+          type="button"
+          className="btn"
+          disabled={busy}
+          onClick={() => {
+            reset();
+            setOpen(false);
+          }}
+          style={{ flex: 1, padding: "8px 12px", fontSize: 12 }}
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function BookEditor({ list, initialBooks }: { list: "collections" | "anthologies"; initialBooks: Book[] }) {
   const [books, setBooks] = useState(initialBooks);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <AddBookForm list={list} onAdded={(added) => setBooks((current) => [...current, added])} />
       {books.map((book) => (
         <Row
           key={book.id}

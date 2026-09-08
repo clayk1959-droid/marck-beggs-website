@@ -207,28 +207,31 @@ npm run dev</code></pre>
   </section>
 
   <section id="adding">
-    <h2>Adding brand-new content (until upload support ships)</h2>
-    <p>The editor can edit/delete what's already there, but can't yet accept
-      a file upload or resize an image — that's the next planned phase. Until
-      then, adding something new is a manual step:</p>
-    <h3>A new photo collection</h3>
-    <ol>
-      <li>Resize the photos yourself (or ask for a quick one-off script run)
-        to roughly the same rules as everything else: full-size ≤3200px,
-        thumbnail ≤750px, both JPEG.</li>
-      <li>Create <code>public/gallery/&lt;new-slug&gt;/full/</code> and
-        <code>.../thumbs/</code>, drop the matching files into each.</li>
-      <li>Add a new entry to <code>data/photo-collections.json</code> (slug,
-        title, subtitle, cover, ordered photo list).</li>
-      <li><code>git add -A &amp;&amp; git commit -m "..." &amp;&amp; git push</code>.</li>
-    </ol>
+    <h2>Adding brand-new content</h2>
     <h3>A new book or music release</h3>
-    <p>Same idea: drop the cover image into <code>public/images/books/</code>
-      or <code>public/images/music/</code>, add the matching entry to
-      <code>data/books.json</code> or <code>data/music-releases.json</code>
-      (give it a unique <code>id</code>/<code>slug</code>), commit, push. The
-      editor can edit or delete that entry afterward, but can't create it —
-      that still needs this manual step until upload support ships.</p>
+    <p>Fully self-serve through <code>/editor</code> now — click
+      <strong>+ Add a release</strong> or <strong>+ Add a book</strong> at the
+      top of the Music or Writings editor. Choose a cover photo from your
+      computer, fill in the fields, and save. The cover uploads directly (no
+      size limit worth worrying about), gets resized automatically, and the
+      whole thing — image plus the new entry — commits and goes live in one
+      shot, same as any other editor save.</p>
+    <p>For music releases specifically: fill in one streaming-service URL and
+      the release plays as a direct mini-player when tapped, same as the dog
+      gods 2008 album; fill in more than one and tapping shows the pick-a-service
+      screen instead, same as every multi-service release. Leave a service
+      blank to skip it.</p>
+    <h3>A new photo collection</h3>
+    <p>Still a step Clay does locally rather than through the editor (Marck
+      hasn't needed this) — run
+      <code>node scripts/add-gallery-collection.mjs "&lt;Title&gt;" "&lt;source folder&gt;"</code>,
+      which resizes every photo in that folder to the same rules as everything
+      else (full-size ≤3200px, thumbnail ≤750px, both mozjpeg) into
+      <code>public/gallery/&lt;slug&gt;/full/</code> and <code>.../thumbs/</code>
+      and adds the matching entry to <code>data/photo-collections.json</code>
+      automatically. Then just <code>git add -A &amp;&amp; git commit -m "..." &amp;&amp; git push</code>.
+      The editor can edit that collection's title/subtitle or delete it
+      afterward, same as always.</p>
   </section>
 
   <section id="architecture">
