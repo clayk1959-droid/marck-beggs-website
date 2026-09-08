@@ -3,6 +3,19 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 80 (416aaeb) — Tuesday, September 8, 2026
+Clay asked whether Site Guide.html covered everything Marck needs to
+use the editor — it didn't, and shouldn't: it's Clay's own technical
+reference (GitHub's API, session cookies, npm commands), not something
+a non-technical site owner should have to read. It was also stale —
+the workflow summary still said adding new content wasn't possible,
+even though that shipped two versions ago. New "Editor Guide for
+Marck.html": a short, plain-language, repo-root doc (same pattern as
+Site Guide.html/Change Log.md) walking through logging in, editing or
+deleting an existing entry, adding something brand new, what actually
+happens after each click, and the wait-for-the-confirmation tip. Also
+fixed the stale summary and capability table in Site Guide.html itself.
+
 ## Version 79 (38422e3) — Monday, September 7, 2026
 Clay's second edit landed on the wrong release (Negative Light instead
 of Tectonic Plates) right after saving the first one. Likely cause:
