@@ -31,6 +31,13 @@
       "publisher": "Mellen Poetry Press — out of print, available on Kindle",
       "cover": "/images/books/godworm.jpg",
       "buyUrl": "https://www.amazon.com/dp/B002HHLF1C/"
+    },
+    {
+      "id": "test-book-delete-me",
+      "title": "TEST BOOK — delete me",
+      "cover": "/images/books/test-book-delete-me.jpg",
+      "year": "2026",
+      "publisher": "Test Press"
     }
   ],
   "anthologies": [
