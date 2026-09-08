@@ -28,14 +28,14 @@
       },
       {
         "title": "Vuvuzela Blues",
-        "note": "live · feat. Alan Pittman on bass",
+        "note": "live \u00b7 feat. Alan Pittman on bass",
         "audioUrl": "/audio/vuvuzela-blues.mp3"
       }
     ]
   },
   {
     "slug": "dog-gods-2008",
-    "title": "dog gods — I am large, I contain multitudes",
+    "title": "dog gods \u2014 I am large, I contain multitudes",
     "year": "2008",
     "cover": "/images/music/doggods-art-1.jpg",
     "links": {
@@ -139,20 +139,6 @@
       "youtube": "",
       "pandora": "https://www.pandora.com/AL:24155194",
       "soundcloud": "https://soundcloud.com/marck-96594539/sets/negative-light"
-    }
-  },
-  {
-    "slug": "test-delete-me",
-    "title": "TEST — delete me",
-    "year": "2026",
-    "credit": "test (edited)",
-    "cover": "/images/music/test-delete-me.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/album/fake",
-      "apple": "",
-      "youtube": "",
-      "pandora": "",
-      "soundcloud": "https://soundcloud.com/marck-96594539/monster-trucks"
     }
   }
 ]
