@@ -30,8 +30,11 @@ export default async function EditorDashboardPage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 }}>
           <EditorLogoutButton />
-          <Link href="/editor/guide" className="mono" style={{ fontSize: 12, textDecoration: "underline" }}>
+          <Link href="/editor/guide" className="mono" style={{ fontSize: 13, textDecoration: "underline" }}>
             How to use this →
+          </Link>
+          <Link href="/site-guide.html" className="mono" style={{ fontSize: 13, textDecoration: "underline" }}>
+            Site Guide →
           </Link>
         </div>
       </section>
