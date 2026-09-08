@@ -129,11 +129,19 @@
   <section id="editor">
     <h2>Using the editor</h2>
     <p>
-      <code>/editor/login</code> asks for a password (<code>EDITOR_PASSWORD</code>,
-      set as an env var — not stored anywhere in the code). A successful login
-      sets a signed session cookie good for 30 days; no database is involved
-      anywhere in this — the cookie itself is the proof of login, HMAC-signed
-      with the password so it can't be forged without knowing it.
+      <code>/editor/login</code> asks for an email and password. Clay's login is
+      <code>clayk1959@gmail.com</code> with <code>EDITOR_PASSWORD</code> — the
+      same identity and password as the Clay Carson Photography editor, on
+      purpose, one thing to remember across both sites. Additional users
+      (Marck) go in <code>EDITOR_USERS</code> as <code>name:password</code>
+      lines, one per line, matching the pattern that project's
+      <code>lib/editor-users.ts</code> already used. Neither is stored
+      anywhere in the code — both are env vars. A successful login sets a
+      signed session cookie good for 30 days; no database is involved
+      anywhere in this — the cookie itself is the proof of login,
+      HMAC-signed with that person's own password so it can't be forged
+      without knowing it, and every editor commit records who made it
+      (<code>Editor (name): ...</code>).
     </p>
     <p>From the <code>/editor</code> dashboard, three sections:</p>
     <table>
@@ -281,6 +289,12 @@ npm run dev</code></pre>
     <p>Most recent first. Hosted on Vercel, deployed from GitHub — every push
       to <code>main</code> goes live automatically within a minute or two.</p>
 
+    <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 84</span><span class="version-hash">(16fcb62)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
+      <ul>
+        <li>Real multi-user login — the auth code already supported multiple named users (ported from Clay Carson Photography's pattern), but the login form only collected a password and silently logged everyone in as a generic "Owner." Now: a real Email field; Clay's login matches his photo-site credentials exactly; Marck gets his own named login with his existing password; every editor commit says who made it ("Editor (name): ..."), matching the photo site's format. Verified end-to-end on production.</li>
+      </ul>
+    </div>
     <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 83</span><span class="version-hash">(5c17616)</span><span class="version-date">Tuesday, September 8, 2026</span></div>
       <ul>

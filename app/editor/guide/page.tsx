@@ -84,8 +84,8 @@ export default function EditorGuidePage() {
       <section className="wrap section" style={{ maxWidth: 640 }}>
         <StepCard number={1} title="Log in">
           <p>
-            Go to <code>/editor</code>{" "}in any web browser — your phone, laptop, whatever&rsquo;s handy. Type in the
-            password Clay gave you and click <strong>Log in</strong>.
+            Go to <code>/editor</code>{" "}in any web browser — your phone, laptop, whatever&rsquo;s handy. Type in
+            your email and the password Clay gave you, then click <strong>Log in</strong>.
           </p>
           <WhatHappens>
             Nothing changes on the site yet — this just gets you into the editing tools. You&rsquo;ll stay logged in

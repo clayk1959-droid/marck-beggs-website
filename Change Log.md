@@ -3,6 +3,19 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 84 (16fcb62) — Tuesday, September 8, 2026
+Real multi-user login. The auth code already supported multiple named
+users — ported from Clay Carson Photography's own pattern — but the
+login form only ever collected a password and silently logged everyone
+in as a generic "Owner," so it was never actually usable that way. Now:
+a real Email field on the login page; Clay's identity here matches his
+photo-site login exactly (same email, same password, one thing to
+remember); Marck gets his own named login, keeping the password he's
+already using; and every editor commit now says who made it — "Editor
+(name): ..." — same format as the photo site's own git history.
+Verified end-to-end on production: both real logins work, a wrong
+password is rejected, and a real save shows the correct attribution.
+
 ## Version 83 (5c17616) — Tuesday, September 8, 2026
 Dropped the hard-offset text-shadow from the guide page's "How to
 Update Your Site" title — Clay caught it reading fuzzy at that size.
