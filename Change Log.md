@@ -3,6 +3,19 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 78 (f9e2ae0) — Monday, September 7, 2026
+Clay's first real edit through the new editor (retitling dog gods:
+singles) broke the build. Root cause: the editor always sends a links
+object when saving a release, even for a tracks-based release that has
+no links field at all — the PATCH route was creating an empty `links:
+{}` on save regardless, which doesn't satisfy the data type (every
+streaming-service key required) and failed the next deploy's type
+check. The site itself stayed up throughout (Vercel just kept serving
+the prior build), but the retitle never went live. Fixed the route to
+only touch `links` when there's an actual value to write or it already
+existed, and repaired the bad data plus restored the title. Verified
+by replaying the exact same save against production.
+
 ## Version 77 (1860f43) — Monday, September 7, 2026
 Big one: the editor can now add brand-new music releases and books, not
 just edit/delete existing ones. Click "+ Add a release" or "+ Add a

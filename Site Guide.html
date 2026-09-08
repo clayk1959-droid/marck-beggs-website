@@ -273,6 +273,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 78</span><span class="version-hash">(f9e2ae0)</span><span class="version-date">Monday, September 7, 2026</span></div>
+      <ul>
+        <li>Clay's first real edit through the new editor (retitling dog gods: singles) broke the build — the editor always sent a links object on save, even for a tracks-based release with no links field at all, and the PATCH route stamped an empty `links: {}` onto it regardless, which doesn't satisfy the data type and failed the next deploy's type check. The site stayed up (Vercel kept serving the prior build), but the retitle never went live. Fixed the route to only touch `links` when there's an actual value or it already existed; repaired the data and restored the title. Verified by replaying the exact same save against production.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 77</span><span class="version-hash">(1860f43)</span><span class="version-date">Monday, September 7, 2026</span></div>
       <ul>
         <li>The editor can now add brand-new music releases and books, not just edit/delete existing ones — "+ Add a release"/"+ Add a book" with a cover photo upload, resized and committed live in one save. One streaming link opens a mini-player directly when tapped; more than one shows the pick-a-service screen, same as every existing release. Cover photos are now editable on existing entries too.</li>
