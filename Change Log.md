@@ -3,6 +3,14 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 70 (56be36c) — Monday, September 7, 2026
+The rule line above Music/Writings on the home page stretched across
+the full (now wider) column while the hero photo and cards above/below
+it stayed capped at 600px — Clay caught it looking disconnected on a
+wide screen. Moved the border onto the same 600px-capped block as the
+hero and cards, so all three now share identical edges. Mobile
+unaffected.
+
 ## Version 69 (a0fcc60) — Monday, September 7, 2026
 The Arkansas Literary Forum archive was only reachable from a card at
 the bottom of the Writings page. Added it to the hamburger menu as
