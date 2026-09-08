@@ -3,6 +3,12 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 83 (5c17616) — Tuesday, September 8, 2026
+Dropped the hard-offset text-shadow from the guide page's "How to
+Update Your Site" title — Clay caught it reading fuzzy at that size.
+Same effect is still used on every other editor page heading; just
+removed here.
+
 ## Version 82 (a0254c4) — Tuesday, September 8, 2026
 Clay's inspection of the dashboard/guide caught three things: the
 dashboard actually has 3 sections (Photos, Books, Music) but the
