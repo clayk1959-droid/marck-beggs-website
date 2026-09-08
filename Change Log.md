@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 75 (17035be) — Monday, September 7, 2026
+The home page kept looking wrong even after V74 fixed every other
+page, because its hero/cards block had its own hardcoded width cap
+(600px, then 950px) that never inherited the general wrap scaling fix
+at all — a special case Clay's screenshots kept catching. Removed that
+cap. The hero photo and Music/Writings cards now fill the wrap
+directly, exactly like the Music and Photos grids already did, so the
+V74 formula applies here too. Mobile untouched.
+
 ## Version 74 (e5023ad) — Monday, September 7, 2026
 Clay made the real point that had been missing from every prior pass:
 visitors have all sorts of window sizes, so tuning fixed margin/width
