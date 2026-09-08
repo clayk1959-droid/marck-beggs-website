@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { OWNER_NAME } from "./editor-auth";
+import { sendOwnerSms } from "./sms";
 
 // Reuses the same Resend account/verified sending domain as Clay Carson
 // Photography's own notification emails -- one already-working identity
@@ -30,7 +31,10 @@ async function sendMail(subject: string, html: string) {
 // does.
 export async function notifyEditorChange(editorName: string, summary: string) {
   if (editorName.toLowerCase() === OWNER_EMAIL.toLowerCase()) return;
-  await sendMail(`Marck Beggs site: ${summary}`, `<p><strong>${escapeHtml(editorName)}</strong> ${escapeHtml(summary)}.</p>`);
+  await Promise.all([
+    sendMail(`Marck Beggs site: ${summary}`, `<p><strong>${escapeHtml(editorName)}</strong> ${escapeHtml(summary)}.</p>`),
+    sendOwnerSms(`Marck Beggs site: ${editorName} ${summary}.`),
+  ]);
 }
 
 // Fires when a save fails outright -- before any commit lands, so Vercel
@@ -38,10 +42,13 @@ export async function notifyEditorChange(editorName: string, summary: string) {
 // the only alert for that case, so it fires regardless of who triggered it.
 export async function notifyEditorFailure(editorName: string, action: string, error: unknown) {
   const message = error instanceof Error ? error.message : String(error);
-  await sendMail(
-    `Marck Beggs site: save failed (${editorName})`,
-    `<p><strong>${escapeHtml(editorName)}</strong> tried to ${escapeHtml(action)}, but it failed:</p><pre>${escapeHtml(
-      message,
-    )}</pre><p>Nothing was saved — ask them to try again, or check GitHub/Vercel status.</p>`,
-  );
+  await Promise.all([
+    sendMail(
+      `Marck Beggs site: save failed (${editorName})`,
+      `<p><strong>${escapeHtml(editorName)}</strong> tried to ${escapeHtml(action)}, but it failed:</p><pre>${escapeHtml(
+        message,
+      )}</pre><p>Nothing was saved — ask them to try again, or check GitHub/Vercel status.</p>`,
+    ),
+    sendOwnerSms(`Marck Beggs site: ${editorName}'s save failed. Nothing was saved. Check email for details.`),
+  ]);
 }
