@@ -84,7 +84,7 @@ export async function POST(request: Request) {
         { path: `public/images/books/${id}.jpg`, content: coverBuffer.toString("base64"), encoding: "base64" },
       ],
     },
-    `Editor: add book "${title}"`,
+    `Editor (${session.name}): add book "${title}"`,
   );
 
   await del(coverBlobUrl).catch(() => {});
@@ -127,7 +127,7 @@ export async function PATCH(request: Request) {
   }
   writes.push({ path: DATA_PATH, content: JSON.stringify(data, null, 2) + "\n" });
 
-  await commitChanges({ writes }, `Editor: update "${book.title}"`);
+  await commitChanges({ writes }, `Editor (${session.name}): update "${book.title}"`);
 
   if (coverBlobUrl) await del(coverBlobUrl).catch(() => {});
 
@@ -157,7 +157,7 @@ export async function DELETE(request: Request) {
       writes: [{ path: DATA_PATH, content: JSON.stringify(data, null, 2) + "\n" }],
       deletes: removedBook?.cover ? [removedBook.cover.replace(/^\//, "public/")] : [],
     },
-    `Editor: delete book "${id}"`,
+    `Editor (${session.name}): delete book "${id}"`,
   );
 
   return Response.json({ ok: true });

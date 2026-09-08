@@ -30,7 +30,7 @@ export async function PATCH(request: Request) {
 
   await commitChanges(
     { writes: [{ path: DATA_PATH, content: JSON.stringify(collections, null, 2) + "\n" }] },
-    `Editor: update "${collection.title}" photo collection`,
+    `Editor (${session.name}): update "${collection.title}" photo collection`,
   );
 
   return Response.json({ ok: true, collection });
@@ -57,7 +57,7 @@ export async function DELETE(request: Request) {
       writes: [{ path: DATA_PATH, content: JSON.stringify(remaining, null, 2) + "\n" }],
       deletes: [`public/gallery/${slug}`],
     },
-    `Editor: delete photo collection "${slug}"`,
+    `Editor (${session.name}): delete photo collection "${slug}"`,
   );
 
   return Response.json({ ok: true });

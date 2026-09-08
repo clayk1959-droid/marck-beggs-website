@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function EditorLoginPage() {
   const router = useRouter();
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -17,7 +18,7 @@ export default function EditorLoginPage() {
     const response = await fetch("/api/editor-login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
+      body: JSON.stringify({ name, password }),
     });
     setSubmitting(false);
     if (!response.ok) {
@@ -37,13 +38,23 @@ export default function EditorLoginPage() {
         </h1>
         <form onSubmit={handleSubmit} style={{ maxWidth: 320, margin: "32px auto 0", textAlign: "left" }}>
           <label className="mono" style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            Email
+          </label>
+          <input
+            type="email"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            autoFocus
+            className="card"
+            style={{ width: "100%", padding: "12px 14px", marginTop: 8, fontSize: 15, background: "var(--card)" }}
+          />
+          <label className="mono" style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.06em", marginTop: 16, display: "block" }}>
             Password
           </label>
           <input
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            autoFocus
             className="card"
             style={{ width: "100%", padding: "12px 14px", marginTop: 8, fontSize: 15, background: "var(--card)" }}
           />

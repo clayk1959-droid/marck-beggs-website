@@ -2,7 +2,9 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 
 export const EDITOR_SESSION_COOKIE = "editor_session";
 export const EDITOR_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30; // 30 days
-const OWNER_NAME = "Owner";
+// Matches Clay Carson Photography's own editor -- same identity, so the
+// same login works on both sites instead of a generic "Owner".
+const OWNER_NAME = "clayk1959@gmail.com";
 
 function parseEditorUsers(): Map<string, string> {
   const raw = process.env.EDITOR_USERS || "";
@@ -14,14 +16,17 @@ function parseEditorUsers(): Map<string, string> {
     if (separatorIndex === -1) continue;
     const name = trimmed.slice(0, separatorIndex).trim();
     const password = trimmed.slice(separatorIndex + 1).trim();
-    if (name && password) map.set(name, password);
+    if (name && password) map.set(name.toLowerCase(), password);
   }
   return map;
 }
 
+// Case-insensitive, since names here are email addresses and people don't
+// type those consistently.
 function getPasswordForUser(name: string): string | null {
-  if (name === OWNER_NAME) return process.env.EDITOR_PASSWORD || null;
-  return parseEditorUsers().get(name) || null;
+  const normalized = name.trim().toLowerCase();
+  if (normalized === OWNER_NAME.toLowerCase()) return process.env.EDITOR_PASSWORD || null;
+  return parseEditorUsers().get(normalized) || null;
 }
 
 function constantTimeEqual(a: string, b: string): boolean {

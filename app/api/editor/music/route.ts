@@ -82,7 +82,7 @@ export async function POST(request: Request) {
         { path: coverPath, content: coverBuffer.toString("base64"), encoding: "base64" },
       ],
     },
-    `Editor: add release "${title}"`,
+    `Editor (${session.name}): add release "${title}"`,
   );
 
   await del(coverBlobUrl).catch(() => {});
@@ -139,7 +139,7 @@ export async function PATCH(request: Request) {
   }
   writes.push({ path: DATA_PATH, content: JSON.stringify(releases, null, 2) + "\n" });
 
-  await commitChanges({ writes }, `Editor: update "${release.title}" release`);
+  await commitChanges({ writes }, `Editor (${session.name}): update "${release.title}" release`);
 
   if (coverBlobUrl) await del(coverBlobUrl).catch(() => {});
 
@@ -166,7 +166,7 @@ export async function DELETE(request: Request) {
       writes: [{ path: DATA_PATH, content: JSON.stringify(remaining, null, 2) + "\n" }],
       deletes: removed?.cover ? [removed.cover.replace(/^\//, "public/")] : [],
     },
-    `Editor: delete release "${slug}"`,
+    `Editor (${session.name}): delete release "${slug}"`,
   );
 
   return Response.json({ ok: true });
