@@ -22,7 +22,7 @@ export default function HomePage() {
       </section>
 
       <section className="wrap" style={{ paddingBottom: "var(--space-4)" }}>
-        <div className="card" style={{ overflow: "hidden", maxWidth: 950, margin: 0}}>
+        <div className="card" style={{ overflow: "hidden" }}>
           <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 3" }}>
             <Image
               src="/images/site/marck-hero.jpg"
@@ -30,14 +30,14 @@ export default function HomePage() {
               fill
               style={{ objectFit: "cover" }}
               priority
-              sizes="950px"
+              sizes="(min-width: 1024px) 92vw, 100vw"
             />
           </div>
         </div>
       </section>
 
       <section className="wrap" style={{ paddingBottom: "var(--space-4)" }}>
-        <div style={{ maxWidth: 950, margin: 0, borderTop: "3px solid var(--ink)", paddingTop: "var(--space-4)" }}>
+        <div style={{ borderTop: "3px solid var(--ink)", paddingTop: "var(--space-4)" }}>
           <div style={{ display: "flex", gap: "var(--space-3)" }}>
             <Link href="/music" style={{ flex: 1, textAlign: "center", textDecoration: "none", color: "inherit" }}>
               <span style={{ fontSize: 23 }}>Music</span>
