@@ -108,10 +108,20 @@ export async function PATCH(request: Request) {
   if (typeof body.year === "string") release.year = body.year;
   if (typeof body.credit === "string") release.credit = body.credit;
   if (body.links && typeof body.links === "object") {
-    if (!release.links) release.links = {};
-    for (const service of SERVICES) {
-      const url = (body.links as Record<string, unknown>)[service];
-      if (typeof url === "string") release.links[service] = url;
+    const incoming = body.links as Record<string, unknown>;
+    // Tracks-based releases (dog gods: singles) have no links concept at all
+    // and the editor never shows link fields for them, but it still sends an
+    // empty {} in the save request -- only create/touch release.links if
+    // there's a real value to write, or it already exists. Otherwise this
+    // stamps an empty {} onto a release, which fails Release's Record<...,
+    // string> type (every service key required) at the next build.
+    const hasRealValue = SERVICES.some((service) => typeof incoming[service] === "string");
+    if (release.links || hasRealValue) {
+      if (!release.links) release.links = {};
+      for (const service of SERVICES) {
+        const url = incoming[service];
+        if (typeof url === "string") release.links[service] = url;
+      }
     }
   }
 
