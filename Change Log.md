@@ -3,6 +3,15 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 76 (251bfd7) — Monday, September 7, 2026
+Six rounds of wide-desktop tuning (V66-V75) never converged — every
+fix chased the last screenshot instead of landing. Reverted cleanly
+back to the pre-session baseline: `.wrap` is a plain centered
+720/960/1100px column again, and the home page hero is back to its
+original 420px centered photo with a plain flex Music/Writings row
+below it. The footer tuck-in/font-size fix from V71 stays, since that
+was never part of the complaint. Mobile unaffected throughout.
+
 ## Version 75 (17035be) — Monday, September 7, 2026
 The home page kept looking wrong even after V74 fixed every other
 page, because its hero/cards block had its own hardcoded width cap
