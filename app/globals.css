@@ -91,23 +91,17 @@ a {
 
 /* On genuinely wide/horizontal windows, a centered column just grows
    symmetrically and still reads as "stuck in the middle" no matter how
-   wide it gets. Shift it toward the left instead -- a left margin that
-   scales with the viewport (so it still has room to breathe, not flush
-   against the edge) with the leftover slack pushed to the right side.
-   Mobile/tablet widths never reach these breakpoints, so this doesn't
-   touch the mobile view at all. */
+   wide it gets. Rather than a couple of hardcoded snapshots (which only
+   look right at the exact widths they were tuned for), scale the column
+   itself with the viewport -- it fills almost the whole window at normal
+   laptop/desktop widths, with a small left-leaning margin, and only
+   leaves a real gap once a monitor is genuinely huge (2000px+), the same
+   way any site with a reading-width cap behaves at that point. Mobile
+   and tablet never reach this breakpoint, so this doesn't touch them. */
 @media (min-width: 1024px) {
   .wrap {
-    max-width: 1200px;
-    margin-left: max(40px, 6vw);
-    margin-right: auto;
-  }
-}
-
-@media (min-width: 1400px) {
-  .wrap {
-    max-width: 1500px;
-    margin-left: max(64px, 6vw);
+    max-width: min(1600px, 92vw);
+    margin-left: max(40px, 4vw);
     margin-right: auto;
   }
 }
