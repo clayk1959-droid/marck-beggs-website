@@ -22,16 +22,14 @@ export function SiteFooter() {
           display: "flex",
           flexWrap: "wrap",
           alignItems: "center",
-          justifyContent: "space-between",
-          gap: 12,
+          justifyContent: "flex-start",
+          gap: "var(--space-5)",
           padding: "24px 20px",
         }}
       >
-        <p className="mono" style={{ fontSize: 12 }}>
-          © {new Date().getFullYear()} Marck Beggs
-        </p>
+        <p className="mono footer-text">© {new Date().getFullYear()} Marck Beggs</p>
         {hideEmail ? null : (
-          <a href={`mailto:${links.email}`} className="mono" style={{ fontSize: 12, textDecoration: "underline" }}>
+          <a href={`mailto:${links.email}`} className="mono footer-text" style={{ textDecoration: "underline" }}>
             {links.email}
           </a>
         )}
