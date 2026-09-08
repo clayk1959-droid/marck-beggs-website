@@ -23,7 +23,7 @@ export default async function EditorDashboardPage() {
         style={{ paddingTop: 40, display: "flex", justifyContent: "space-between", alignItems: "center" }}
       >
         <div>
-          <h1 style={{ fontSize: 30, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>Editor</h1>
+          <h1 style={{ fontSize: 30, color: "var(--accent)" }}>Editor</h1>
           <p className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 4 }}>
             signed in as {session.name}
           </p>

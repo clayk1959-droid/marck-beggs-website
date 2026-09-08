@@ -33,7 +33,7 @@ export default function EditorLoginPage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: 60, textAlign: "center" }}>
-        <h1 style={{ fontSize: 32, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <h1 style={{ fontSize: 32, color: "var(--accent)" }}>
           Editor Login
         </h1>
         <form onSubmit={handleSubmit} style={{ maxWidth: 320, margin: "32px auto 0", textAlign: "left" }}>

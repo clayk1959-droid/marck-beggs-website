@@ -14,7 +14,7 @@ export default async function EditorBooksPage() {
         <Link href="/editor" className="mono" style={{ fontSize: 12 }}>
           ← Editor
         </Link>
-        <h1 style={{ fontSize: 30, marginTop: 12, color: "var(--accent)", textShadow: "3px 3px 0 var(--ink)" }}>
+        <h1 style={{ fontSize: 30, marginTop: 12, color: "var(--accent)" }}>
           Books
         </h1>
       </section>
