@@ -110,16 +110,19 @@
     <h2>Your regular workflow</h2>
     <p>Two different paths depending on what you're doing:</p>
     <ol>
-      <li><strong>Editing or removing something that already exists</strong>
-        (a collection's title, a book's buy link, a music art label, deleting
-        any of the three) — log into <code>/editor</code> in a browser and do
-        it there. No coding, no terminal. It commits directly to GitHub and
-        the live site rebuilds within about a minute.</li>
-      <li><strong>Adding something brand new</strong> (a new photo collection,
-        a new book with its cover, new music art) — the editor can't do this
-        yet (see <a href="#adding">Adding brand-new content</a>), so it's a
-        manual step: drop the files in, edit the matching JSON file, commit,
-        push.</li>
+      <li><strong>Music and books/writings — anything at all</strong> (edit,
+        delete, or add brand new with a cover photo upload) — log into
+        <code>/editor</code> in a browser and do it there. No coding, no
+        terminal. It commits directly to GitHub and the live site rebuilds
+        within about a minute. This is also what Marck's own copy,
+        <code>Editor Guide for Marck.html</code>, walks through in plain
+        language.</li>
+      <li><strong>Photo collections</strong> — editing a collection's
+        title/subtitle or deleting it works the same way through
+        <code>/editor</code>, but adding a brand-new collection is still a
+        manual step for you specifically (see
+        <a href="#adding">Adding brand-new content</a>) since Marck hasn't
+        needed to add photos himself.</li>
     </ol>
   </section>
 
@@ -135,16 +138,22 @@
     <p>From the <code>/editor</code> dashboard, three sections:</p>
     <table>
       <tr><th>Section</th><th>What you can do today</th></tr>
-      <tr><td><strong>Photos</strong></td><td>Edit a collection's title/subtitle, or delete the whole collection (removes its JSON entry <em>and</em> its entire image folder from the repo in one commit).</td></tr>
-      <tr><td><strong>Books</strong></td><td>Edit any field (title, year, publisher, note, buy link) on an existing book or anthology, or delete one (also removes its cover image file).</td></tr>
-      <tr><td><strong>Music</strong></td><td>Edit a cover-art image's label, or delete it (also removes the image file).</td></tr>
+      <tr><td><strong>Photos</strong></td><td>Edit a collection's title/subtitle, or delete the whole collection (removes its JSON entry <em>and</em> its entire image folder from the repo in one commit). Adding a brand-new collection is still local-only — see <a href="#adding">Adding brand-new content</a>.</td></tr>
+      <tr><td><strong>Books</strong></td><td>Add a brand-new book or anthology with a cover photo upload, edit any field (title, year, publisher, note, buy link, cover) on an existing one, or delete one (also removes its cover image file).</td></tr>
+      <tr><td><strong>Music</strong></td><td>Add a brand-new release with a cover photo upload and up to 5 streaming-service links, edit any field (including swapping the cover) on an existing release, or delete one (also removes its cover image file). One filled-in link skips straight to that service's mini-player when tapped on the public site; more than one shows a picker.</td></tr>
     </table>
     <p class="note">
-      Every save/delete is a real commit straight to GitHub via its Git Data
-      API — there's a short delay (usually under a minute) between clicking
-      Save and the live site actually showing the change, since Vercel has to
-      rebuild first. The editor page itself updates instantly; a hard refresh
-      of the public page won't show the change until the rebuild finishes.
+      Every save/add/delete is a real commit straight to GitHub via its Git
+      Data API — there's a short delay (usually under a minute) between
+      clicking Save and the live site actually showing the change, since
+      Vercel has to rebuild first. The editor page itself updates instantly
+      (it shows a "Saved"/"Added [title]" confirmation for 1.4 seconds before
+      collapsing the form, so it's clear which entry actually changed and the
+      layout doesn't jump right as you click the next thing — see V79); a
+      hard refresh of the public page won't show the change until the
+      rebuild finishes. Cover images upload straight from the browser to
+      Vercel Blob storage and get resized server-side (max 1600px, mozjpeg)
+      before landing in the commit — see V77.
     </p>
   </section>
 

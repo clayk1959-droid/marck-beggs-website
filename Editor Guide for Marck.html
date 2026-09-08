@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Update Your Site</title>
+<style>
+  :root {
+    --ink: #241b2e;
+    --ink-soft: #5c4f30;
+    --bg: #c6cdb8;
+    --paper: #faf9f2;
+    --panel: #ffffff;
+    --accent: #c8452f;
+    --border: #241b2e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 100px; }
+  header { margin-bottom: 40px; }
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 34px;
+    margin: 0 0 10px;
+  }
+  header p { margin: 0; color: var(--ink-soft); font-size: 18px; }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    margin: 0 0 4px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--border);
+  }
+  h2 .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  section { margin: 48px 0; }
+  .panel {
+    background: var(--panel);
+    border: 3px solid var(--border);
+    box-shadow: 5px 6px 0 rgba(36, 27, 46, 0.28);
+    padding: 22px 26px;
+    margin: 18px 0;
+  }
+  .panel p:last-child { margin-bottom: 0; }
+  .what-happens {
+    background: #eef1e6;
+    border-left: 5px solid var(--accent);
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 15.5px;
+  }
+  .what-happens strong { color: var(--accent); }
+  ol, ul { padding-left: 26px; }
+  li { margin-bottom: 10px; }
+  code {
+    background: #eef1e6;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 15px;
+  }
+  a { color: var(--accent); }
+  .tip {
+    background: #fdf3d9;
+    border: 2px solid #e0c364;
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 15.5px;
+  }
+  .tip strong { display: block; margin-bottom: 4px; }
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 3px solid var(--border);
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>How to Update Your Site</h1>
+    <p>A short guide to adding and changing your music and writings — no coding, nothing to install.</p>
+  </header>
+
+  <section>
+    <h2><span class="step-num">1</span>Log in</h2>
+    <div class="panel">
+      <p>Go to <a href="https://marck-beggs-website.vercel.app/editor">marck-beggs-website.vercel.app/editor</a> in any web browser — your phone, laptop, whatever's handy. Type in the password Clay gave you and click <strong>Log in</strong>.</p>
+    </div>
+    <div class="what-happens">
+      <strong>What happens:</strong> Nothing changes on the site yet — this just gets you into the editing tools. You'll stay logged in for about a month, so you shouldn't need to do this often.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="step-num">2</span>Pick Music or Writings</h2>
+    <div class="panel">
+      <p>You'll see a page with two things you can manage: <strong>Music</strong> (your albums and singles) and <strong>Writings</strong> (your books and anthologies). Click whichever one you want to change.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="step-num">3</span>Change something that's already there</h2>
+    <div class="panel">
+      <p>Every album or book is listed with an <strong>Edit</strong> button and a <strong>Delete</strong> button next to it.</p>
+      <ul>
+        <li><strong>Edit</strong> opens up the fields for that one entry — title, year, links, and so on. Change whatever you want, then click <strong>Save</strong>.</li>
+        <li><strong>Delete</strong> asks "are you sure?" first, then removes it completely.</li>
+      </ul>
+    </div>
+    <div class="what-happens">
+      <strong>What happens:</strong> After you click Save (or confirm Delete), you'll see a "✓ Saved" message right there for a couple of seconds — that's your confirmation it actually went through, and it tells you which one it saved, so you know it grabbed the right entry. The real site takes about a minute to catch up after that. If you check right away and it looks unchanged, that's normal — give it a minute and refresh the page.
+    </div>
+    <div class="tip">
+      <strong>One thing to watch for:</strong> Wait for that "✓ Saved" message to actually appear before you click Edit on the next thing. If you click too fast, right as one row is collapsing back down, you can end up clicking into the wrong entry by accident.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="step-num">4</span>Add something brand new</h2>
+    <div class="panel">
+      <p>At the top of the Music or Writings page, click <strong>+ Add a release</strong> or <strong>+ Add a book</strong>. A blank form opens up.</p>
+      <ol>
+        <li><strong>Choose a cover photo</strong> from your computer or phone — click "Choose File" and pick it, same as attaching a photo to an email.</li>
+        <li>Fill in the title and whatever else applies (year, who it's by, etc.) — these can all be edited again later if you change your mind.</li>
+        <li><strong>For music only:</strong> paste in the link(s) to wherever it's streaming (Spotify, Apple Music, YouTube, SoundCloud, Pandora) — leave any blank you don't have.</li>
+        <li>Click <strong>Add release</strong> or <strong>Add book</strong>.</li>
+      </ol>
+    </div>
+    <div class="what-happens">
+      <strong>What happens:</strong> Your photo uploads and gets automatically resized to fit the site — you don't need to resize anything yourself beforehand. You'll see a "✓ Added" confirmation, then it collapses back to the button. Same as editing, give it about a minute to show up on the actual site.
+    </div>
+    <div class="tip">
+      <strong>About the music links:</strong> If you only have <em>one</em> streaming link for a release, tapping its cover on the site takes people straight to that player — no extra clicking for them. If you have more than one, tapping the cover shows a little menu so they can pick Spotify, Apple Music, whichever they use.
+    </div>
+  </section>
+
+  <section>
+    <h2>If something looks wrong</h2>
+    <div class="panel">
+      <p>You can't break anything permanently — every change can be undone. If you're not sure what happened, or something looks off after a change, just text or email Clay and he'll sort it out. Nothing here requires knowing any code.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>For Marck — this is the whole thing you need. Clay keeps a more technical version of this for himself (Site Guide.html) if you're ever curious, but you shouldn't need it.</p>
+  </footer>
+
+</div>
+</body>
+</html>
