@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 74 (e5023ad) — Monday, September 7, 2026
+Clay made the real point that had been missing from every prior pass:
+visitors have all sorts of window sizes, so tuning fixed margin/width
+numbers to whatever one screenshot showed was never going to hold up
+generally. Replaced the hardcoded breakpoint tiers with one scaling
+formula (max-width: min(1600px, 92vw), margin-left: max(40px, 4vw)) —
+verified across 1024px, 1440px, and 1920px instead of one snapshot.
+The column fills nearly the whole window with small, roughly-even
+margins at normal laptop/desktop widths, and only leaves a real gap on
+genuinely huge monitors, the way any site with a max content width
+behaves. Mobile/tablet untouched.
+
 ## Version 73 (722c2f7) — Monday, September 7, 2026
 Confirmed with Clay on his actual 1920x1080 monitor: shuffling the
 left/right margin ratio was never going to fix the wide-screen void,

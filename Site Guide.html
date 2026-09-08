@@ -270,6 +270,12 @@ npm run dev</code></pre>
       to <code>main</code> goes live automatically within a minute or two.</p>
 
     <div class="version-entry">
+      <div class="version-head"><span class="version-num">Version 74</span><span class="version-hash">(e5023ad)</span><span class="version-date">Monday, September 7, 2026</span></div>
+      <ul>
+        <li>Replaced the hardcoded wide-screen breakpoint tiers with one scaling formula (max-width: min(1600px, 92vw), margin-left: max(40px, 4vw)) — visitors have all sorts of window sizes, so fixed numbers tuned to one screenshot were never going to hold up generally. Verified across 1024px, 1440px, and 1920px: the column fills nearly the whole window with small, even margins at normal widths, and only leaves a real gap on genuinely huge monitors. Mobile/tablet untouched.</li>
+      </ul>
+    </div>
+    <div class="version-entry">
       <div class="version-head"><span class="version-num">Version 73</span><span class="version-hash">(722c2f7)</span><span class="version-date">Monday, September 7, 2026</span></div>
       <ul>
         <li>Confirmed with Clay on his actual 1920x1080 monitor: shuffling the left/right margin ratio was never going to fix the wide-screen void, since content was capped at a fixed 1100px no matter how wide the screen got. Widened the shared content column itself (1200px at 1024px+, 1500px at 1400px+) so pages that use the full width — Music, Photos, Books, About — actually fill more of a wide screen. Also found a second bug specific to the home page: its hero/cards block was self-centering inside the wrap instead of following the wrap's own left shift. Fixed that and bumped its own cap from 600px to 950px. Mobile untouched throughout.</li>
