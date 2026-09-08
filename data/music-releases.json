@@ -6,12 +6,31 @@
     "credit": "dog gods",
     "cover": "/images/music/doggods-poster-2.jpg",
     "tracks": [
-      { "title": "Carpe Condoleezza", "audioUrl": "/audio/carpe-condoleezza.mp3" },
-      { "title": "Walking Girl", "audioUrl": "/audio/walking-girl.mp3" },
-      { "title": "The New Gods", "audioUrl": "/audio/the-new-gods.mp3" },
-      { "title": "Graph", "audioUrl": "/audio/graph.mp3" },
-      { "title": "Tear You Apart", "audioUrl": "/audio/tear-you-apart.mp3" },
-      { "title": "Vuvuzela Blues", "note": "live · feat. Alan Pittman on bass", "audioUrl": "/audio/vuvuzela-blues.mp3" }
+      {
+        "title": "Carpe Condoleezza",
+        "audioUrl": "/audio/carpe-condoleezza.mp3"
+      },
+      {
+        "title": "Walking Girl",
+        "audioUrl": "/audio/walking-girl.mp3"
+      },
+      {
+        "title": "The New Gods",
+        "audioUrl": "/audio/the-new-gods.mp3"
+      },
+      {
+        "title": "Graph",
+        "audioUrl": "/audio/graph.mp3"
+      },
+      {
+        "title": "Tear You Apart",
+        "audioUrl": "/audio/tear-you-apart.mp3"
+      },
+      {
+        "title": "Vuvuzela Blues",
+        "note": "live · feat. Alan Pittman on bass",
+        "audioUrl": "/audio/vuvuzela-blues.mp3"
+      }
     ]
   },
   {
@@ -19,7 +38,13 @@
     "title": "dog gods — I am large, I contain multitudes",
     "year": "2008",
     "cover": "/images/music/doggods-art-1.jpg",
-    "links": { "spotify": "", "apple": "", "youtube": "", "pandora": "", "soundcloud": "https://soundcloud.com/marck-96594539/sets/dog-gods-i-am-large-i-contain" }
+    "links": {
+      "spotify": "",
+      "apple": "",
+      "youtube": "",
+      "pandora": "",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/dog-gods-i-am-large-i-contain"
+    }
   },
   {
     "slug": "12-steps",
@@ -114,6 +139,20 @@
       "youtube": "",
       "pandora": "https://www.pandora.com/AL:24155194",
       "soundcloud": "https://soundcloud.com/marck-96594539/sets/negative-light"
+    }
+  },
+  {
+    "slug": "test-delete-me",
+    "title": "TEST — delete me",
+    "year": "2026",
+    "credit": "test",
+    "cover": "/images/music/test-delete-me.jpg",
+    "links": {
+      "spotify": "",
+      "apple": "",
+      "youtube": "",
+      "pandora": "",
+      "soundcloud": "https://soundcloud.com/marck-96594539/monster-trucks"
     }
   }
 ]
