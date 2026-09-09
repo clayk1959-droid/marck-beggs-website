@@ -142,5 +142,19 @@
       "soundcloud": "https://soundcloud.com/marck-96594539/sets/negative-light"
     },
     "credit": ""
+  },
+  {
+    "slug": "coverups-dustoffs",
+    "title": "Coverups & Dustoffs",
+    "year": "2026",
+    "credit": "Cover photo by Matt Howard",
+    "cover": "/images/music/coverups-dustoffs.jpg",
+    "links": {
+      "spotify": "",
+      "apple": "",
+      "youtube": "",
+      "pandora": "",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/covers?si=d3d58de791914214ab6eb559296d9b92&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    }
   }
 ]
