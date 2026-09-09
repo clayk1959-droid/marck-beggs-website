@@ -4,6 +4,7 @@ import { RotatingCoverBox } from "../../components/RotatingCoverBox";
 import musicRotation from "../../data/home-music-rotation.json";
 import books from "../../data/books.json";
 import styles from "./home-redesign.module.css";
+import "./header-overlay.css";
 
 const caslon = Libre_Caslon_Display({
   subsets: ["latin"],
@@ -18,8 +19,6 @@ const writingRotation = [...books.collections, ...books.anthologies].map((book) 
 export default function HomeRedesignPage() {
   return (
     <div className={styles.page}>
-      <p className={styles.badge}>Exploratory redesign — not the live homepage</p>
-
       <section className={styles.hero}>
         <div className={styles.waveLayer + " " + styles.waveBack} aria-hidden>
           <WaveSvg />
@@ -56,8 +55,9 @@ export default function HomeRedesignPage() {
       </section>
 
       <p className={styles.note}>
-        A working sketch of a bolder home page — richer earth-and-green palette, an ambient
-        wave motif, and a shorter opening line. Nothing here changes the real home page.
+        Exploratory redesign, not the live homepage — a working sketch of a bolder home page:
+        richer earth-and-green palette, an ambient wave motif, and a shorter opening line.
+        Nothing here changes the real home page.
       </p>
     </div>
   );

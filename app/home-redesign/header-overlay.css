@@ -1,0 +1,21 @@
+/* Scoped by import location only: this plain stylesheet is imported by
+   app/home-redesign/page.tsx alone, so Next.js only loads it on that
+   route. It never reaches the real site's pages. */
+
+.site-header {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  background: rgba(150, 178, 138, 0.2) !important;
+  border-bottom: none !important;
+}
+
+.brand,
+.site-tagline {
+  color: #f3ecda !important;
+}
+
+.nav-toggle span {
+  background: #f3ecda !important;
+}
