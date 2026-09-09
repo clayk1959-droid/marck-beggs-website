@@ -7,7 +7,7 @@
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
-  background: rgba(150, 178, 138, 0.2) !important;
+  background: linear-gradient(180deg, rgba(51, 66, 43, 0.55) 0%, rgba(51, 66, 43, 0) 85%) !important;
   border-bottom: none !important;
 }
 
