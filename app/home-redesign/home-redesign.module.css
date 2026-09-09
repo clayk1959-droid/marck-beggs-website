@@ -1,0 +1,167 @@
+.page {
+  --ink: #241b2e;
+  --parchment: #f3ecda;
+  --forest: #33422b;
+  --forest-light: #5c6b46;
+  --clay: #c8452f;
+  --gold: #c98a2f;
+  background: var(--parchment);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.badge {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: var(--parchment);
+  padding: 6px 0;
+  border-bottom: 2px solid var(--forest);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 20px 36px;
+  background: linear-gradient(180deg, var(--forest) 0%, var(--forest-light) 100%);
+  color: var(--parchment);
+  text-align: center;
+}
+
+.waveLayer {
+  position: absolute;
+  left: 0;
+  bottom: -6%;
+  width: 200%;
+  height: 30%;
+  display: block;
+}
+
+.waveBack {
+  opacity: 0.3;
+  animation: driftLeft 24s linear infinite;
+}
+
+.waveMid {
+  opacity: 0.5;
+  bottom: -9%;
+  animation: driftLeft 16s linear infinite reverse;
+}
+
+.waveFront {
+  opacity: 0.85;
+  bottom: -11%;
+  animation: driftLeft 11s linear infinite;
+}
+
+@keyframes driftLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waveBack,
+  .waveMid,
+  .waveFront {
+    animation: none;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+}
+
+.tagline {
+  font-family: var(--font-body), monospace;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--gold);
+}
+
+.heroTitle {
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+
+.heroLine {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  margin: 0 auto;
+  max-width: 300px;
+  padding-bottom: 28px;
+  color: var(--parchment);
+  opacity: 0.95;
+}
+
+.cards {
+  padding: 32px 20px 48px;
+}
+
+.cardRow {
+  display: flex;
+  gap: 16px;
+}
+
+.cardLink {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 5px 6px 0 rgba(51, 66, 43, 0.25);
+}
+
+.cardLabel {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--forest);
+  border-top: 3px solid var(--ink);
+}
+
+.note {
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink);
+  opacity: 0.65;
+  padding: 0 20px 28px;
+}
+
+@media (min-width: 700px) {
+  .heroTitle {
+    font-size: 60px;
+  }
+
+  .heroLine {
+    font-size: 21px;
+    max-width: 420px;
+  }
+
+  .cardRow {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
