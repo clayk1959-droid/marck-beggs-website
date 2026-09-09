@@ -3,7 +3,7 @@ import { SoundcloudSinglesList } from "../../components/SoundcloudSinglesList";
 import { ServiceIcon } from "../../lib/service-icons";
 import musicReleases from "../../data/music-releases.json";
 
-const DOG_GODS_ORDER = ["dog-gods-singles", "dog-gods-2008"];
+const DOG_GODS_ORDER = ["dog-gods-2008", "dog-gods-singles"];
 
 const sortedReleases = [...musicReleases].sort((a, b) => {
   const aDogGods = DOG_GODS_ORDER.indexOf(a.slug);

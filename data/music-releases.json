@@ -48,16 +48,17 @@
     "credit": ""
   },
   {
-    "slug": "12-steps",
-    "title": "12 Steps",
+    "slug": "coverups-dustoffs",
+    "title": "Coverups & Dustoffs",
     "year": "2026",
-    "cover": "/images/music-rotation/cover-12-steps.png",
+    "credit": "Cover photo by Matt Howard",
+    "cover": "/images/music/coverups-dustoffs.jpg",
     "links": {
-      "spotify": "https://open.spotify.com/album/7oUPlHFL6lCjix4tGDHhXS?si=Fg3myv-lTQifadiRfqVuww",
-      "apple": "https://music.apple.com/us/album/12-steps/1896092806",
-      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_kilIywQinJO6qbW6YZR0zrGmNMVh-VBR8",
-      "pandora": "https://www.pandora.com/artist/marck/12-steps/AL5qt95cKJq3qVm",
-      "soundcloud": "https://soundcloud.com/marck-96594539/sets/12-steps"
+      "spotify": "",
+      "apple": "",
+      "youtube": "",
+      "pandora": "",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/covers?si=d3d58de791914214ab6eb559296d9b92&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
     }
   },
   {
@@ -144,17 +145,16 @@
     "credit": ""
   },
   {
-    "slug": "coverups-dustoffs",
-    "title": "Coverups & Dustoffs",
+    "slug": "12-steps",
+    "title": "12 Steps",
     "year": "2026",
-    "credit": "Cover photo by Matt Howard",
-    "cover": "/images/music/coverups-dustoffs.jpg",
+    "cover": "/images/music-rotation/cover-12-steps.png",
     "links": {
-      "spotify": "",
-      "apple": "",
-      "youtube": "",
-      "pandora": "",
-      "soundcloud": "https://soundcloud.com/marck-96594539/sets/covers?si=d3d58de791914214ab6eb559296d9b92&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+      "spotify": "https://open.spotify.com/album/7oUPlHFL6lCjix4tGDHhXS?si=Fg3myv-lTQifadiRfqVuww",
+      "apple": "https://music.apple.com/us/album/12-steps/1896092806",
+      "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_kilIywQinJO6qbW6YZR0zrGmNMVh-VBR8",
+      "pandora": "https://www.pandora.com/artist/marck/12-steps/AL5qt95cKJq3qVm",
+      "soundcloud": "https://soundcloud.com/marck-96594539/sets/12-steps"
     }
   }
 ]
