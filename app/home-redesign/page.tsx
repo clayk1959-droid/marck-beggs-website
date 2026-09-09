@@ -19,6 +19,7 @@ const writingRotation = [...books.collections, ...books.anthologies].map((book) 
 export default function HomeRedesignPage() {
   return (
     <div className={styles.page}>
+      <span className="hr2026-page-marker" style={{ display: "none" }} aria-hidden />
       <section className={styles.hero}>
         <div className={styles.waveLayer + " " + styles.waveBack} aria-hidden>
           <WaveSvg />

@@ -1,8 +1,16 @@
-/* Scoped by import location only: this plain stylesheet is imported by
-   app/home-redesign/page.tsx alone, so Next.js only loads it on that
-   route. It never reaches the real site's pages. */
+/* Every rule below is gated on a marker element (.hr2026-page-marker)
+   that only exists in the DOM while /home-redesign itself is on
+   screen. This is deliberate, not just belt-and-suspenders: a plain
+   CSS file imported by a single page is NOT guaranteed to unload on a
+   client-side navigation away from that page (confirmed the hard way
+   -- it leaked onto real pages after clicking a link out of this
+   page). Gating on :has(marker) means that even if this stylesheet
+   stays attached longer than it should, every selector below simply
+   stops matching anywhere the marker isn't present -- so it cannot
+   affect the real site regardless of the underlying stylesheet
+   lifecycle. */
 
-.site-header {
+body:has(.hr2026-page-marker) .site-header {
   position: absolute !important;
   left: 0 !important;
   right: 0 !important;
@@ -11,11 +19,11 @@
   border-bottom: none !important;
 }
 
-.brand,
-.site-tagline {
+body:has(.hr2026-page-marker) .brand,
+body:has(.hr2026-page-marker) .site-tagline {
   color: #f3ecda !important;
 }
 
-.nav-toggle span {
+body:has(.hr2026-page-marker) .nav-toggle span {
   background: #f3ecda !important;
 }
