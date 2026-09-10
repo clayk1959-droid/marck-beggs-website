@@ -22,13 +22,24 @@ export default function HomePage() {
       </section>
 
       <section className="wrap" style={{ paddingBottom: "var(--space-4)" }}>
-        <div className="card" style={{ overflow: "hidden", maxWidth: 420, margin: "0 auto" }}>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "3 / 4" }}>
+        <div
+          style={{
+            overflow: "hidden",
+            maxWidth: 420,
+            margin: "0 auto",
+            border: "none",
+            boxShadow: "none",
+            background: "transparent",
+            WebkitMaskImage: "radial-gradient(ellipse 90% 75% at 50% 15%, black 35%, transparent 100%)",
+            maskImage: "radial-gradient(ellipse 90% 75% at 50% 15%, black 35%, transparent 100%)",
+          }}
+        >
+          <div style={{ position: "relative", width: "100%", aspectRatio: "656 / 1000" }}>
             <Image
               src="/images/site/marck-hero.jpg"
               alt="Marck Beggs"
               fill
-              style={{ objectFit: "cover", objectPosition: "center 12%" }}
+              style={{ objectFit: "cover" }}
               priority
               sizes="420px"
             />
