@@ -1,7 +1,22 @@
 import { MusicReleaseGallery } from "../../components/MusicReleaseGallery";
 import { SoundcloudSinglesList } from "../../components/SoundcloudSinglesList";
 import { ServiceIcon } from "../../lib/service-icons";
-import musicReleases from "../../data/music-releases.json";
+import musicReleasesData from "../../data/music-releases.json";
+
+type Release = {
+  slug: string;
+  title: string;
+  year: string;
+  credit?: string;
+  cover: string;
+  links?: Record<string, string>;
+  tracks?: { title: string; note?: string; audioUrl?: string }[];
+  // Stamped once at creation by the editor's add-release route; never
+  // touched by an edit. See app/api/editor/music/route.ts.
+  addedAt?: string;
+};
+
+const musicReleases = musicReleasesData as Release[];
 
 const DOG_GODS_ORDER = ["dog-gods-2008", "dog-gods-singles"];
 
@@ -12,7 +27,13 @@ const sortedReleases = [...musicReleases].sort((a, b) => {
     if (aDogGods !== -1 && bDogGods !== -1) return aDogGods - bDogGods;
     return aDogGods !== -1 ? 1 : -1;
   }
-  return Number(b.year) - Number(a.year);
+  // Same year on both sides (e.g. two releases both from this year): fall
+  // back to when each was actually added, newest first, so the newest
+  // release always leads without needing a manual reorder. Releases from
+  // before this field existed have no addedAt at all -- treated as older
+  // than anything that does, via the "" fallback (an empty string always
+  // sorts before a real ISO timestamp).
+  return Number(b.year) - Number(a.year) || (b.addedAt || "").localeCompare(a.addedAt || "");
 });
 
 const SOUNDCLOUD_SINGLES = [

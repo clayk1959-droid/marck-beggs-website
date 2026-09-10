@@ -15,6 +15,11 @@ type Release = {
   cover: string;
   links?: Record<string, string>;
   tracks?: { title: string; note?: string; audioUrl?: string }[];
+  // Stamped once, only when a release is first created (see POST below).
+  // Never touched by PATCH -- used purely to break same-year sort ties on
+  // the Music page so the newest same-year release always leads, without
+  // needing a manual data reorder every time.
+  addedAt?: string;
 };
 
 function slugify(title: string): string {
@@ -73,7 +78,15 @@ export async function POST(request: Request) {
   }
 
   const coverPath = `public/images/music/${slug}.jpg`;
-  const release: Release = { slug, title, year, credit, cover: `/images/music/${slug}.jpg`, links: linksFromBody(body) };
+  const release: Release = {
+    slug,
+    title,
+    year,
+    credit,
+    cover: `/images/music/${slug}.jpg`,
+    links: linksFromBody(body),
+    addedAt: new Date().toISOString(),
+  };
   releases.push(release);
 
   try {
