@@ -23,10 +23,10 @@ export default function HomePage() {
 
       <section className="wrap" style={{ paddingBottom: "var(--space-4)" }}>
         <div className="card" style={{ overflow: "hidden", maxWidth: 420, margin: "0 auto" }}>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 3" }}>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "656 / 1000" }}>
             <Image
               src="/images/site/marck-hero.jpg"
-              alt="Marck Beggs playing guitar"
+              alt="Marck Beggs"
               fill
               style={{ objectFit: "cover" }}
               priority
