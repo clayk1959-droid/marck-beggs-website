@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="wrap" style={{ paddingTop: "var(--space-4)", paddingBottom: "var(--space-2)", textAlign: "center" }}>
-        <h1 style={{ fontSize: 44, lineHeight: 0.92, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase" }}>
+        <h1 style={{ fontSize: "clamp(34px, 10vw, 52px)", lineHeight: 0.92, color: "var(--ink)", letterSpacing: "0.02em", textTransform: "uppercase", textWrap: "balance" }}>
           Marck L. Beggs
         </h1>
         <p style={{ fontSize: 20, marginTop: 0 }}>Poet | Songwriter</p>
