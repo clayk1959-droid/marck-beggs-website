@@ -30,8 +30,8 @@ export default function HomePage() {
             border: "none",
             boxShadow: "none",
             background: "transparent",
-            WebkitMaskImage: "radial-gradient(ellipse 90% 75% at 50% 15%, black 35%, transparent 100%)",
-            maskImage: "radial-gradient(ellipse 90% 75% at 50% 15%, black 35%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 90% 110% at 50% 12%, black 45%, transparent 100%)",
+            maskImage: "radial-gradient(ellipse 90% 110% at 50% 12%, black 45%, transparent 100%)",
           }}
         >
           <div style={{ position: "relative", width: "100%", aspectRatio: "656 / 1000" }}>
