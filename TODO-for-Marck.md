@@ -16,6 +16,30 @@
   needs a clearer-headed pass another day rather than more live
   iteration.
 
+## Resolved — Fractals archive, 2026-09-12
+
+Marck's answer to "anything you still want before the old site is
+gone" was Fractals — his old fractal-art gallery, which had already
+been dropped from the rebuild's navigation (see the 2026-09-07 item
+below) and had also quietly disappeared from the live old site itself.
+Recovered everything survivng in the Wayback Machine (from 2004-2005)
+and mirrored it faithfully into `/Fractals`, the same treatment given
+to the Arkansas Literary Forum archive:
+
+- All 5 galleries and every page/link structure recovered intact.
+- 26 of the original full-size fractal images survived and are
+  preserved exactly as they were.
+- Where a gallery-listing thumbnail's source image survived, a real
+  thumbnail was regenerated from it (not fabricated) — 28 of these.
+- Genuinely lost, confirmed nowhere in the Wayback Machine: the site's
+  own navigation/logo graphics (6 decorative GIFs), a handful of
+  individual pieces scattered across galleries 1-4, and all of
+  Gallery 5 (a Radiohead "OK Computer"-themed set) beyond its listing
+  page — those 12 pieces' own pages and images were never archived.
+- Not currently linked from anywhere on the live site (archived only,
+  per Clay's instruction) — reachable directly at `/Fractals/index.html`
+  if a link is wanted later.
+
 ## Resolved — Marck's email, 2026-09-07
 
 Answered or closed out everything that was previously open:

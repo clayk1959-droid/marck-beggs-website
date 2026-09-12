@@ -3,6 +3,18 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 89 (cd389bd) — Saturday, September 12, 2026
+Archived Marck's old Fractals gallery (fractal art from 2004-2005) at
+`/Fractals`, recovered from the Wayback Machine since it had already
+quietly vanished from the live old site. All 5 galleries and their
+page structure/links are intact; 26 original full-size images
+survived, and 28 gallery-listing thumbnails were regenerated from
+those real survivors (not fabricated). 24 thumbnails and their pieces
+are genuinely gone for good — never archived anywhere — most notably
+all of Gallery 5 (a Radiohead "OK Computer"-themed set) beyond its own
+listing page. Not linked from the live site; this is preservation
+only, at Marck's request before the domain migration.
+
 ## Version 88 (b60f8f8) — Tuesday, September 8, 2026
 Site Guide.html moved into public/ so it's actually reachable at
 /site-guide.html, and linked from the editor dashboard right under
