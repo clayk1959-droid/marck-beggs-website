@@ -6,3 +6,5 @@ tsconfig.tsbuildinfo
 .vercel
 .env*
 assets-original/
+.session-archive/
+fractals-archive/
