@@ -36,9 +36,12 @@ to the Arkansas Literary Forum archive:
   individual pieces scattered across galleries 1-4, and all of
   Gallery 5 (a Radiohead "OK Computer"-themed set) beyond its listing
   page — those 12 pieces' own pages and images were never archived.
-- Not currently linked from anywhere on the live site (archived only,
-  per Clay's instruction) — reachable directly at `/Fractals/index.html`
-  if a link is wanted later.
+- **Update, 2026-09-14:** Marck confirmed no need for it to be
+  reachable on the website at all — just stored safely. Moved out of
+  `public/` entirely to `fractals-archive/` (local-only, git-ignored,
+  not part of the deployed site or the GitHub repo). It no longer
+  exists at `/Fractals` on the live site; the 102 files still live on
+  Clay's drive in this project's own folder.
 
 ## Resolved — Marck's email, 2026-09-07
 

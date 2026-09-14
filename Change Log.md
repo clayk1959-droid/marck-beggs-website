@@ -3,6 +3,17 @@
 Most recent first. Hosted on Vercel, deployed from GitHub — every push to
 `main` goes live automatically within a minute or two.
 
+## Version 90 (95c811b) — Monday, September 14, 2026
+Moved the Fractals archive out of the deployed site entirely, per
+Marck's request — he confirmed it never needed to be reachable on the
+website, just kept somewhere safe. Went from `public/Fractals` (live
+at `/Fractals`, part of every deployment) to `fractals-archive/`, a
+local-only, git-ignored folder alongside `public/`, `app/`, and `data/`
+— the same treatment as `assets-original/`. No longer part of the
+GitHub repo or any Vercel deployment; the 102 files still exist, just
+on Clay's drive only. Nothing on the live site ever linked to it, so
+nothing else changed.
+
 ## Version 89 (cd389bd) — Saturday, September 12, 2026
 Archived Marck's old Fractals gallery (fractal art from 2004-2005) at
 `/Fractals`, recovered from the Wayback Machine since it had already
